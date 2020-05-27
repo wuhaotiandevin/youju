@@ -117,7 +117,7 @@ class File extends Driver
                 //启用数据压缩
                 $content = gzuncompress($content);
             }
-            $content = unserialize($content);
+            $content = @unserialize($content);
             return $content;
         } else {
             return $default;
