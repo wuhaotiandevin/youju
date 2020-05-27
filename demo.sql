@@ -1,22 +1,21 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地
-Source Server Version : 50726
-Source Host           : 127.0.0.1:3306
-Source Database       : pw
+Source Server         : localhost_3306
+Source Server Version : 50644
+Source Host           : localhost:3306
+Source Database       : demo
 
 Target Server Type    : MYSQL
-Target Server Version : 50726
+Target Server Version : 50644
 File Encoding         : 65001
 
-Date: 2020-05-27 15:07:48
+Date: 2019-12-27 21:38:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
--- Table structure for cmf_admin_menu
+-- Table structure for `cmf_admin_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_admin_menu`;
 CREATE TABLE `cmf_admin_menu` (
@@ -47,6 +46,14 @@ INSERT INTO `cmf_admin_menu` VALUES ('3', '2', '1', '0', '10000', 'admin', 'Hook
 INSERT INTO `cmf_admin_menu` VALUES ('4', '2', '2', '0', '10000', 'admin', 'Hook', 'pluginListOrder', '', '钩子插件排序', '', '钩子插件排序');
 INSERT INTO `cmf_admin_menu` VALUES ('5', '2', '1', '0', '10000', 'admin', 'Hook', 'sync', '', '同步钩子', '', '同步钩子');
 INSERT INTO `cmf_admin_menu` VALUES ('6', '0', '0', '1', '0', 'admin', 'Setting', 'default', '', '设置', 'cogs', '系统设置入口');
+INSERT INTO `cmf_admin_menu` VALUES ('7', '6', '1', '1', '50', 'admin', 'Link', 'index', '', '友情链接', '', '友情链接管理');
+INSERT INTO `cmf_admin_menu` VALUES ('8', '7', '1', '0', '10000', 'admin', 'Link', 'add', '', '添加友情链接', '', '添加友情链接');
+INSERT INTO `cmf_admin_menu` VALUES ('9', '7', '2', '0', '10000', 'admin', 'Link', 'addPost', '', '添加友情链接提交保存', '', '添加友情链接提交保存');
+INSERT INTO `cmf_admin_menu` VALUES ('10', '7', '1', '0', '10000', 'admin', 'Link', 'edit', '', '编辑友情链接', '', '编辑友情链接');
+INSERT INTO `cmf_admin_menu` VALUES ('11', '7', '2', '0', '10000', 'admin', 'Link', 'editPost', '', '编辑友情链接提交保存', '', '编辑友情链接提交保存');
+INSERT INTO `cmf_admin_menu` VALUES ('12', '7', '2', '0', '10000', 'admin', 'Link', 'delete', '', '删除友情链接', '', '删除友情链接');
+INSERT INTO `cmf_admin_menu` VALUES ('13', '7', '2', '0', '10000', 'admin', 'Link', 'listOrder', '', '友情链接排序', '', '友情链接排序');
+INSERT INTO `cmf_admin_menu` VALUES ('14', '7', '2', '0', '10000', 'admin', 'Link', 'toggle', '', '友情链接显示隐藏', '', '友情链接显示隐藏');
 INSERT INTO `cmf_admin_menu` VALUES ('15', '6', '1', '0', '10', 'admin', 'Mailer', 'index', '', '邮箱配置', '', '邮箱配置');
 INSERT INTO `cmf_admin_menu` VALUES ('16', '15', '2', '0', '10000', 'admin', 'Mailer', 'indexPost', '', '邮箱配置提交保存', '', '邮箱配置提交保存');
 INSERT INTO `cmf_admin_menu` VALUES ('17', '15', '1', '0', '10000', 'admin', 'Mailer', 'template', '', '邮件模板', '', '邮件模板');
@@ -76,7 +83,7 @@ INSERT INTO `cmf_admin_menu` VALUES ('40', '35', '2', '0', '10000', 'admin', 'Na
 INSERT INTO `cmf_admin_menu` VALUES ('41', '35', '2', '0', '10000', 'admin', 'NavMenu', 'listOrder', '', '导航菜单排序', '', '导航菜单排序');
 INSERT INTO `cmf_admin_menu` VALUES ('42', '1', '1', '1', '10000', 'admin', 'Plugin', 'index', '', '插件列表', '', '插件列表');
 INSERT INTO `cmf_admin_menu` VALUES ('43', '42', '2', '0', '10000', 'admin', 'Plugin', 'toggle', '', '插件启用禁用', '', '插件启用禁用');
-INSERT INTO `cmf_admin_menu` VALUES ('44', '6', '1', '0', '10000', 'admin', 'Plugin', 'setting', 'id=20', '登录支付设置', '', '');
+INSERT INTO `cmf_admin_menu` VALUES ('44', '6', '1', '1', '10000', 'admin', 'Plugin', 'setting', 'id=20', '登录支付设置', '', '');
 INSERT INTO `cmf_admin_menu` VALUES ('45', '42', '2', '0', '10000', 'admin', 'Plugin', 'settingPost', '', '插件设置提交', '', '插件设置提交');
 INSERT INTO `cmf_admin_menu` VALUES ('46', '42', '2', '0', '10000', 'admin', 'Plugin', 'install', '', '插件安装', '', '插件安装');
 INSERT INTO `cmf_admin_menu` VALUES ('47', '42', '2', '0', '10000', 'admin', 'Plugin', 'update', '', '插件更新', '', '插件更新');
@@ -110,7 +117,7 @@ INSERT INTO `cmf_admin_menu` VALUES ('74', '73', '2', '0', '10000', 'admin', 'Se
 INSERT INTO `cmf_admin_menu` VALUES ('75', '6', '1', '0', '10000', 'admin', 'Setting', 'upload', '', '上传设置', '', '上传设置');
 INSERT INTO `cmf_admin_menu` VALUES ('76', '75', '2', '1', '10000', 'admin', 'Setting', 'uploadPost', '', '上传设置提交', '', '上传设置提交');
 INSERT INTO `cmf_admin_menu` VALUES ('77', '6', '1', '0', '10000', 'admin', 'Setting', 'clearCache', '', '清除缓存', '', '清除缓存');
-INSERT INTO `cmf_admin_menu` VALUES ('78', '6', '1', '1', '40', 'admin', 'Slide', 'index', '', '轮播图管理', '', '轮播图管理');
+INSERT INTO `cmf_admin_menu` VALUES ('78', '6', '1', '1', '40', 'admin', 'Slide', 'index', '', '幻灯片管理', '', '幻灯片管理');
 INSERT INTO `cmf_admin_menu` VALUES ('79', '78', '1', '0', '10000', 'admin', 'Slide', 'add', '', '添加幻灯片', '', '添加幻灯片');
 INSERT INTO `cmf_admin_menu` VALUES ('80', '78', '2', '0', '10000', 'admin', 'Slide', 'addPost', '', '添加幻灯片提交', '', '添加幻灯片提交');
 INSERT INTO `cmf_admin_menu` VALUES ('81', '78', '1', '0', '10000', 'admin', 'Slide', 'edit', '', '编辑幻灯片', '', '编辑幻灯片');
@@ -140,7 +147,7 @@ INSERT INTO `cmf_admin_menu` VALUES ('105', '95', '2', '0', '10000', 'admin', 'T
 INSERT INTO `cmf_admin_menu` VALUES ('106', '95', '2', '0', '10000', 'admin', 'Theme', 'fileArrayDataDelete', '', '模板文件数组数据删除', '', '模板文件数组数据删除');
 INSERT INTO `cmf_admin_menu` VALUES ('107', '95', '2', '0', '10000', 'admin', 'Theme', 'settingPost', '', '模板文件编辑提交保存', '', '模板文件编辑提交保存');
 INSERT INTO `cmf_admin_menu` VALUES ('108', '95', '1', '0', '10000', 'admin', 'Theme', 'dataSource', '', '模板文件设置数据源', '', '模板文件设置数据源');
-INSERT INTO `cmf_admin_menu` VALUES ('109', '0', '0', '0', '10', 'user', 'AdminIndex', 'default', '', '用户管理', 'group', '用户管理');
+INSERT INTO `cmf_admin_menu` VALUES ('109', '0', '0', '1', '10', 'user', 'AdminIndex', 'default', '', '用户管理', 'group', '用户管理');
 INSERT INTO `cmf_admin_menu` VALUES ('110', '49', '1', '1', '10000', 'admin', 'User', 'index', '', '管理员', '', '管理员管理');
 INSERT INTO `cmf_admin_menu` VALUES ('111', '110', '1', '0', '10000', 'admin', 'User', 'add', '', '管理员添加', '', '管理员添加');
 INSERT INTO `cmf_admin_menu` VALUES ('112', '110', '2', '0', '10000', 'admin', 'User', 'addPost', '', '管理员添加提交', '', '管理员添加提交');
@@ -151,7 +158,7 @@ INSERT INTO `cmf_admin_menu` VALUES ('116', '110', '2', '0', '10000', 'admin', '
 INSERT INTO `cmf_admin_menu` VALUES ('117', '110', '2', '0', '10000', 'admin', 'User', 'delete', '', '管理员删除', '', '管理员删除');
 INSERT INTO `cmf_admin_menu` VALUES ('118', '110', '2', '0', '10000', 'admin', 'User', 'ban', '', '停用管理员', '', '停用管理员');
 INSERT INTO `cmf_admin_menu` VALUES ('119', '110', '2', '0', '10000', 'admin', 'User', 'cancelBan', '', '启用管理员', '', '启用管理员');
-INSERT INTO `cmf_admin_menu` VALUES ('120', '0', '0', '0', '30', 'portal', 'AdminIndex', 'default', '', '内容管理', 'th', '门户管理');
+INSERT INTO `cmf_admin_menu` VALUES ('120', '0', '0', '1', '30', 'portal', 'AdminIndex', 'default', '', '内容管理', 'th', '门户管理');
 INSERT INTO `cmf_admin_menu` VALUES ('121', '120', '1', '1', '10000', 'portal', 'AdminArticle', 'index', '', '文章管理', '', '文章列表');
 INSERT INTO `cmf_admin_menu` VALUES ('122', '121', '1', '0', '10000', 'portal', 'AdminArticle', 'add', '', '添加文章', '', '添加文章');
 INSERT INTO `cmf_admin_menu` VALUES ('123', '121', '2', '0', '10000', 'portal', 'AdminArticle', 'addPost', '', '添加文章提交', '', '添加文章提交');
@@ -189,13 +196,13 @@ INSERT INTO `cmf_admin_menu` VALUES ('159', '158', '1', '1', '10000', 'user', 'A
 INSERT INTO `cmf_admin_menu` VALUES ('160', '158', '2', '0', '10000', 'user', 'AdminUserAction', 'editPost', '', '编辑用户操作提交', '', '编辑用户操作提交');
 INSERT INTO `cmf_admin_menu` VALUES ('161', '158', '1', '0', '10000', 'user', 'AdminUserAction', 'sync', '', '同步用户操作', '', '同步用户操作');
 INSERT INTO `cmf_admin_menu` VALUES ('162', '6', '1', '0', '10000', 'Admin', 'region', 'index', '', '区域管理', '', '');
-INSERT INTO `cmf_admin_menu` VALUES ('163', '6', '1', '1', '80', 'admin', 'category', 'index', '', '品类管理', '', '');
-INSERT INTO `cmf_admin_menu` VALUES ('164', '6', '1', '0', '90', 'admin', 'liuyan', 'index', '', '意见建议', 'comment', '');
-INSERT INTO `cmf_admin_menu` VALUES ('165', '0', '1', '0', '10000', 'admin', 'order', 'index', '', '订单管理', 'shopping-cart', '');
-INSERT INTO `cmf_admin_menu` VALUES ('166', '0', '1', '0', '10000', 'admin', 'money', 'index', '', '资金记录', 'money', '');
-INSERT INTO `cmf_admin_menu` VALUES ('167', '0', '1', '0', '10000', 'admin', 'tixian', 'index', '', '提现管理', 'sign-out', '');
-INSERT INTO `cmf_admin_menu` VALUES ('169', '0', '1', '0', '10000', 'admin', 'shensu', 'index', '', '撤单管理', 'reply', '');
-INSERT INTO `cmf_admin_menu` VALUES ('171', '6', '1', '0', '100', 'admin', 'gift', 'index', '', '礼物管理', 'gift', '');
+INSERT INTO `cmf_admin_menu` VALUES ('163', '6', '1', '1', '80', 'admin', 'category', 'index', '', '分类管理', '', '');
+INSERT INTO `cmf_admin_menu` VALUES ('164', '6', '1', '1', '90', 'admin', 'liuyan', 'index', '', '意见建议', 'comment', '');
+INSERT INTO `cmf_admin_menu` VALUES ('165', '0', '1', '1', '10000', 'admin', 'order', 'index', '', '订单管理', 'shopping-cart', '');
+INSERT INTO `cmf_admin_menu` VALUES ('166', '0', '1', '1', '10000', 'admin', 'money', 'index', '', '资金记录', 'money', '');
+INSERT INTO `cmf_admin_menu` VALUES ('167', '0', '1', '1', '10000', 'admin', 'tixian', 'index', '', '提现管理', 'sign-out', '');
+INSERT INTO `cmf_admin_menu` VALUES ('169', '0', '1', '1', '10000', 'admin', 'shensu', 'index', '', '撤单管理', 'reply', '');
+INSERT INTO `cmf_admin_menu` VALUES ('171', '6', '1', '1', '100', 'admin', 'gift', 'index', '', '礼物管理', 'gift', '');
 INSERT INTO `cmf_admin_menu` VALUES ('172', '171', '1', '0', '10000', 'admin', 'Gift', 'add', '', '添加礼物', '', '添加礼物');
 INSERT INTO `cmf_admin_menu` VALUES ('173', '171', '2', '0', '10000', 'admin', 'Gift', 'addPost', '', '添加礼物提交保存', '', '添加礼物提交保存');
 INSERT INTO `cmf_admin_menu` VALUES ('174', '171', '1', '0', '10000', 'admin', 'Gift', 'edit', '', '编辑礼物', '', '编辑礼物');
@@ -203,21 +210,22 @@ INSERT INTO `cmf_admin_menu` VALUES ('175', '171', '2', '0', '10000', 'admin', '
 INSERT INTO `cmf_admin_menu` VALUES ('176', '171', '2', '0', '10000', 'admin', 'Gift', 'delete', '', '删除礼物', '', '删除礼物');
 INSERT INTO `cmf_admin_menu` VALUES ('177', '171', '2', '0', '10000', 'admin', 'Gift', 'listOrder', '', '礼物排序', '', '礼物排序');
 INSERT INTO `cmf_admin_menu` VALUES ('178', '171', '2', '0', '10000', 'admin', 'Gift', 'toggle', '', '礼物显示隐藏', '', '礼物显示隐藏');
+INSERT INTO `cmf_admin_menu` VALUES ('179', '164', '2', '0', '10000', 'admin', 'Liuyan', 'delete', '', '删除友情链接', '', '删除友情链接');
 INSERT INTO `cmf_admin_menu` VALUES ('180', '6', '1', '0', '50', 'admin', 'Message', 'index', '', '友情链接', '', '友情链接管理');
 INSERT INTO `cmf_admin_menu` VALUES ('181', '6', '1', '0', '50', 'admin', 'Tousu', 'index', '', '友情链接', '', '友情链接管理');
 INSERT INTO `cmf_admin_menu` VALUES ('182', '109', '0', '1', '10000', 'user', 'AdminIndex', 'default1', '', '用户组', '', '用户组');
 INSERT INTO `cmf_admin_menu` VALUES ('183', '152', '2', '0', '10000', 'user', 'AdminIndex', 'jinyong', '', '本站用户启用', '', '本站用户启用');
-INSERT INTO `cmf_admin_menu` VALUES ('184', '6', '1', '0', '10000', 'admin', 'setting', 'koudian', '', '平台费用管理', '', '');
-INSERT INTO `cmf_admin_menu` VALUES ('185', '6', '1', '0', '10000', 'admin', 'level', 'index', '', '陪玩师接单等级管理', 'level', '');
-INSERT INTO `cmf_admin_menu` VALUES ('186', '0', '1', '0', '10000', 'admin', 'jineng', 'index', '', '技能管理', 'bars', '');
-INSERT INTO `cmf_admin_menu` VALUES ('187', '6', '1', '0', '60', 'admin', 'guild', 'index', '', '公会管理', '', '');
-INSERT INTO `cmf_admin_menu` VALUES ('188', '6', '1', '0', '70', 'admin', 'haoma', 'index', '', '靓号管理', '', '');
+INSERT INTO `cmf_admin_menu` VALUES ('184', '6', '1', '1', '10000', 'admin', 'setting', 'koudian', '', '平台费用管理', '', '');
+INSERT INTO `cmf_admin_menu` VALUES ('185', '6', '1', '1', '10000', 'admin', 'level', 'index', '', '陪玩师接单等级管理', 'level', '');
+INSERT INTO `cmf_admin_menu` VALUES ('186', '0', '1', '1', '10000', 'admin', 'jineng', 'index', '', '技能管理', 'bars', '');
+INSERT INTO `cmf_admin_menu` VALUES ('187', '6', '1', '1', '60', 'admin', 'guild', 'index', '', '公会管理', '', '');
+INSERT INTO `cmf_admin_menu` VALUES ('188', '6', '1', '1', '70', 'admin', 'haoma', 'index', '', '靓号管理', '', '');
 INSERT INTO `cmf_admin_menu` VALUES ('189', '182', '1', '1', '10000', 'user', 'admin_index', 'avatar_shenhe', '', '头像待审核', '', '');
 INSERT INTO `cmf_admin_menu` VALUES ('190', '182', '1', '1', '10000', 'user', 'admin_index', 'renzheng_shenhe', '', '身份认证待审核', '', '');
 INSERT INTO `cmf_admin_menu` VALUES ('191', '0', '1', '0', '10000', 'admin', 'chat', 'index', '', '聊天室管理', 'home', '');
 
 -- ----------------------------
--- Table structure for cmf_asset
+-- Table structure for `cmf_asset`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_asset`;
 CREATE TABLE `cmf_asset` (
@@ -1093,7 +1101,7 @@ INSERT INTO `cmf_asset` VALUES ('854', '1', '97915', '1573511072', '1', '0', '6b
 INSERT INTO `cmf_asset` VALUES ('855', '1', '273129', '1573547292', '1', '0', '839d480e17d005ff7aaa27dcd2bdeaf58abbb9f61abf243b177146c0fdc497be', '0d5be0169ba1080cb440a58652450a53.png', 'admin/20191112/c5b206156d2faade96e3c6635941c125.png', '839d480e17d005ff7aaa27dcd2bdeaf5', '8d06fe0cda57716ce3a6658dc09ded3a88e50f3e', 'png', null);
 
 -- ----------------------------
--- Table structure for cmf_auth_access
+-- Table structure for `cmf_auth_access`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_auth_access`;
 CREATE TABLE `cmf_auth_access` (
@@ -1151,7 +1159,7 @@ INSERT INTO `cmf_auth_access` VALUES ('102', '3', 'user/adminoauth/index', 'admi
 INSERT INTO `cmf_auth_access` VALUES ('103', '3', 'user/adminoauth/delete', 'admin_url');
 
 -- ----------------------------
--- Table structure for cmf_auth_rule
+-- Table structure for `cmf_auth_rule`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_auth_rule`;
 CREATE TABLE `cmf_auth_rule` (
@@ -1247,7 +1255,7 @@ INSERT INTO `cmf_auth_rule` VALUES ('73', '1', 'admin', 'admin_url', 'admin/Sett
 INSERT INTO `cmf_auth_rule` VALUES ('74', '1', 'admin', 'admin_url', 'admin/Setting/upload', '', '上传设置', '');
 INSERT INTO `cmf_auth_rule` VALUES ('75', '1', 'admin', 'admin_url', 'admin/Setting/uploadPost', '', '上传设置提交', '');
 INSERT INTO `cmf_auth_rule` VALUES ('76', '1', 'admin', 'admin_url', 'admin/Setting/clearCache', '', '清除缓存', '');
-INSERT INTO `cmf_auth_rule` VALUES ('77', '1', 'admin', 'admin_url', 'admin/Slide/index', '', '轮播图管理', '');
+INSERT INTO `cmf_auth_rule` VALUES ('77', '1', 'admin', 'admin_url', 'admin/Slide/index', '', '幻灯片管理', '');
 INSERT INTO `cmf_auth_rule` VALUES ('78', '1', 'admin', 'admin_url', 'admin/Slide/add', '', '添加幻灯片', '');
 INSERT INTO `cmf_auth_rule` VALUES ('79', '1', 'admin', 'admin_url', 'admin/Slide/addPost', '', '添加幻灯片提交', '');
 INSERT INTO `cmf_auth_rule` VALUES ('80', '1', 'admin', 'admin_url', 'admin/Slide/edit', '', '编辑幻灯片', '');
@@ -1334,7 +1342,7 @@ INSERT INTO `cmf_auth_rule` VALUES ('160', '1', 'user', 'admin_url', 'user/Admin
 INSERT INTO `cmf_auth_rule` VALUES ('161', '1', 'user', 'admin_url', 'user/AdminUserAction/sync', '', '同步用户操作', '');
 INSERT INTO `cmf_auth_rule` VALUES ('162', '1', 'region', 'admin_url', 'region/admin_index/index', '', '城市管理', '');
 INSERT INTO `cmf_auth_rule` VALUES ('163', '1', 'Admin', 'admin_url', 'Admin/region/index', '', '区域管理', '');
-INSERT INTO `cmf_auth_rule` VALUES ('164', '1', 'admin', 'admin_url', 'admin/category/index', '', '品类管理', '');
+INSERT INTO `cmf_auth_rule` VALUES ('164', '1', 'admin', 'admin_url', 'admin/category/index', '', '分类管理', '');
 INSERT INTO `cmf_auth_rule` VALUES ('165', '1', 'admin', 'admin_url', 'admin/liuyan/index', '', '意见建议', '');
 INSERT INTO `cmf_auth_rule` VALUES ('166', '1', 'admin', 'admin_url', 'admin/order/index', '', '订单管理', '');
 INSERT INTO `cmf_auth_rule` VALUES ('167', '1', 'admin', 'admin_url', 'admin/money/index', '', '资金记录', '');
@@ -1363,7 +1371,7 @@ INSERT INTO `cmf_auth_rule` VALUES ('189', '1', 'user', 'admin_url', 'user/admin
 INSERT INTO `cmf_auth_rule` VALUES ('190', '1', 'admin', 'admin_url', 'admin/chat/index', '', '聊天室管理', '');
 
 -- ----------------------------
--- Table structure for cmf_category
+-- Table structure for `cmf_category`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_category`;
 CREATE TABLE `cmf_category` (
@@ -1457,7 +1465,7 @@ INSERT INTO `cmf_category` VALUES ('75', '213', '21', '', '', '74', '50');
 INSERT INTO `cmf_category` VALUES ('76', '3232134', '', '', '', '75', '50');
 
 -- ----------------------------
--- Table structure for cmf_chat
+-- Table structure for `cmf_chat`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_chat`;
 CREATE TABLE `cmf_chat` (
@@ -1477,7 +1485,7 @@ CREATE TABLE `cmf_chat` (
 INSERT INTO `cmf_chat` VALUES ('1', '20', '语音大厅', 'yuyin', '1', '1569834821', '');
 
 -- ----------------------------
--- Table structure for cmf_comment
+-- Table structure for `cmf_comment`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_comment`;
 CREATE TABLE `cmf_comment` (
@@ -1517,7 +1525,7 @@ INSERT INTO `cmf_comment` VALUES ('6', '0', '1236', '0', '425', '1534736598', '0
 INSERT INTO `cmf_comment` VALUES ('7', '0', '2', '0', '8', '1554707736', '0', '1', '1', '', 'ceshi', '', '', 'http://peiwan.wdzxiu.com/help/8.html', 'saasddas', null);
 
 -- ----------------------------
--- Table structure for cmf_gift
+-- Table structure for `cmf_gift`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_gift`;
 CREATE TABLE `cmf_gift` (
@@ -1545,7 +1553,7 @@ INSERT INTO `cmf_gift` VALUES ('7', '1', '266.00', '26600', '10000', '', '跑车
 INSERT INTO `cmf_gift` VALUES ('8', '1', '666.00', '66600', '10000', '', '火箭', 'admin/20190414/b64290818e2f6b7c1f89904b1d8595b2.png');
 
 -- ----------------------------
--- Table structure for cmf_gift_give
+-- Table structure for `cmf_gift_give`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_gift_give`;
 CREATE TABLE `cmf_gift_give` (
@@ -1615,7 +1623,7 @@ INSERT INTO `cmf_gift_give` VALUES ('50', '2', '1', '1571827104', '4', '23', '16
 INSERT INTO `cmf_gift_give` VALUES ('51', '2', '1', '1571827122', '6', '23', '16600');
 
 -- ----------------------------
--- Table structure for cmf_group
+-- Table structure for `cmf_group`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_group`;
 CREATE TABLE `cmf_group` (
@@ -1630,7 +1638,7 @@ CREATE TABLE `cmf_group` (
 INSERT INTO `cmf_group` VALUES ('1', '我的关注');
 
 -- ----------------------------
--- Table structure for cmf_guanzhu
+-- Table structure for `cmf_guanzhu`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_guanzhu`;
 CREATE TABLE `cmf_guanzhu` (
@@ -1666,7 +1674,7 @@ INSERT INTO `cmf_guanzhu` VALUES ('23', '18', '2');
 INSERT INTO `cmf_guanzhu` VALUES ('24', '26', '48');
 
 -- ----------------------------
--- Table structure for cmf_guild
+-- Table structure for `cmf_guild`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_guild`;
 CREATE TABLE `cmf_guild` (
@@ -1689,7 +1697,7 @@ INSERT INTO `cmf_guild` VALUES ('4', '全网一流游戏', '团队，你的需�
 INSERT INTO `cmf_guild` VALUES ('5', '一起玩游戏', '大家一起来玩游戏', 'default/20190405/8d784b98b76a3ffe51b538812c73f1f5.jpeg', '', '1000');
 
 -- ----------------------------
--- Table structure for cmf_haoma
+-- Table structure for `cmf_haoma`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_haoma`;
 CREATE TABLE `cmf_haoma` (
@@ -1720,7 +1728,7 @@ INSERT INTO `cmf_haoma` VALUES ('21', '6666663', '10.00');
 INSERT INTO `cmf_haoma` VALUES ('22', '654321', '500.00');
 
 -- ----------------------------
--- Table structure for cmf_haoma_log
+-- Table structure for `cmf_haoma_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_haoma_log`;
 CREATE TABLE `cmf_haoma_log` (
@@ -1736,7 +1744,7 @@ CREATE TABLE `cmf_haoma_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for cmf_hook
+-- Table structure for `cmf_hook`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_hook`;
 CREATE TABLE `cmf_hook` (
@@ -1787,7 +1795,7 @@ INSERT INTO `cmf_hook` VALUES ('31', '2', '0', '后台文章保存之后', 'port
 INSERT INTO `cmf_hook` VALUES ('32', '2', '1', '获取上传界面', 'fetch_upload_view', 'user', '获取上传界面');
 
 -- ----------------------------
--- Table structure for cmf_hook_plugin
+-- Table structure for `cmf_hook_plugin`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_hook_plugin`;
 CREATE TABLE `cmf_hook_plugin` (
@@ -1811,7 +1819,7 @@ INSERT INTO `cmf_hook_plugin` VALUES ('16', '10000', '1', 'footer_start', 'Qqlog
 INSERT INTO `cmf_hook_plugin` VALUES ('17', '10000', '0', 'admin_dashboard', 'SystemInfo');
 
 -- ----------------------------
--- Table structure for cmf_level
+-- Table structure for `cmf_level`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_level`;
 CREATE TABLE `cmf_level` (
@@ -1838,7 +1846,7 @@ INSERT INTO `cmf_level` VALUES ('10', '10', '4钻', '140');
 INSERT INTO `cmf_level` VALUES ('11', '11', '5钻', '1000');
 
 -- ----------------------------
--- Table structure for cmf_link
+-- Table structure for `cmf_link`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_link`;
 CREATE TABLE `cmf_link` (
@@ -1864,7 +1872,7 @@ INSERT INTO `cmf_link` VALUES ('5', '1', '0', '10000', '', 'http://s.enboo.cn', 
 INSERT INTO `cmf_link` VALUES ('6', '1', '0', '10000', '', 'http://idc.enboo.cn', '站长数据', '', '_blank', '');
 
 -- ----------------------------
--- Table structure for cmf_liuyan
+-- Table structure for `cmf_liuyan`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_liuyan`;
 CREATE TABLE `cmf_liuyan` (
@@ -1879,6 +1887,7 @@ CREATE TABLE `cmf_liuyan` (
 -- ----------------------------
 -- Records of cmf_liuyan
 -- ----------------------------
+INSERT INTO `cmf_liuyan` VALUES ('1', '1233132321', 0x736164646173616473616473646173, '1555659683', '0');
 INSERT INTO `cmf_liuyan` VALUES ('2', '11111', 0xE6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95E6B58BE8AF95, '1556440758', '0');
 INSERT INTO `cmf_liuyan` VALUES ('3', '33', 0x61736461, '1557128019', '0');
 INSERT INTO `cmf_liuyan` VALUES ('4', '888888', 0xE69C89E782B9E79195E796B5, '1557908170', '0');
@@ -1887,7 +1896,7 @@ INSERT INTO `cmf_liuyan` VALUES ('6', '5151', 0x31323132, '1560250368', '0');
 INSERT INTO `cmf_liuyan` VALUES ('7', '123', 0x313233313233, '1560575729', '0');
 
 -- ----------------------------
--- Table structure for cmf_maixu
+-- Table structure for `cmf_maixu`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_maixu`;
 CREATE TABLE `cmf_maixu` (
@@ -1912,7 +1921,7 @@ INSERT INTO `cmf_maixu` VALUES ('8', '0', '', '');
 INSERT INTO `cmf_maixu` VALUES ('9', '0', '', '');
 
 -- ----------------------------
--- Table structure for cmf_message
+-- Table structure for `cmf_message`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_message`;
 CREATE TABLE `cmf_message` (
@@ -1952,7 +1961,7 @@ INSERT INTO `cmf_message` VALUES ('24', '65', '欢迎注册陪玩网', '陪玩�
 INSERT INTO `cmf_message` VALUES ('25', '66', '欢迎注册陪玩网', '陪玩网欢迎您的加入。如果您是陪玩师，可以点击申请入驻按钮加入我们。', '1577449438', '0');
 
 -- ----------------------------
--- Table structure for cmf_nav
+-- Table structure for `cmf_nav`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_nav`;
 CREATE TABLE `cmf_nav` (
@@ -1970,7 +1979,7 @@ INSERT INTO `cmf_nav` VALUES ('1', '1', '主导航', '主导航');
 INSERT INTO `cmf_nav` VALUES ('2', '0', '底部导航', '');
 
 -- ----------------------------
--- Table structure for cmf_nav_menu
+-- Table structure for `cmf_nav_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_nav_menu`;
 CREATE TABLE `cmf_nav_menu` (
@@ -1992,7 +2001,7 @@ CREATE TABLE `cmf_nav_menu` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for cmf_option
+-- Table structure for `cmf_option`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_option`;
 CREATE TABLE `cmf_option` (
@@ -2007,7 +2016,7 @@ CREATE TABLE `cmf_option` (
 -- ----------------------------
 -- Records of cmf_option
 -- ----------------------------
-INSERT INTO `cmf_option` VALUES ('7', '1', 'site_info', '{\"site_name\":\"\\u6e38\\u620f\\u966a\\u73a9\\u7f511\",\"site_seo_title\":\"\\u6e38\\u620f\\u966a\\u73a9\\u7f51-\\u7f8e\\u5973\\u966a\\u73a9-\\u4e13\\u4e1a\\u7684\\u7535\\u7ade\\u6e38\\u620f\\u966a\\u73a9\\u7f51\\u7ad9\",\"site_seo_keywords\":\"\",\"site_seo_description\":\"\",\"site_icp\":\"\\u9c81ICP\\u590712017249\\u53f7-1\",\"site_admin_email\":\"\",\"site_analytics\":\"\",\"urlmode\":\"1\",\"html_suffix\":\"\",\"site_address\":\"\\u5c71\\u897f\\u6e38\\u620f\\u966a\\u73a9\\u6709\\u9650\\u516c\\u53f8\",\"site_phone\":\"111111111111111\",\"site_admin_email1\":\"\"}');
+INSERT INTO `cmf_option` VALUES ('7', '1', 'site_info', '{\"site_name\":\"\\u966a\\u73a9\\u7f51\\u7ad9\\u6d4b\\u8bd5\",\"site_seo_title\":\"\\u6e38\\u620f\\u966a\\u73a9\\u7f51-\\u7f8e\\u5973\\u966a\\u73a9-\\u4e13\\u4e1a\\u7684\\u7535\\u7ade\\u6e38\\u620f\\u966a\\u73a9\\u7f51\\u7ad9\",\"site_seo_keywords\":\"\",\"site_seo_description\":\"\",\"site_icp\":\"\\u9c81ICP\\u590712017249\\u53f7-1\",\"site_admin_email\":\"403621775\",\"site_analytics\":\"\",\"urlmode\":\"1\",\"html_suffix\":\"\",\"site_address\":\"\\u9752\\u5c9b\\u6e38\\u620f\\u966a\\u73a9\\u6709\\u9650\\u516c\\u53f8\",\"site_phone\":\"111111111111111\",\"site_admin_email1\":\"403621775\"}');
 INSERT INTO `cmf_option` VALUES ('8', '1', 'cmf_settings', '{\"open_registration\":\"1\",\"banned_usernames\":\"\"}');
 INSERT INTO `cmf_option` VALUES ('9', '1', 'cdn_settings', '{\"cdn_static_root\":\"\"}');
 INSERT INTO `cmf_option` VALUES ('10', '1', 'admin_settings', '{\"admin_password\":\"\",\"admin_style\":\"flatadmin\"}');
@@ -2024,7 +2033,7 @@ INSERT INTO `cmf_option` VALUES ('20', '1', 'tuijian', '10');
 INSERT INTO `cmf_option` VALUES ('21', '1', 'gaiming', '1');
 
 -- ----------------------------
--- Table structure for cmf_order
+-- Table structure for `cmf_order`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_order`;
 CREATE TABLE `cmf_order` (
@@ -2159,7 +2168,7 @@ INSERT INTO `cmf_order` VALUES ('108', '19102315390281', '2', '0', '1571816342',
 INSERT INTO `cmf_order` VALUES ('109', '19102316381796', '2', '0', '1571819897', '1571819897', '0', '0', '20', '48', '1', '', '18562530020', '1233132321', '', '11.00', '0.00');
 
 -- ----------------------------
--- Table structure for cmf_outline
+-- Table structure for `cmf_outline`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_outline`;
 CREATE TABLE `cmf_outline` (
@@ -2314,7 +2323,7 @@ INSERT INTO `cmf_outline` VALUES ('134', '2', '47', 'ceshi', 'https://peiwan.wdz
 INSERT INTO `cmf_outline` VALUES ('135', '2', '47', 'ceshi', 'https://peiwan.wdzxiu.com/upload/avatar/20190412/b0bf3f618bfdd70abaea83bfeb4669d0.jpeg', 'zaima', '1571965879', '0');
 
 -- ----------------------------
--- Table structure for cmf_pingjia
+-- Table structure for `cmf_pingjia`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_pingjia`;
 CREATE TABLE `cmf_pingjia` (
@@ -2351,7 +2360,7 @@ INSERT INTO `cmf_pingjia` VALUES ('19', '55', '5', '4156456465', '0', '56', '156
 INSERT INTO `cmf_pingjia` VALUES ('20', '55', '5', 'aaaa', '0', '56', '1569725395', '103', '100');
 
 -- ----------------------------
--- Table structure for cmf_plugin
+-- Table structure for `cmf_plugin`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_plugin`;
 CREATE TABLE `cmf_plugin` (
@@ -2387,7 +2396,7 @@ INSERT INTO `cmf_plugin` VALUES ('24', '1', '0', '1', '0', 'wxpay', '微信支�
 INSERT INTO `cmf_plugin` VALUES ('25', '1', '0', '1', '0', 'alipay', '支付宝支付', '', '', 'Tangchao', '', '1.0', '支付宝支付', '{\"appid\":\"2019060465457260\",\"rsaprivatekey\":\"MIIEogIBAAKCAQEAt3eoXFUSHgR7Bo4qEbt6AX1GsJOXtFBgkPdUn+gHXpMoKyTNz0ZYmjq7gnvb3pVzvp8jlCRqjzVca+InjRi0yRXVS+YJAo3\\/kMDIpvFJsJbLvnAgBW2L1ER0YB1miL+hx8TJlT9btsGrr1F0XKmMfxaDD8C8c0i8ndbj+Zlms3n6aQIr2N4x6mkxjJ0fLRS15hkx79\\/1kaHYws3IPFNKxZPsCXnNWcuvkI0xN4KepQwfL78dwFs6N6\\/eqFer57\\/mP7Tby7GEIIgg\\/roSbIP+FNF8FYqTmrxE+PYduHtEg8+oK5y6yx88J6DXyzb7Ws4FtzSQ3RPLTjl7cvaU6Dj\\/9QIDAQABAoIBADPMVb1Ty1ysOSu9oYUGIEkhXH7n\\/LHM66aiHcNT2BjMhU\\/BAVZe7w8EPAJ4A7iRC2+rMHlX2rn5\\/9D5td7xNcF8J49ZL\\/wHqTruIvh3MS3pNTbcIz5FEnBor06fnl5HdF6ZYayAid1MSrOh1K+AswkCixg8ezg1NgN+Mzk6JTPQZxDhRtXWXweTkgckiZrbMM\\/n1v6SA6ykzDWWRBW+fvXVxjK9nzjNz+osE02pj0bk6MHW5dqicdTO+mhjOP+AFVDKY50JNEmDTpti87OLggfmc1mcQooOUpsmh06FDiZOY9b8aJm77qs7y6Esyah4ArQ4NE2bxgqIelaW8F1\\/3qECgYEA2kAyDC\\/11hJyK4cvvCRhSZ1+vgL7owiw4Q3flmWFC8hhcDltDcUm8uXZ3T5s51XrN7FXLMGxejw7cUFrbrNpYU6+2neT6IAoTYs1ixcg2TUXX2qmKxPdpw4DFT6qUveCMzSBjvNT4jt7XuJbTqUPDoSgZhoTT+5KAPCAW9bAI40CgYEA1zNPOKxH2pebdwxSzF9s2iog2mnsjRsQ+KuAeBiZhc8SsGF99y4Ua\\/pTETS+7RwEa+56pr7geiL8WGF2fiqYuaSNEgk9bOFBSgbKNBd741CzqUALmjvXUPw98k+AfoAF3phGBpwA3Jx19LJzZejfgSm2IE36t6NrFmh9EnmGwAkCgYAdjH16KvAkyKCOhiIPXfmSBvHG9g5tt1qDTeaMrTgDLWEL2aqLJ7srPbVuf+oss\\/RBuQ\\/tblgCDa+amNnbxgypcQjj+TacTuWmAggAyePXpJmCgKT4xhrHaF1Afhh\\/XSVSm3RDD2y2\\/4ingwwLrMtKEujIihU9SCzazbUDOiMPbQKBgCzpE1Zjdddjnlk45Cqsm33oHtUWF\\/zWsjMDL5tgnuFy9paCshQctLxYEG\\/dzx6So0WXDlewLA6xMHKNXHo2D4tmkN47uWr4k3SMeDRo1jz5QZVHvWQhquzGx3LDLrC3rQHoS2zjr7ZanK9FcpnJAKPm\\/ZA+Vd1vKFET2044uGtpAoGAJP\\/6dBVvQ0mspTtW2RlxVfN3EKJuU9OyLWLXiymQUbbmGaE74A9J560wcF0CWpmODk1m0eprlUOOt4bf521OCB+ROGpcH26HC3PgY59KIio9nBcsfynLx8NO1iOzBrs403hf7hPrXDs9s8beDzFuWKU1gQ+yJi1\\/mDHYG06WN1g=\",\"alipayrsapublickey\":\"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvWnoR9lW3JYYBrs9d9KG0NzHMJ1Z87K9AxIgWFqHfyWuUoZfuv2Q6RGzBkEi1IKNTg5FsIhGS229GnBloEVq6PWtTZgQQImG1ldCCFw1slr19IWyX2hDeykodeR3fz0GfYFWNFfwy92mysDnquXY5pmIHp0G24zRCIjOpdPgmhmx5motRDuiCh\\/C1FVFplq7E\\/vLwQFzCTAt\\/thsUj49plDQg\\/YztyQwe4KTL5M\\/NbNqRV7dsNo2DbDNAK4sHyBWdC\\/snOxTsvWG5l5Dgpy+9xOOPAfVngRz30KGME5XQTi4MIfU42CtNn04cEAdZAJF0ToCkZQPcD99fR3uxGejXwIDAQAB\"}');
 
 -- ----------------------------
--- Table structure for cmf_plugin_chat_user
+-- Table structure for `cmf_plugin_chat_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_plugin_chat_user`;
 CREATE TABLE `cmf_plugin_chat_user` (
@@ -2406,7 +2415,7 @@ CREATE TABLE `cmf_plugin_chat_user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for cmf_portal_category
+-- Table structure for `cmf_portal_category`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_portal_category`;
 CREATE TABLE `cmf_portal_category` (
@@ -2436,7 +2445,7 @@ INSERT INTO `cmf_portal_category` VALUES ('2', '0', '0', '1', '0', '10000', '资
 INSERT INTO `cmf_portal_category` VALUES ('3', '0', '0', '1', '0', '10000', '帮助中心', '', '0-3', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}');
 
 -- ----------------------------
--- Table structure for cmf_portal_category_post
+-- Table structure for `cmf_portal_category_post`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_portal_category_post`;
 CREATE TABLE `cmf_portal_category_post` (
@@ -2470,7 +2479,7 @@ INSERT INTO `cmf_portal_category_post` VALUES ('16', '20', '2', '10000', '1');
 INSERT INTO `cmf_portal_category_post` VALUES ('17', '21', '2', '10000', '1');
 
 -- ----------------------------
--- Table structure for cmf_portal_post
+-- Table structure for `cmf_portal_post`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_portal_post`;
 CREATE TABLE `cmf_portal_post` (
@@ -2502,7 +2511,7 @@ CREATE TABLE `cmf_portal_post` (
   KEY `post_parent` (`parent_id`),
   KEY `post_author` (`user_id`),
   KEY `post_date` (`create_time`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='portal应用 文章表';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='portal应用 文章表';
 
 -- ----------------------------
 -- Records of cmf_portal_post
@@ -2527,7 +2536,7 @@ INSERT INTO `cmf_portal_post` VALUES ('19', '0', '1', '1', '1', '1', '1', '0', '
 INSERT INTO `cmf_portal_post` VALUES ('20', '0', '1', '1', '1', '1', '1', '0', '0', '19', '0', '0', '1571711971', '1571711971', '1571711939', '0', '美女游戏陪玩大火，实力颜值都在线', '', '', '', '\n&lt;p&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;现在有一个行业很火，这个行业就是游戏陪玩，游戏陪玩现在是主播们最爱的行业，因为很多主播可以靠着点游戏陪玩来做节目效果，每次的效果都很好。&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;当然了，游戏陪玩也是有追求的，不要以为游戏陪玩一点技术都没有，游戏陪玩其实各方面都要兼顾，比如长相要好看，声音要好听，最重要的技术要好，还要会聊天，想要找到这么一个陪玩还真的不容易。&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;虽然不容易找到，但是还是有的，比如现在就有一个美女游戏陪玩就大火了，这个游戏陪玩就是小渡渡，这个主播拥有上面所说的所有特点，她是一个王者荣耀的主播，在游戏里面很会制造话题，现在是多位知名主播的御用陪玩，比如孤影每次找陪玩就只找她。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;&lt;span style=\'color: rgb(25, 25, 25); font-family: &quot;PingFang SC&quot;, Arial, 微软雅黑, 宋体, simsun, sans-serif; background-color: rgb(255, 255, 255);\'&gt;实力好、会聊天、长得漂亮、声音好听，这是多么难得啊，小渡渡简直就是被上天眷顾的人，现在他的陪玩道路也很通畅，感觉过不了多久可能会直接转行当主播了，对此你们有什么想说的吗？&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\n', null, '{\"thumbnail\":\"\",\"template\":\"\"}');
 
 -- ----------------------------
--- Table structure for cmf_portal_tag
+-- Table structure for `cmf_portal_tag`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_portal_tag`;
 CREATE TABLE `cmf_portal_tag` (
@@ -2546,7 +2555,7 @@ INSERT INTO `cmf_portal_tag` VALUES ('1', '1', '0', '0', '九八大叼K');
 INSERT INTO `cmf_portal_tag` VALUES ('2', '1', '0', '0', '123');
 
 -- ----------------------------
--- Table structure for cmf_portal_tag_post
+-- Table structure for `cmf_portal_tag_post`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_portal_tag_post`;
 CREATE TABLE `cmf_portal_tag_post` (
@@ -2563,7 +2572,7 @@ CREATE TABLE `cmf_portal_tag_post` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for cmf_recycle_bin
+-- Table structure for `cmf_recycle_bin`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_recycle_bin`;
 CREATE TABLE `cmf_recycle_bin` (
@@ -2578,9 +2587,10 @@ CREATE TABLE `cmf_recycle_bin` (
 -- ----------------------------
 -- Records of cmf_recycle_bin
 -- ----------------------------
+INSERT INTO `cmf_recycle_bin` VALUES ('1', '3', '1563451569', 'slide', '手机幻灯片');
 
 -- ----------------------------
--- Table structure for cmf_region
+-- Table structure for `cmf_region`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_region`;
 CREATE TABLE `cmf_region` (
@@ -6006,7 +6016,7 @@ INSERT INTO `cmf_region` VALUES ('3416', '173', '垦区', '3', '0');
 INSERT INTO `cmf_region` VALUES ('3417', '169', '加格达奇', '3', '0');
 
 -- ----------------------------
--- Table structure for cmf_role
+-- Table structure for `cmf_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_role`;
 CREATE TABLE `cmf_role` (
@@ -6031,7 +6041,7 @@ INSERT INTO `cmf_role` VALUES ('2', '0', '1', '1329633709', '1329633709', '0', '
 INSERT INTO `cmf_role` VALUES ('3', '0', '1', '0', '0', '0', '用户管理员', '用户管理');
 
 -- ----------------------------
--- Table structure for cmf_role_user
+-- Table structure for `cmf_role_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_role_user`;
 CREATE TABLE `cmf_role_user` (
@@ -6053,7 +6063,7 @@ INSERT INTO `cmf_role_user` VALUES ('4', '1', '323');
 INSERT INTO `cmf_role_user` VALUES ('6', '1', '1');
 
 -- ----------------------------
--- Table structure for cmf_route
+-- Table structure for `cmf_route`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_route`;
 CREATE TABLE `cmf_route` (
@@ -6082,7 +6092,7 @@ INSERT INTO `cmf_route` VALUES ('87', '4999', '1', '2', 'portal/guestbook/index'
 INSERT INTO `cmf_route` VALUES ('88', '10000', '1', '1', 'portal/search/index8', 'search8');
 
 -- ----------------------------
--- Table structure for cmf_shensu
+-- Table structure for `cmf_shensu`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_shensu`;
 CREATE TABLE `cmf_shensu` (
@@ -6106,7 +6116,7 @@ INSERT INTO `cmf_shensu` VALUES ('62', '62', '11', '1559537740', '订单提早�
 INSERT INTO `cmf_shensu` VALUES ('63', '102', '56', '1569724832', '实际水平与描述不符', '415656', '1');
 
 -- ----------------------------
--- Table structure for cmf_slide
+-- Table structure for `cmf_slide`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_slide`;
 CREATE TABLE `cmf_slide` (
@@ -6122,9 +6132,10 @@ CREATE TABLE `cmf_slide` (
 -- Records of cmf_slide
 -- ----------------------------
 INSERT INTO `cmf_slide` VALUES ('2', '1', '0', '首页幻灯片', '首页幻灯片');
+INSERT INTO `cmf_slide` VALUES ('3', '1', '1563451569', '手机幻灯片', '');
 
 -- ----------------------------
--- Table structure for cmf_slide_item
+-- Table structure for `cmf_slide_item`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_slide_item`;
 CREATE TABLE `cmf_slide_item` (
@@ -6150,7 +6161,7 @@ INSERT INTO `cmf_slide_item` VALUES ('1', '2', '1', '10000', '1', 'admin/2019040
 INSERT INTO `cmf_slide_item` VALUES ('2', '2', '1', '10000', '2', 'admin/20191112/c5b206156d2faade96e3c6635941c125.png', '#', '', '', '', null);
 
 -- ----------------------------
--- Table structure for cmf_theme
+-- Table structure for `cmf_theme`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_theme`;
 CREATE TABLE `cmf_theme` (
@@ -6178,7 +6189,7 @@ CREATE TABLE `cmf_theme` (
 INSERT INTO `cmf_theme` VALUES ('19', '0', '0', '0', '0', 'simpleboot3', 'simpleboot3', '1.0.2', 'http://demo.thinkcmf.com', '', 'ThinkCMF', 'http://www.thinkcmf.com', 'zh-cn', 'ThinkCMF模板', 'ThinkCMF默认模板');
 
 -- ----------------------------
--- Table structure for cmf_theme_file
+-- Table structure for `cmf_theme_file`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_theme_file`;
 CREATE TABLE `cmf_theme_file` (
@@ -6202,7 +6213,7 @@ CREATE TABLE `cmf_theme_file` (
 INSERT INTO `cmf_theme_file` VALUES ('111', '1', '0', 'simpleboot3', '模板全局配置', 'public/Config', 'public/config', '模板全局配置文件', '{\"vars\":{\"enable_mobile\":{\"title\":\"\\u624b\\u673a\\u6ce8\\u518c\",\"value\":1,\"type\":\"select\",\"options\":{\"1\":\"\\u5f00\\u542f\",\"0\":\"\\u5173\\u95ed\"},\"tip\":\"\"}}}', '{\"vars\":{\"enable_mobile\":{\"title\":\"\\u624b\\u673a\\u6ce8\\u518c\",\"value\":1,\"type\":\"select\",\"options\":{\"1\":\"\\u5f00\\u542f\",\"0\":\"\\u5173\\u95ed\"},\"tip\":\"\"}}}', null);
 
 -- ----------------------------
--- Table structure for cmf_third_party_user
+-- Table structure for `cmf_third_party_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_third_party_user`;
 CREATE TABLE `cmf_third_party_user` (
@@ -6230,7 +6241,7 @@ CREATE TABLE `cmf_third_party_user` (
 INSERT INTO `cmf_third_party_user` VALUES ('738', '40', '1561624637', '0', '1561624637', '0', '1', '', '', '', '', '', '7EF2DD7DABA031995262FB41A57A346D', 'QQ', null);
 
 -- ----------------------------
--- Table structure for cmf_tixian
+-- Table structure for `cmf_tixian`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_tixian`;
 CREATE TABLE `cmf_tixian` (
@@ -6254,7 +6265,7 @@ INSERT INTO `cmf_tixian` VALUES ('63', '2', '4.95', '3', '1221212', '去去去',
 INSERT INTO `cmf_tixian` VALUES ('64', '55', '495.00', '3', '45454', '爱谁', '1', '1569725697');
 
 -- ----------------------------
--- Table structure for cmf_user
+-- Table structure for `cmf_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_user`;
 CREATE TABLE `cmf_user` (
@@ -6308,7 +6319,7 @@ CREATE TABLE `cmf_user` (
 -- ----------------------------
 -- Records of cmf_user
 -- ----------------------------
-INSERT INTO `cmf_user` VALUES ('1', '', '1', '0', '1590548201', '0', '0', '1508294909', '1', 'admin', '###5393294fb1b0802910eb6075ebe28886', '123@123.com', '', '', '', '', '', '', 'default/bg.jpg', '192.168.0.152', '', '', null, null, '0', '0', '0', '0', '', null, '', '0', '0', '0', '0', '', '0', '0', '0', '', '0', '1', '1');
+INSERT INTO `cmf_user` VALUES ('1', '', '1', '0', '1577449503', '0', '0', '1508294909', '1', 'admin', '###5393294fb1b0802910eb6075ebe28886', '123@123.com', '', '', '', '', '', '', 'default/bg.jpg', '127.0.0.1', '', '', null, null, '0', '0', '0', '0', '', null, '', '0', '0', '0', '0', '', '0', '0', '0', '', '0', '1', '1');
 INSERT INTO `cmf_user` VALUES ('2', '3333333', '3', '2', '1573489916', '57', '0', '1508828496', '1', 'ceshi', '###96c811ce6d826286159f24481adfcb2f', '', 'avatar/20190412/b0bf3f618bfdd70abaea83bfeb4669d0.jpeg', '', '', '', '', '', 'default/bg.jpg', '113.250.232.93', '', '18562530020', '1233132321', 'aaassa', '77', '6', '706', '1556208000', '59,64,70', 'asdadsdas', '', '1', '15100', '19100', '1', '申请加入', '1', '1', '0', '', '1', '1', '1');
 INSERT INTO `cmf_user` VALUES ('3', '', '2', '2', '1573449568', '0', '0', '1536384043', '1', 'root', '###78193fdf644c9b4798bd0549d3993519', '', 'avatar/20190720/46e36f4bc3a303c23a74a0f9b60187e7.jpg', '', 'default/20190712/386714d01c8736ce73854e832f546bf3.jpg', 'default/20190805/87410a5cada709aafb52332b5dc8829e.jpg', 'default/20190712/386714d01c8736ce73854e832f546bf3.jpg', 'default/20190805/3a1e62b8b1edba4ee9e0065d0ec3b86a.png', 'default/bg.jpg', '122.4.66.60', '', '1560876', '22211', 'aaassa', '36', '3', '400', '-28800', '58', null, '/upload/default/20190809/83afbd69ee1054fc2a360112816203e3.mp3', '0', '600', '10500', '0', '', '0', '0', '0', '', '0', '1', '1');
 INSERT INTO `cmf_user` VALUES ('4', '', '3', '1', '1564837900', '57', '0', '1508828496', '1', 'ceshi1', '###96c811ce6d826286159f24481adfcb2f', '', 'avatar/20180913/8ebfaee638224af6d27ddf813d06b78d.png', '', '', '', '', '', 'default/bg.jpg', '223.80.239.246', '', '18562530020', '', null, '87', '6', '790', '1026734829', '58,59', null, '', '0', '2', '0', '0', '', '0', '1', '1', '', '1', '5', '1');
@@ -6370,7 +6381,7 @@ INSERT INTO `cmf_user` VALUES ('65', '100065', '2', '2', '1573291659', '0', '0',
 INSERT INTO `cmf_user` VALUES ('66', '100066', '2', '0', '1577449438', '0', '0', '1577449438', '1', '52jscn', '###a6737bc0b17f6db9635cd131274b5c7a', '', 'avatar/headicon.png', '', '', '', '', '', 'default/bg.jpg', '127.0.0.1', null, '15588285160', null, null, null, null, null, null, null, null, null, '0', '0', '0', '0', null, '0', '0', '0', '', '0', '1', '1');
 
 -- ----------------------------
--- Table structure for cmf_user_action
+-- Table structure for `cmf_user_action`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_user_action`;
 CREATE TABLE `cmf_user_action` (
@@ -6393,7 +6404,7 @@ CREATE TABLE `cmf_user_action` (
 INSERT INTO `cmf_user_action` VALUES ('1', '100', '0', '0', '1', '0', '用户登录', 'login', 'user', '');
 
 -- ----------------------------
--- Table structure for cmf_user_action_log
+-- Table structure for `cmf_user_action_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_user_action_log`;
 CREATE TABLE `cmf_user_action_log` (
@@ -6414,7 +6425,7 @@ CREATE TABLE `cmf_user_action_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for cmf_user_jineng
+-- Table structure for `cmf_user_jineng`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_user_jineng`;
 CREATE TABLE `cmf_user_jineng` (
@@ -6469,7 +6480,7 @@ INSERT INTO `cmf_user_jineng` VALUES ('100', '55', '1', 'default/20190929/6b5ee5
 INSERT INTO `cmf_user_jineng` VALUES ('101', '58', '2', '', '1', '10', '0.00', '0', '0', '0', '0', '0');
 
 -- ----------------------------
--- Table structure for cmf_user_login_attempt
+-- Table structure for `cmf_user_login_attempt`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_user_login_attempt`;
 CREATE TABLE `cmf_user_login_attempt` (
@@ -6487,7 +6498,7 @@ CREATE TABLE `cmf_user_login_attempt` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for cmf_user_moneyinfo
+-- Table structure for `cmf_user_moneyinfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_user_moneyinfo`;
 CREATE TABLE `cmf_user_moneyinfo` (
@@ -6553,7 +6564,7 @@ INSERT INTO `cmf_user_moneyinfo` VALUES ('41', '61', '0.00', '0.00', '', '', '',
 INSERT INTO `cmf_user_moneyinfo` VALUES ('42', '62', '0.00', '0.00', '', '', '', '', '', '', '', '0');
 
 -- ----------------------------
--- Table structure for cmf_user_moneyrecord
+-- Table structure for `cmf_user_moneyrecord`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_user_moneyrecord`;
 CREATE TABLE `cmf_user_moneyrecord` (
@@ -6566,7 +6577,7 @@ CREATE TABLE `cmf_user_moneyrecord` (
   `content` varchar(255) DEFAULT NULL,
   `status` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=406 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=404 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of cmf_user_moneyrecord
@@ -6964,11 +6975,9 @@ INSERT INTO `cmf_user_moneyrecord` VALUES ('400', '47', '充值', '1.00', '15731
 INSERT INTO `cmf_user_moneyrecord` VALUES ('401', '47', '充值', '1.00', '1573178534', '19110810021435', '支付宝充值收入', '0');
 INSERT INTO `cmf_user_moneyrecord` VALUES ('402', '47', '充值', '1.00', '1573179358', '19110810155875', '支付宝充值收入', '0');
 INSERT INTO `cmf_user_moneyrecord` VALUES ('403', '47', '充值', '2.00', '1573179368', '19110810160868', '支付宝充值收入', '0');
-INSERT INTO `cmf_user_moneyrecord` VALUES ('404', '49', '收入', '10.00', '1590544818', null, '管理员后台增加金额', '1');
-INSERT INTO `cmf_user_moneyrecord` VALUES ('405', '66', '收入', '5.00', '1590544838', null, '管理员后台增加金额', '1');
 
 -- ----------------------------
--- Table structure for cmf_user_score_log
+-- Table structure for `cmf_user_score_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_user_score_log`;
 CREATE TABLE `cmf_user_score_log` (
@@ -7056,7 +7065,7 @@ INSERT INTO `cmf_user_score_log` VALUES ('69', '10', '1517814993', 'login', '1',
 INSERT INTO `cmf_user_score_log` VALUES ('70', '10', '1519613379', 'login', '1', '0');
 
 -- ----------------------------
--- Table structure for cmf_user_token
+-- Table structure for `cmf_user_token`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_user_token`;
 CREATE TABLE `cmf_user_token` (
@@ -7072,14 +7081,14 @@ CREATE TABLE `cmf_user_token` (
 -- ----------------------------
 -- Records of cmf_user_token
 -- ----------------------------
-INSERT INTO `cmf_user_token` VALUES ('3', '1', '1606096359', '1590544359', '0e8ab8aa253d207c600899f14f9bc7d6a0003b0853bac7ffd346cf713932c455', 'web');
+INSERT INTO `cmf_user_token` VALUES ('3', '1', '1584323772', '1568771772', '385db089fa2ab2f7b78987b8873d59e8385db089fa2ab2f7b78987b8873d59e8', 'web');
 INSERT INTO `cmf_user_token` VALUES ('4', '13', '1531876959', '1516324959', '247d959d742b54bd64c298a57c378390247d959d742b54bd64c298a57c378390', 'web');
 INSERT INTO `cmf_user_token` VALUES ('5', '12', '1531986153', '1516434153', 'f2b6dc51a02d8ac57a23e0234dc65039f2b6dc51a02d8ac57a23e0234dc65039', 'web');
 INSERT INTO `cmf_user_token` VALUES ('6', '72', '1532236104', '1516684104', '8f9c751c096253029834086872f412b28f9c751c096253029834086872f412b2', 'web');
 INSERT INTO `cmf_user_token` VALUES ('7', '323', '1541991689', '1526439689', '9123fae280e5638e612fa4ffa70808e69123fae280e5638e612fa4ffa70808e6', 'web');
 
 -- ----------------------------
--- Table structure for cmf_verification_code
+-- Table structure for `cmf_verification_code`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_verification_code`;
 CREATE TABLE `cmf_verification_code` (
@@ -7098,7 +7107,7 @@ CREATE TABLE `cmf_verification_code` (
 INSERT INTO `cmf_verification_code` VALUES ('53', '1', '1577449423', '1577451223', '2187', '15588285160');
 
 -- ----------------------------
--- Table structure for cmf_zuhao
+-- Table structure for `cmf_zuhao`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_zuhao`;
 CREATE TABLE `cmf_zuhao` (
@@ -7123,7 +7132,7 @@ INSERT INTO `cmf_zuhao` VALUES ('2', '1', '2', 'root1', '上号器账号出租1'
 INSERT INTO `cmf_zuhao` VALUES ('3', '1', '2', '111', 'eeee', '11.00', '11111111112', '/upload/avatar/20191016/2f4f4a8689d671682c2899130f91c008.jpg', '2', 'dadasasd');
 
 -- ----------------------------
--- Table structure for cmf_zuhao_order
+-- Table structure for `cmf_zuhao_order`
 -- ----------------------------
 DROP TABLE IF EXISTS `cmf_zuhao_order`;
 CREATE TABLE `cmf_zuhao_order` (
