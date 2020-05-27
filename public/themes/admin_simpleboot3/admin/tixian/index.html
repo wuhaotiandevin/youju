@@ -1,0 +1,61 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('tixian/index')}">用户提现申请</a></li>
+    </ul>
+    <form class="well form-inline margin-top-20" method="post" action="{:url('admin/tixian/index')}">
+        提现状态:
+        <select class="form-control" name="status" id="status" style="width: 140px;">
+            <option value='' <eq name="status" value="0">selected</eq>>全部</option>
+            <option value='0' <eq name="status" value="0">selected</eq>>未打款</option>
+            <option value='1' <eq name="status" value="1">selected</eq>>已打款</option>
+        </select>
+         &nbsp; &nbsp;关键字：
+        <input class="form-control" type="text" name="keyword" style="width: 200px;" value="{:input('request.keyword')}"
+               placeholder="用户名/支付宝账号">
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="{:url('admin/tixian/index')}">清空</a>
+    </form>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="50">ID</th>
+                <th width="100">用户名</th>
+                <th width="150">提现金额</th>
+                <th width="150">真实姓名</th>
+                <th width="150">开户银行</th>
+                <th width="150">银行账号</th>
+                <th width="200">申请时间</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+                <php>$bank=array('0'=>'请选择开户行','3'=>'中国银行','5'=>'交通银行','6'=>'华夏银行','7'=>'光大银行','8'=>'招商银行','9'=>'中信银行','10'=>'兴业银行','11'=>'民生银行','1'=>'中国工商银行','2'=>'中国农业银行','4'=>'中国建设银行');</php>
+            <volist name="Tixians" id="vo">
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.user_login}</td>
+                    <td>{$vo.jine}</td>
+                    <td>{$vo.realname}</td>
+                    <td>{$bank[$vo.bank]}</td>
+                    <td>{$vo.bankcard}</td>
+                    <td>{:date('Y-m-d H:i',$vo['tixian_time'])}</td>
+                     <td>
+                     <eq name="vo.txstatus" value="0">
+                        <a href="{:url('tixian/shenhe',array('id'=>$vo['id']))}">
+                            打款成功
+                        </a>
+                        <else/>
+                        已打款
+                        </eq>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

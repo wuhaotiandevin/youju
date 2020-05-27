@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>聊天室</title>
+		<link rel="stylesheet" type="text/css" href="/mychat/css/animate.min.css">
+		<link rel="stylesheet" type="text/css" href="/mychat/css/swiper.css">
+		<link rel="stylesheet" type="text/css" href="/mychat/css/jquery.fancybox.css">
+		<link rel="stylesheet" type="text/css" href="/mychat/css/zdialog.css">
+		<link rel="stylesheet" type="text/css" href="/mychat/css/chatroom_1563170882621.min.css">
+		<link rel="stylesheet" href="/mychat/css/laydate.css" id="layuicss-laydate">
+		<link rel="stylesheet" href="/mychat/css/style_https.3.2.0.css">
+		<link rel="stylesheet" href="/mychat/css/main.css">
+		<link rel="stylesheet" href="/mychat/css/mystyle.css">
+		<link rel="stylesheet" href="/mychat/css/loginstyle.css">
+		<link rel="stylesheet" type="text/css" href="/mychat/css/mod.css">
+		<script type="text/javascript" src="/mychat/js/jquery-3.4.1.js"></script>
+		<script type="text/javascript" src="/mychat/js/AgoraRTCSDK-2.8.0.js"></script>
+		<script type="text/javascript" src="/mychat/js/agora-rtm-sdk-1.0.0.js"></script>
+		<script type="text/javascript" src="/mychat/js/swiper.js"></script>
+		<script type="text/javascript" src="/mychat/js/emoji.js"></script>
+		<script type="text/javascript" src="/mychat/js/mod.js"></script>
+		<script type="text/javascript" src="/mychat/js/myjs.js"></script>
+	</head>
+
+	<body>
+	<div class="chat-main">
+			<div id="video" style="margin:0 auto;display: none;">
+			    <div id="agora_local" style="float:right;width:210px;height:147px;display:inline-block;">
+			    </div>
+			</div>
+			<div class="chat-head" style="/*background: url(img/chatheadbg.png) no-repeat 0 0 #996699;*/ overflow: hidden;background: black">
+				<div class="logo"></div>
+				<div style="display: flex; height: 65px;">
+					<div class="chat-head-left">
+						<div class="chat-logo">
+							<a href="#" target="_black">
+								<p></p>
+							</a>
+						</div>
+						<div style="display: none;" id="div-shangdang">
+							<button id="btnShangDang" status="0">上档</button>
+						</div>
+					</div>
+					<div class="chat-head-right">
+						<div style="font-size: 12px; color: #fff; text-align: center;  align-items: center; flex-flow: wrap; display: inline-flex; ">
+							<div style="margin-right: 44px; font-size: 16px;" id="divNoLogin">
+								<span id="language" style="margin-right: 10px;cursor:pointer;">中文/English</span>
+								<span id="chatHeadYkNickname"></span>
+								<span style="padding:0 16px;">|</span>
+								<span class="chat-btnlogin">登录</span>
+							</div>
+							<div style="margin-right: 44px; font-size: 16px; display: none" id="divLogin">
+								<a href="javascript:;" class="user-own-message">私信<em></em>
+								<div class="flex newimmessage-tips">
+									<p></p>
+								</div>
+							</a>
+								<span style="padding:0 16px;">|</span>
+								<a class="jump-to-center" target="_blank" href=""><span id="chatHeadImage"></span></a>
+								<a class="jump-to-center" target="_blank" href=""><span id="chatHeadNickname"></span></a>
+								<span style="padding:0 16px;">|</span>
+								<span class="chat-btnoutlogin" style="">退出</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flex chat-content">
+				<div class="chat-left">
+					<div class="chat-room-list">
+						<div class="chat-room-list-main" id="chatRoomList">
+											<div>
+										</div>
+									</div>
+								</div>
+							</div>
+				<!-- 中间style -->
+
+				<div class="flex chat-center" style="flex-direction: column;">
+					<div class="flex chat-center-main">
+						<div class="flex chat-center-left">
+
+							<!-- 中间banner -->
+							<div class="flex kengkengkeng chat-center-banner" style="display: block;">
+								<div class="flex chat-center-banner-main" style="background: url(&quot;/mychat/img/bg.jpg&quot;) no-repeat; height: 300px; margin: 10px;">
+									<div class="main-zhuci"  style="display: block">
+										<!--主持麦位-->
+										<div class="main-keng-parents main-zhuci-header-content" style="margin-top: 10px;">
+											<div class="main-keng-parents main-keng-header main-keng-empty main-keng-empty-an main-zhuci-header " id="main_zhuci_account" account="1">
+												<div class="guangyun guangyun1"></div>
+												<span class="chatmain-span-xiamai" style="display: none;"></span>
+												<div class="keng-teacher-zhuci-keng"></div>
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" id="user_photo_main" src="/mychat/img/empty.jpg">
+												<span class="span-main-tag">主持</span>
+											</div>
+											<p class="main-zhuci-name">
+												<font style="color:#fff;display: none;">Yu.阿记</font>
+											</p>
+											<div class="div-clickzan" style="display: none;">
+												<button class="p666"></button>
+												<button class="p999"></button>
+											</div>
+										</div>
+									</div>
+									<!--麦位-->
+									<div class="flex main-kengwei" style="width: 580px;">
+										
+										
+										<div account="0" position="2" class="main-keng-parents main-keng-empty main-keng-item" style="margin-left: 40px;display: block;">
+											<span class="main-xu">1</span>
+											<div class="main-keng-header main-keng-empty-an main-keng-peipei-item" account="0">
+												<div class="guangyun guangyun1"></div>
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" src="/mychat/img/empty.jpg">
+											</div>
+											<span class="chat-span-xiamai"></span>
+											<p>
+												<font style="color:#fff;display:none;">Yu.水</font>
+											</p>
+											<div class="keng-gift-count" style="display:none;">16</div>
+										</div>
+										<div account="0" position="3" class="main-keng-parents main-keng-empty main-keng-item" style="margin-left: 40px;display: block;">
+											<span class="main-xu">2</span>
+											<div class="main-keng-header main-keng-empty-an main-keng-peipei-item" account="0">
+												<div class="guangyun guangyun1"></div>
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" src="/mychat/img/empty.jpg">
+											</div>
+											<span class="chat-span-xiamai"></span>
+											<p>
+												<font style="color:#fff;display:none;">Yu.水</font>
+											</p>
+											<div class="keng-gift-count" style="display:none;">16</div>
+										</div>
+										<div account="0" position="4" class="main-keng-parents main-keng-empty main-keng-item" style="margin-left: 40px;display: block;">
+											<span class="main-xu">3</span>
+											<div class="main-keng-header main-keng-empty-an main-keng-peipei-item" account="0">
+												<div class="guangyun guangyun1"></div>
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" src="/mychat/img/empty.jpg">
+											</div>
+											<span class="chat-span-xiamai"></span>
+											<p>
+												<font style="color:#fff;display:none;">Yu.水</font>
+											</p>
+											<div class="keng-gift-count" style="display:none;">16</div>
+										</div>
+										<div account="0" position="5" class="main-keng-parents main-keng-empty main-keng-item" style="margin-left: 40px;display: block;">
+											<span class="main-xu">4</span>
+											<div class="main-keng-header main-keng-empty-an main-keng-peipei-item" account="0">
+												<div class="guangyun guangyun1"></div>
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" src="/mychat/img/empty.jpg">
+											</div>
+											<span class="chat-span-xiamai"></span>
+											<p>
+												<font style="color:#fff;display:none;">Yu.水</font>
+											</p>
+											<div class="keng-gift-count" style="display:none;">16</div>
+										</div>
+										<div account="0" position="6" class="main-keng-parents main-keng-empty main-keng-item" style="margin-left: 40px;display: block;">
+											<span class="main-xu">5</span>
+											<div class="main-keng-header main-keng-empty-an main-keng-peipei-item" account="0">
+												<div class="guangyun guangyun1"></div>
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" src="/mychat/img/empty.jpg">
+											</div>
+											<span class="chat-span-xiamai"></span>
+											<p>
+												<font style="color:#fff;display:none;">Yu.水</font>
+											</p>
+											<div class="keng-gift-count" style="display:none;">16</div>
+										</div>
+										<div account="0" position="7" class="main-keng-parents main-keng-empty main-keng-item" style="margin-left: 40px;display: block;">
+											<span class="main-xu">6</span>
+											<div class="main-keng-header main-keng-empty-an main-keng-peipei-item" account="0">
+												<div class="guangyun guangyun1"></div>
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" src="/mychat/img/empty.jpg">
+											</div>
+											<span class="chat-span-xiamai"></span>
+											<p>
+												<font style="color:#fff;display:none;">Yu.水</font>
+											</p>
+											<div class="keng-gift-count" style="display: none;">16</div>
+										</div>
+										<div account="0" position="8" class="main-keng-parents main-keng-empty main-keng-item" style="margin-left: 40px;display: block;">
+											<span class="main-xu">7</span>
+											<div class="main-keng-header main-keng-empty-an main-keng-peipei-item" account="0">
+												<div class="guangyun guangyun1"></div>
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" src="/mychat/img/empty.jpg">
+											</div>
+											<span class="chat-span-xiamai"></span>
+											<p>
+												<font style="color:#fff;display:none;">Yu.水</font>
+											</p>
+											<div class="keng-gift-count" style="display: none;">16</div>
+										</div>
+										<div account="0" position="9" class="main-keng-parents main-keng-empty main-keng-item" style="margin-left: 40px;display: block;">
+											<span class="main-xu">8</span>
+											<div class="main-keng-header main-keng-empty-an main-keng-peipei-item" account="0">
+												<div class="guangyun guangyun1"></div>
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" src="/mychat/img/empty.jpg">
+											</div>
+											<span class="chat-span-xiamai"></span>
+											<p>
+												<font style="color:#fff;display:none;">Yu.水</font>
+											</p>
+											<div class="keng-gift-count" style="display: none;">16</div>
+										</div>
+									</div>
+
+									<div class="flex main-all-pingjia" style="display: none;">
+										<button class="pall666">全麦送</button>
+										<button class="pall999">全麦送</button>
+									</div>
+								</div>
+							</div>
+							<!-- 坑位 -->
+							<div class="flex kengkengkeng chat-center-keng" style="display: none;">
+								<!-- 老板坑位 -->
+								<div class="chat-keng-boss">
+									<div class="chat-keng-boss-content">
+										<div class="chat-keng-boss-head" account="0">
+											<!-- 北光 -->
+											<div class="boss-head boss-guang boss-guang-roat"></div>
+											<!-- border -->
+											<div class="kengclass boss-head boss-border" account="0">
+												<div class="guangyun guangyun1"></div>
+												<span class="chat-span-xiamai" style="top: -3px; right: -4px;"></span>
+												<span class="boss-head-tag" style="">
+
+											</span>
+											</div>
+											<!-- boss头像 -->
+											<div class="boss-head boss-header">
+												<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" src="/mychat/img/empty.jpg">
+											</div>
+										</div>
+										<div class="chat-keng-boss-name">
+											老板座
+										</div>
+									</div>
+									<!-- <div class="rightline"></div> -->
+								</div>
+								<!-- 主持和陪陪坑位 -->
+								<div class="chat-keng-mai">
+									<ul>
+
+									</ul>
+								</div>
+							</div>
+
+							<!-- 车队坑  -->
+							<div class="flex kengkengkeng chat-center-carteam-keng chat-center-pudg-auto" style="height: 402px; display: none; background: url(&quot;/mychat/img/3479611552639784.png&quot;) repeat;">
+								<div class="flex carteam-keng-zhuci">
+
+									<div>
+										<div>
+											<div class="carteam-keng-empty pudgauto-keng-empty autocarteam-keng-empty carteam-zhuci-header speaking" account="1357225">
+												<div>
+													<div class="guangyun guangyun1"></div>
+													<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;" class="carteam-keng-header" src="/mychat/img/25_avatar_middle.jpg">
+													<span class="carteamperson-close" style="display: none;"></span>
+												</div>
+												<span class="carteam-tag">主持</span>
+
+											</div>
+											<p class="carteam-zhuci-name" style="color: rgb(255, 255, 255);">Moki</p>
+										</div>
+
+										<div class="flex carteam-jiabin">
+										</div>
+
+									</div>
+
+									<div class="zhuci-voice-swich" style="display: none;"></div>
+								</div>
+
+								<style type="text/css">
+									.swiper-pagination-bullet {
+										background: #ccc;
+									}
+									
+									.swiper-pagination-bullet-active {
+										background: #ff5588;
+									}
+									
+									.carteam-keng-users .swiper-button-white {
+										position: absolute;
+										background-repeat: no-repeat;
+										background-size: 20px 12px;
+										background-position: left 13px center;
+										width: 106px;
+										height: 36px;
+										border-radius: 6px;
+										font-size: 14px;
+										color: #fff;
+										line-height: 36px;
+										text-indent: 38px;
+									}
+									
+									.carteam-keng-users .swiper-button-next.swiper-button-white {
+										background-image: url(/mychat/img/nexticon.png);
+									}
+									
+									.carteam-keng-users .swiper-button-prev.swiper-button-white {
+										background-image: url(/mychat/img/previcon.png);
+									}
+									
+									.carteam-keng-users div.swiper-button-next {
+										left: auto;
+										right: 30px;
+										background-color: rgba(0, 0, 0, 0.5);
+										bottom: 20px;
+										top: auto;
+										display: none;
+									}
+									
+									.carteam-keng-users div.swiper-button-next:hover {
+										background-color: rgba(0, 0, 0, 0.7);
+									}
+									
+									.carteam-keng-users div.swiper-button-next:active {
+										background-color: rgba(0, 0, 0, 0.5);
+									}
+									
+									.carteam-keng-users div.swiper-button-prev {
+										left: auto;
+										right: 30px;
+										background-color: rgba(0, 0, 0, 0.5);
+										bottom: 20px;
+										top: auto;
+										display: none;
+									}
+									
+									.carteam-keng-users div.swiper-button-prev:hover {
+										background-color: rgba(0, 0, 0, 0.7);
+									}
+									
+									.carteam-keng-users div.swiper-button-prev:active {
+										background-color: rgba(0, 0, 0, 0.5);
+									}
+								</style>
+
+								<!-- 自由组队 -->
+								<div class="carauto-keng-users" style="display: none;">
+									<div class="flex carauto-teams-show" style="">
+										<div class="carauto-teams-title"></div>
+										<div class="carauto-teams-persons" style="" fid="0">
+
+										</div>
+										<div class="carauto-yaoqiu" style="">
+											<div class="carauto-yaoqiu-shang"></div>
+											<p></p>
+										</div>
+									</div>
+									<img src="/mychat/img/join_car_bg.png" class="join_car_tips">
+									<div class="carauto-teams">
+										<div class="flex carauto-teams-quxu">
+											<ul class="carauto-teams-qu">
+
+											</ul>
+											<div class="flex carauto-teams-xu">
+												<div class="carauto-button carauto-button-prev"></div>
+												<div class="carauto-pagination-caraudo">
+
+												</div>
+												<div class="carauto-button carauto-button-next"></div>
+											</div>
+										</div>
+										<div class="carauto-teams-all">
+											<ul class="swiper-wrapper carauto-teams-list">
+											</ul>
+
+											<!-- Add Arrows -->
+										</div>
+									</div>
+								</div>
+
+								<!-- 绝地求生自定义玩法 -->
+								<!-- -->
+							</div>
+
+							<!-- 绝地求生自定义玩法 -->
+							<!-- <div class="flex kengkengkeng chat-center-pudg-auto">
+							
+							
+
+						</div> -->
+
+							<!-- 绝地求生自定义玩法 临时厅 -->
+
+							<!-- 聊天窗口 -->
+
+							<div class="flex chat-center-window">
+
+								<div id="chatNewmessage" class="chat-center-newmessage" style="display: block;">有新消息</div>
+
+								<div class="chat-center-window-main">
+									<div class="flex chat-center-message">
+										<div class="chatroom-gonggao"></div>
+										<div class="flex getredbag-message" style="margin:10px 0;">
+											<div class="flex welcome-get-message" id="log"></div>
+										</div>
+									</div>
+
+								</div>
+								<!-- dddddddddddddddddddddddd -->
+								<style type="text/css">
+									.jingji-success-button {
+										width: 64px;
+										height: 64px;
+										position: absolute;
+										z-index: 300;
+										right: 25px;
+										bottom: 80px;
+										cursor: pointer;
+										display: none;
+									}
+									
+									.jingji-success-button img.img-success-tips {
+										position: absolute;
+										left: -324px;
+										top: -215px;
+									}
+								</style>
+								<div class="jingji-success-button" style="display: none;">
+									<img src="/mychat/img/jingjisuccessbtn.png">
+									<img class="img-success-tips" src="/mychat/img/successbtntips.png">
+								</div>
+
+								<div class="chat-diandan">
+
+									<div class="diandanroom-btns" style="display: flex;">
+										<span class="chat-shangmai-btn" position="-1" style="display: none;">上麦</span>
+										<span class="chat-diandan-btn" id="onMain" position="0">上主持</span>
+									</div>
+									<div class="paidanroom-btns" style="display: none;">
+										<span class="chat-diandan-complete" style="display: none;">完成派单</span>
+										<span class="chat-diandan-shiyin" status="0">试音</span>
+									</div>
+									<div class="carteamroom-btns" style="display: none;">
+										<span class="chat-shangche-btn">开车</span>
+									</div>
+
+									<div class="ktvroom-btns" style="display: none;">
+										<span class="chat-diandan-shangkeng" status="0">试音</span>
+									</div>
+
+									<div class="chat-diandan-btn-music" status="0" style="display: none;">
+										<span class="chat-diandan-btn-music-text">点歌</span>
+										<div class="chat-diandan-list" style="display: none;">
+											<p>当前排队点歌</p>
+											<div class="chat-diandan-list-content">
+												<ul class="flex" style="flex-direction: column;"></ul>
+											</div>
+											<div class="chat-center-myneeddiandan">我要点歌</div>
+										</div>
+									</div>
+
+								</div>
+								<div id="bossWill" class="flex boss-will">
+									<!-- <div class="bosswill-close"></div> -->
+									<div class="flex boss-will-content"></div>
+								</div>
+
+								<div class="boss-comein-chat" id="bossComein">
+								</div>
+
+								<div class="flex carauto-create-yao" style="display: none;">
+									<div class="flex yaoqing-float" style="z-index: 9">
+										<p class="yaoqing-title"> 邀请队友</p>
+										<p class="yaoqing-tips">快去邀请好友来一起玩游戏吧~</p>
+										<div class="flex">
+											<div class="yaoqing-item qqshare">
+												<img src="/mychat/img/qqicon.png">
+												<p>QQ分享</p>
+											</div>
+											<div class="yaoqing-item qqquanshare">
+												<img src="/mychat/img/qqkongjianicon.png">
+												<p>QQ空间</p>
+											</div>
+											<div class="yaoqing-item weiboshare">
+												<img src="/mychat/img/weibo.png">
+												<p>微博</p>
+											</div>
+										</div>
+										<div class="yaoqing-close"></div>
+									</div>
+									<div class="flex carauto-btn-fun carauto-share" style="display: none;">
+										邀请队友
+									</div>
+									<img src="/mychat/img/create_car_bg.png" class="create_car_tips">
+									<div class="flex carauto-btn-fun carauto-create" style="display: none;">创建车队</div>
+									<div class="flex carauto-btn-fun carauto-duizhang-exitcar">解散车队</div>
+								</div>
+								<style type="text/css">
+									.chat-chiji-op,
+									.chat-chiji-over {
+										position: absolute;
+										width: 64px;
+										height: 64px;
+										font-size: 20px;
+										background: #ff5588;
+										border-radius: 100%;
+										right: 10px;
+										bottom: 10px;
+										line-height: 64px;
+										text-align: center;
+										color: #fff;
+										font-weight: 500;
+										opacity: 1;
+										cursor: pointer;
+										display: none;
+									}
+									
+									.chat-chiji-op:hover,
+									.chat-chiji-over:hover {
+										opacity: 0.9
+									}
+									
+									.chat-chiji-op.over {
+										background: #ccc;
+										color: #666;
+									}
+									
+									.pudg-myteam-btn {
+										width: 44px;
+										height: 64px;
+										border-radius: 100%;
+										background: #ff5588;
+										display: flex;
+										justify-content: center;
+										align-items: center;
+										color: #fff;
+										position: absolute;
+										right: 10px;
+										bottom: 10px;
+										padding: 0 10px;
+										text-align: center;
+									}
+								</style>
+								<div class="chat-chiji-op" style="display: none;">开始</div>
+								<div class="chat-chiji-over" style="display: none;">结束</div>
+								<div class="pudg-myteam-btn" channel="" style="cursor: pointer; display: none;">我的车队</div>
+
+							</div>
+						</div>
+						<div class="chat-center-right" style="height: 500px;">
+
+							<div class="right-noboss" style="">
+
+								<!-- <div class="right_chatroom_guanming" style="display: block;">交友活动正在进行中～</div> -->
+
+								<div class="rightnormal chat-right-banner" style="display: block;">
+									<div class="swiper-container">
+										<div class="swiper-wrapper"></div>
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+
+								<div class="right-order-tab" style="display: flex;">
+									<div class="hero-week-rank" id="weekList">周榜</div>
+									<div class="hero-week-rank" id="monthList">月榜</div>
+								</div>
+								<!-- 爱的表白 -->
+								<!--表白墙内容-->
+								
+								<!--守护周榜内容-->
+								<div class="right-hero-rank-content" style="display: block;" id="weekListW">
+									<div class="div-zhou-hero-rank">
+										<ul id="weekListController">
+											
+										</ul>
+
+									</div>
+								</div>
+								<!--守护月榜内容-->
+								<div class="right-hero-rank-content" style="display: none;" id="monthListW">
+									<div class="div-zhou-hero-rank">
+										<ul id="monthListController">
+											
+										</ul>
+
+									</div>
+								</div>
+							</div>
+							<!-- pudg 右边 -->
+							<div class="right-pudg" style="display: none;">
+								<div class="right_chatroom_guanming" style="display: block;">交友活动正在进行中～</div>
+								<div class="right-carteam-content">
+									<!-- 排行榜 -->
+									<div class="right-carteam-tab-con right-carteam-paihang" style="display: none;">
+										<div class="flex right-carteam-paihang-tab">
+											<div class="current">队长榜</div>
+											<div>队员榜</div>
+											<div>守护榜</div>
+										</div>
+										<div class="right-carteam-paihang-content">
+											<div class="paihang-item div-zhou-rand">
+												<ul>
+
+												</ul>
+											</div>
+											<div class="paihang-item div-yue-rand" style="display: none;">
+												<ul>
+
+												</ul>
+											</div>
+											<div class="paihang-item div-yue-rand" style="display: none;">
+												<ul>
+
+												</ul>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- 聊天输入框 -->
+					<div class="flex flexvcenter chat-center-inputcontent">
+						<div class="flex chat-center-input-left">
+							<div class="flex chat-center-gift" style="">
+								<div class="flexinline chat-center-gift-show" id="gift" style="font-size: 14px; align-items: center;">
+									<img src="/mychat/img/gifticon.png" style="height: 24px;">
+									<span id="give" style="margin-left: 6px;">赠送礼物</span>
+								</div>
+								<div class="flex chat-center-gift-content" style="display: none;">
+									<div class="flex chat-center-gift-tab">
+										<div class="gift-selected"><span>礼物</span></div>
+										<!-- <div><span>冠名</span></div>
+										<div><span>活动礼</span></div>
+										<div><span>包裹</span></div> -->
+									</div>
+									<div class="chat-center-gift-list">
+										<div class="flex gifttab chat-center-gift-list-single" id="giftTab1">
+											
+										</div>
+										<!-- <div class="flex gifttab hide" id="giftTab2">
+											
+										</div>
+										<div class="flex gifttab hide chat-center-gift-list-single" id="giftTab3">
+											
+										</div>
+										<div class="flex gifttab hide chat-center-gift-list-single" id="giftTab4"></div> -->
+									</div>
+									<div class="flex gift-window-bottom">
+										<!-- 数量  -->
+										<div class="flex gift-window-bottom-count" style="background: #fff;">
+											<span>数量</span>
+											<span><input type="number" value="1" id="inputGiftCount"></span>
+											<span id="spanShowGiftCount" style="padding:0 10px;">
+											<img src="/mychat/img/top_kong_hover.png">
+										</span>
+											<div class="gift-count-list" id="giftCountList" style="display: none;">
+												<span class="current">10</span>
+												<span>66</span>
+												<span>520</span>
+												<span>888</span>
+												<span>1314</span>
+											</div>
+										</div>
+										<!-- 先赠送的导师  -->
+										<div style="font-size: 14px; margin-left: 16px;">赠送给：</div>
+										<div class="flex gift-send-teacher-content gift-window-bottom-count" style="background: #fff;max-width: 180px;">
+											<span id="selectGiftTeacher" uid="0">请选择</span>
+											<span id="spanTeacherShow" style="padding:0 10px;">
+											<img src="/mychat/img/top_kong_hover.png">
+										</span>
+											<!--礼物赠送对象-->
+											<div class="flex gift-send-teacher-list" style="display: none;">
+												<div id="divTeacherList">
+													<!-- <p style="order:0" uid="1">
+														<font style="color:red">送给Yu.迟山</font>
+													</p>
+													<p style="order:0" uid="2">
+														<font style="color:red">送给Yu.二柱</font>
+													</p> -->
+												</div>
+											</div>
+										</div>
+										<div class="gift-send-btn">赠送</div>
+										<div class="gift-my-money">
+											<p>我的余额：￥
+												<font id="font-my-yue"></font>
+											</p>
+										</div>
+										<div class="gift-go-congzi" style="flex: 1 auto;">
+											<a href="https://www.suprass.cn/user/caiwu/chongzhi.html" target="_blank">去充值</a>
+										</div>
+									</div>
+
+									<div class="div-futext" style="display:none;position: absolute;right: 0;top: 0;">
+										<input type="text">
+										<button>确定</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- 红包功能 发红包 -->
+
+							<!-- <div class="flex chat-center-redpacket" style="">
+								<div class="flexinline" style="font-size: 14px; align-items: center;">
+									<img src="/mychat/img/redpacket.png" style="height: 24px;">
+									<span id="envelopes" style="margin-left: 6px;">发红包</span>
+								</div>
+							</div> -->
+							<!-- 发红包按钮结束 -->
+
+							<div class="flex flexvcenter chat-input-text">
+								<div class="flex flexvcenter chat-input-smile">
+									<img src="/mychat/img/smile.png">
+									<!-- 表情 -->
+									<div class="chat-emoji-list" style="left: -10000px;">
+
+									</div>
+								</div>
+
+								<!-- <input type="text" name=""> -->
+								<textarea id="chat_content"></textarea>
+
+								<div class="flex flexvcenter chat-input-camer">
+									<input id="chatFileUploadImage" type="file" name="">
+								</div>
+								<div id="send" class="inline-flex flexvcenter flexhcenter chat-input-btn-send">
+									发送
+								</div>
+							</div>
+						</div>
+
+						<div class="flex chat-function">
+							<div class="flex chat-function-box">
+								<div class="flex chat-function-div chat-function-huatong" alt="yes">
+									<div class="chat-huatong chat-huatong-jin" style="">
+										<div class="chat-micphone-volume" style="display: none;">
+											<input min="0" max="100" step="1" type="range" name="">
+										</div>
+									</div>
+									<div id="mic" class="chat-function-text">话筒</div>
+								</div>
+
+								<div class="flex chat-function-div chat-function-yinliang">
+									<div class="chat-background" style="margin-right: 6px;">
+										<div class="chat-voice-volume" style="display: none;">
+											<input value="100" min="0" max="100" step="1" type="range" name="">
+										</div>
+
+									</div>
+									<div id="vol" class="chat-function-text">音量</div>
+								</div>
+								<div class="flex chat-function-div chat-function-tsjy">
+									<div class="flex chat-dd-kefu" id="dd_kefu_chat">
+										<span id="kefu" class="chat-function-text">联系客服</span>
+									</div>
+								</div>
+
+							</div>
+							<div class="chat-talk-tips"></div>
+						</div>
+					</div>
+					<div class="bannner_position" id="dragSvga" style="position:absolute;cursor: pointer;text-align:center;top:70%;left:75%">
+						<div class="bangmask_active_little" style="position:relative;display:none;left:0px;top:0px;" title="成长值：2950937/4000000">
+							<div class="active_little_close" style="cursor: pointer;width:23px;height:23px;background:url(/mychat/img/recharge_first_little_close.png);position:absolute;top:-15px;right:-5px;display:none"></div>
+							<div class="svga_action">
+								<div class="active_banner_little" id="enter_svga" style="z-index: 10; position: relative; left: 50%; transform: translateX(-50%); background-color: transparent; width: 159px; height: 156px; text-align: left;"><canvas width="210" height="210" style="background-color: transparent;"></canvas></div>
+							</div>
+							<div class="process_name" style="font-size:12px;color:#666666;margin-bottom:8px;">美人鱼公主</div> <progress max="100" value="73.773425" class="now_process"></progress> </div>
+						<div class="bangmask_recharge_little" style="position:relative;margin-top:15px;display:none;">
+							<div class="recharge_little_close" style="cursor: pointer;width:23px;height:23px;background:url(/mychat/img/recharge_first_little_close.png);position:absolute;top:4px;right:-5px;"></div> <img class="recharge_banner_little" src="/mychat/img/recharge_first_little_bg.png"> </div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 页脚 -->
+			<style type="text/css">
+				.chat-footer {
+					height: 45px;
+					background: #996699;
+					order: 3;
+					align-items: center;
+					color: #fff;
+					font-size: 14px;
+					padding-left: 16px;
+				}
+				
+				.chat-footer-item {
+					margin-right: 16px;
+				}
+				
+				.chat-footer img {
+					height: 26px;
+				}
+				
+				.chat-footer span {
+					margin-left: 10px;
+				}
+			</style>
+			<div class="flex chat-footer" style="display: none;">
+				<div class="flex flexvcenter chat-footer-item">
+					<img src="/mychat/img/voice.png">
+					<span>音量</span>
+				</div>
+				<div class="flex flexvcenter chat-footer-item">
+					<img src="/mychat/img/maike.png">
+					<span>麦克</span>
+				</div>
+				<div class="flex flexvcenter chat-footer-item">
+					<img src="/mychat/img/setting.png">
+					<span>设置</span>
+				</div>
+				<div class="flex flexvcenter chat-footer-item">
+					<img src="/mychat/img/fayin.png">
+					<span>发音</span>
+				</div>
+				<div class="flex flexvcenter chat-footer-item">
+					<img src="/mychat/img/banzou.png">
+					<span>伴音</span>
+				</div>
+			</div>
+		</div>
+
+		<div id="preinfoTips" class="preinfotips" style="background:rgba(0,0,0,0.4);display: none;">
+			<div class="pretips-content">
+				<span class="pretips-close" onclick="document.getElementById(&#39;preinfoTips&#39;).style.display=&#39;none&#39;;"></span>
+				<div class="pretipsinfo">
+					<img class="downloadhead" style="width:200px; height:200px; margin-left: 25px;" src="/mychat/img/downloadhead.png" alt="">
+					<audio id="downloadmp3" src="" loop="true" preload="auto"></audio>
+					<div style="width: 300px;">
+						<p style="font-size:24px; color:#666; margin-top: 20px;">请下载客户端获得最佳体验哦~~</p>
+						<p style="font-size: 12px; color: #999; margin-top: 10px;">大神妹子免费陪你开黑，人满立即发车</p>
+						<div style="display:flex; margin-top:10px;">
+							<div class="download_now" style="background: #ff5588;" onclick="location.href=&#39;&#39;">立即下载</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<style type="text/css">
+			.pagetips {
+				position: fixed;
+				display: flex;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				justify-content: center;
+				align-items: center;
+				z-index: 9999;
+				opacity: 0;
+				display: none;
+				pointer-events: none;
+			}
+			
+			.pagetips .pagetips-content {
+				background: #000;
+				padding: 2px 10px;
+				border-radius: 4px;
+				color: #fff;
+			}
+		</style>
+		<div class="pagetips">
+			<div class="pagetips-content"></div>
+		</div>
+
+		<div class="sendPacketModal" style="display: none;">
+			<div class="sendPacket-content">
+				<div style="background:url(/mychat/img/redpackbgshadow.png) no-repeat -17px -17px; left:0; top:0;position:absolute; width:372px; height:474px; z-index:-1"></div>
+				<div class="tipsinfo"> <span class="sendpacket-close"></span>
+					<ul class="packet-title">
+						<li data-selectid="0" class="selectedli">所有人</li>
+						<li data-selectid="1">送导师</li>
+						<li data-selectid="2">送老板</li>
+					</ul>
+					<div style="font-size:24px;color:#ff224f;width: 125px;height:30px;margin:0 auto;text-align: center;line-height: 30px;margin-top:10px">拼手气红包</div>
+					<div class="packet-tips">发给当前聊天室所有用户</div>
+					<div class="packet-money"> <span>金额</span> <input type="text" class="packet-money-input" placeholder="填写金额"> <span>元</span> </div>
+					<div class="packet-num"> <span>个数</span> <input type="text" value="3" class="packet-num-input" placeholder="填写个数"> <span>个</span> </div> <input type="text" class="packet-desc" placeholder="随意玩耍，我买单">
+					<div class="packet-num-big"></div>
+					<div class="packect-tips"> <span style="display: inline-block;width:10%;border-top:.5px solid #ccc;padding-bottom:5px;margin-right:5px;"></span> <span>我的余额：<span class="my-money"></span>元</span> <span style="display: inline-block;width:10%;border-top:.5px solid #ccc;padding-bottom:5px;margin-left:5px;"></span>						</div> <button class="inputpacket">塞进红包</button> </div>
+			</div>
+		</div>
+		<div class="willopenModal" style="display: none;">
+			<div class="willopen-content">
+				<div style="background:url(/mychat/img/redpackbgshadow.png) no-repeat -17px -17px; left:0; top:0;position:absolute; width:372px; height:474px; z-index:-1"></div>
+				<div class="canGrap"> <span class="willopen-close"></span> <img class="ownerPic" src="" alt="">
+					<div class="whospacket"><span class="packet-nickname"></span>发了一个红包</div>
+					<div class="ownerpacket-desc"></div> <button class="grabPacket">抢</button>
+					<div class="packetType"></div>
+				</div>
+			</div>
+		</div>
+		<div class="hasopenModal" style="display: none;">
+			<div class="hasopen-content">
+				<div style="background:url(/mychat/img/redpackbgshadow.png) no-repeat -17px -17px; left:0; top:0;position:absolute; width:372px; height:474px; z-index:-1"></div>
+				<div> <span class="hasopen-close"></span> <img class="ownerPic-1" src="" alt="">
+					<div class="whospacket-1"></div>
+					<div class="ownerpacket-desc-1"></div>
+					<div class="grapTips">
+						<div style=" font-size: 34px;color:#ff224f;" class="grapAmount"></div>
+						<div style=" font-size: 24px;color:#ff224f;" class="failTips"></div>
+						<div class="successTips">金额已存入我的余额中</div>
+					</div>
+					<div class="leftTips">
+						<div style="float:left">已领取<span class="leftNum"></span>个</div>
+						<div style="float:right">剩余<span class="leftMoney"></span>元</div>
+					</div>
+					<ul class="whoGrapPacket"> </ul>
+				</div>
+			</div>
+		</div>
+		<div id="tui-tips" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);padding:5px 20px;background:rgba(51,51,51,0.96);color:#fff;font-size:16px;border-radius:4px;z-index:999"> </div>
+
+		<div class="zxh-mask" style="display:none;">
+			<div class="zxh-content zxh-write-content"> <span class="zxh-close"></span> <span class="zxh-public-tag"></span>
+				<div class="zxh-write">
+					<div class="zxh-textarea"> <textarea style="height:70px;" maxlength="24" placeholder="请填写问题, 最多24个中文字"></textarea> </div>
+					<div class="zxh-public-check"><em class="checked"><img src="/mychat/img/zxhselecticon.png"></em>勾选后会发到活动中哦~&nbsp;&nbsp;<a style="color:#fff;text-decoration: underline;" target="_blank" href="">点击查看活动</a></div>
+					<div style="text-align:center;"><span class="zxh-write-btn"></span></div>
+				</div>
+			</div>
+			<div class="zxh-content zxh-rewrite-content" style=""> <span class="zxh-close"></span> <span class="zxh-public-tag"></span>
+				<div class="zxh-write">
+					<div class="zxh-textarea">
+						<div class="zxh-ask">
+							<div class="zxh-ask-write"> <textarea style="height:88px;" maxlength="24" placeholder="请填写答案，最多24个中文字"></textarea> </div>
+						</div>
+					</div>
+					<div style="text-align:center; margin-top:10px;"><span class="zxh-ask-btn"></span></div>
+				</div>
+			</div>
+			<div class="zxh-tips"></div>
+			<div class="zxh-baoxiang">
+				<p style="font-size: 30px;">恭喜您</p>
+				<p style="font-size: 24px;">获得了
+					<font id="baoxiangDiamond"></font> 超时空币石</p>
+			</div>
+		</div>
+
+		<style type="text/css">
+			.yaoqing-shangmai {
+				position: fixed;
+				display: flex;
+				bottom: 10px;
+				left: 10px;
+				flex-direction: column;
+			}
+			
+			.yaoqing-shangmai .yqshangmai-item {
+				display: flex;
+				padding: 20px;
+				background: #ccc;
+				border-radius: 6px;
+				justify-content: center;
+				align-items: center;
+				margin-top: 10px;
+			}
+			
+			.yaoqing-shangmai .yqshangmai-item button {
+				margin-left: 10px;
+				color: #fff;
+				border-radius: 6px;
+			}
+			
+			.yaoqing-shangmai .yqshangmai-item button.btnagree {
+				background: green;
+			}
+			
+			.yaoqing-shangmai .yqshangmai-item button.btnrejust {
+				background: red;
+			}
+		</style>
+		<div class="yaoqing-shangmai" id="yaoqingsm">
+
+		</div>
+
+		<!-- lllllllllllllllllllllllllll -->
+		<div id="play"></div>
+		<audio id="audioPlayRight"></audio>
+
+		<!-- 以下是登录 -->
+
+		<!--登录窗口-->
+		<div id="index_pup_box">
+			<div class="entry_pop_box">
+				<div class="entry_pop_content" style="background: #353430">
+					<div class="layer-cell-close"></div>
+					<div class="fl" style="width:100%;">
+						<div class="enroll_content" style="width:500px;margin: 0 auto;display: black;" id="win_login">
+							<div class="register_box">
+								<h2 style="color:white; text-align: center;">登录</h2>
+								<div class="register">
+									<label id="user_login_name">账号</label>
+									<input type="text" placeholder="请输入用户名/手机号" id="username" required="">
+									<div class="dislocation dislocation_02 usernameMsg"></div>
+								</div>
+								<div class="register">
+									<label id="user_login_password">密码</label>
+									<input type="password" id="pwd" placeholder="请输入密码" required="">
+									<div class="dislocation dislocation_02 passwordMsg"></div>
+								</div>
+					
+
+							</div>
+
+							<div class="voluntarily_box">
+								<input type="checkbox" checked="" class="fl voluntarily01"><span></span>
+								<div class="fl voluntarily02">下次自动登录</div>
+								<a href="https://www.suprass.cn/user/login/findpassword" target="_blank" title="忘记密码？">
+									<div class="fr voluntarily03" style="margin-right: 100px;">忘记密码?</div>
+								</a>
+							</div>
+							<div class="button_login" style="background:white;color:black; width: 20%;margin-top: 40px; border-radius: 5px;padding:5px; text-align: center; float: left; margin-left: -100px; cursor: pointer;" alt="login">登录</div>
+							<div class="button_register" style="background:white;color:black;width: 20%;float: right;margin-top: 40px; border-radius: 5px;padding:5px; text-align: center; margin-right: -40px; cursor: pointer;">注册</div>
+							<a href="/plugin/qqlogin/index/index?mobile=0"><div style="color:white; margin-top: 100px; margin-left: 200px; overflow: hidden; width: 200px; cursor: pointer;"><img src="/mychat/img/entry_qq.png">&nbsp;QQ账号登录</div></a>
+						</div>
+						<div class="enroll_content" style="display: none;width:500px;margin: 0 auto;" id="win_register">
+							<div class="register_box">
+								<h2 style="color:white; text-align: center;">注册</h2>
+								<div class="register">
+									<label> 手机</label>
+									<input type="text" placeholder="请输入手机号" required="" id="phone">
+									<div class="dislocation dislocation_01" id="phone_tishi"></div>
+								</div>
+								<div class="register">
+									<label>用户名</label>
+									<input type="text" placeholder="请输入用户名" required="" id="username">
+									<div class="dislocation dislocation_02" id="username_tishi"></div>
+								</div>
+								<div class="register">
+									<label>密码</label>
+									<input type="password" placeholder="请输入密码" required="" id="pwd">
+									<div class="dislocation dislocation_03" id="userpwd_tishi"></div>
+								</div>
+								<div class="register">
+									<label>验证码</label>
+									<input type="password" placeholder="验证码" class="identifying yanzheng" required="" id="code">
+									<div class="dislocation dislocation_0aa dislocation_04"></div>
+									<!-- <button style="background:white;color:black; width:100px; border-radius: 5px;padding:5px; text-align: center; margin-top: 10px;">获取验证码</button> -->
+									<a class="btn btn-success js-get-mobile-code" style="width: 118px;line-height:26px;position: absolute;top:0;right: 0;" data-wait-msg="[second]秒后再次获取" data-mobile-input="#phone" data-url="/user/verification_code/send" daty-type="register" data-init-second-left="60">获取验证码</a>
+								</div>
+							</div>
+							<input type="radio" class="fl radio_01" checked="checked" required="">
+							<div class="radio_box fl"><span>已阅读并同意</span>《用户使用协议》</div>
+							<div class="clearfix"></div>
+							<div class="button_register" style="background:white;color:black; width: 20%;margin-top: 40px; border-radius: 5px;padding:5px; text-align: center; float: left; margin-left: 80px; cursor: pointer;" alt="register">注册</div>
+							<div class="button_login" style="background:white;color:black;width: 20%;float: right;margin-top: 40px; border-radius: 5px;padding:5px; text-align: center; margin-right: 100px; cursor: pointer;">登录</div>
+							<a href="/plugin/qqlogin/index/index?mobile=0"><div style="color:white; margin-top: 100px; margin-left: 200px; overflow: hidden; width: 200px; cursor: pointer;"><img src="/mychat/img/entry_qq.png">&nbsp;QQ账号登录</div></a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div id="captcha">
+			<div class="gt_input"><input class="geetest_challenge" type="hidden" name="geetest_challenge"><input class="geetest_validate" type="hidden" name="geetest_validate"><input class="geetest_seccode" type="hidden" name="geetest_seccode"></div>
+		</div>
+
+		<style type="text/css">
+			.pay-ewm {
+				position: fixed;
+				top: 0;
+				left: 0;
+				background: rgba(51, 51, 51, 0.8);
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				display: none;
+				z-index: 9000;
+			}
+			
+			.pay-ewm .pay-main {
+				width: 600px;
+				height: 450px;
+				background: #feefd2;
+				border-radius: 5px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -300px;
+				margin-top: -225px;
+			}
+			
+			.pay-ewm .pay-main .pay-title {
+				line-height: 40px;
+				color: #333;
+				margin-top: 10px;
+			}
+			
+			.pay-ewm .pay-main .pay-title span {
+				font-size: 20px;
+				color: #ff0000;
+			}
+			
+			.pay-ewm .pay-main span.pay-close {
+				width: 26px;
+				height: 26px;
+				background: url(/mychat/img/jnhclose.png) no-repeat;
+				cursor: pointer;
+				position: absolute;
+				right: 20px;
+				top: 20px;
+				z-index: 10;
+			}
+		</style>
+		<div class="pay-ewm">
+			<div class="pay-main">
+				<span class="pay-close"></span>
+				<p class="pay-title">需要支付<span id="pay-needmoney"></span> 元，支付后将直接进行购买</p>
+				<div style=" margin-top: 10px;">
+					<img id="pay-ewm-img" src="" width="300" height="300">
+				</div>
+				<p style="color: #666; margin-top: 10px;">请使用微信或支付宝扫码支付&#10;请在10分钟内完成支付</p>
+			</div>
+		</div>
+
+		<div id="chat-tips" style="position: fixed; opacity: 0; z-index: 9999; background: rgba(0,0,0,0.8); line-height: 42px; width: 300px; left:50%; top:50%; color: #fff; font-size: 14px; border-radius: 6px; text-align: center; transform: translate(-50%, -50%); "></div>
+
+		<style type="text/css">
+			.gift-animate {
+				text-align: center;
+				position: absolute;
+				height: 100px;
+				width: 100px;
+				left: 50%;
+				top: 50%;
+				z-index: 199;
+				margin-left: -50px;
+				margin-top: -50px;
+				opacity: 1;
+				color: #ff0000;
+				font-size: 14px;
+			}
+			
+			.gift-animate .img-10 {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -50px;
+				margin-top: -50px;
+				/*transform: translate(-50%, -50%);*/
+				width: 100px;
+				height: 100px;
+			}
+			
+			.gift-animate img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.gift-animate font {
+				position: absolute;
+				right: -10px;
+				bottom: 0;
+			}
+			
+			.canvassvga-mores {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+				z-index: 200;
+				pointer-events: none;
+			}
+			
+			.canvassvga {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				/* margin-left: -200px;
+			margin-top: -200px;*/
+				overflow: hidden;
+				z-index: 200;
+				pointer-events: none;
+			}
+			
+			.canvassvga-more {
+				/*display: flex;*/
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				/* margin-left: -200px;
+			margin-top: -200px;*/
+				overflow: hidden;
+				z-index: 200;
+				pointer-events: none;
+				/*justify-content: center;
+			align-items: center;*/
+			}
+			
+			.canvassvga canvas {
+				position: fixed;
+				width: 50%;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				overflow: hidden;
+				z-index: 200;
+				pointer-events: none;
+			}
+			
+			.canvassvga-more canvas {
+				position: fixed;
+				width: 50%;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%) !important;
+				overflow: hidden;
+				z-index: 200;
+				pointer-events: none;
+			}
+			
+			.canvassvga-fullscreen {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+				z-index: 200;
+				pointer-events: none;
+			}
+			
+			.canvassvga-fullscreen canvas {
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%) !important;
+				overflow: hidden;
+				z-index: 200;
+				pointer-events: none;
+			}
+		</style>
+
+		<div class="pop_up_bg div-biaobai" style="display: none;">
+			<div class="pop_up_content">
+				<div class="close_btn fr" id="closeBiaobai">
+					<img src="/mychat/img/close.png">
+				</div>
+
+				<div class="express_popup_box express_popup_box1">
+					<div class="express_top_title">对<span class="span-biaobai-name"></span>进行表白</div>
+					<div class="express_content">
+						<span class="content_icon fl"><img src="/mychat/img/express_content.png"><span>表白内容</span></span>
+						<textarea id="textareabiaobai" class="content_text fl" placeholder="不超过40个字..."></textarea>
+						<div class="content_text_wran">0/40</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="express_content">
+						<span class="content_icon fl">
+						<img src="/mychat/img/express_time.png"><span>表白时间</span></span>
+						<div class="fl">
+							<div class="ta_date" id="div_date1">
+								<input id="inputBiaobaiDate" class="form_datetime2 date_title" type="text" value="" readonly="" placeholder="" style="width: 120px;background:#eaeaea;" lay-key="1">
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="fl no_express" id="divCloseBiaobai">放弃表白</div>
+					<div class="fl sure_express" id="divSureBiaobai">确认表白</div>
+					<div class="clearfix"></div>
+					<div class="express_warn">*确认表白后将无法修改，表白成功后系统会发送您一条消息提醒。&#10; *放弃表白则示为放弃礼物的表白特权，再次表白需重新赠送礼物。
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="pop_up_bg div-guanming" style="display: none;">
+			<div class="pop_up_content">
+				<div class="close_btn fr" id="closeGuanming">
+					<img src="/mychat/img/close.png">
+				</div>
+				<div class="express_popup_box express_popup_box2">
+					<div class="express_top_title">对<span class="span-guanming-name"></span>进行冠名</div>
+					<div class="express_content">
+						<span class="content_icon fl"><img src="/mychat/img/express_content.png"><span>冠名内容</span></span>
+						<input class="fl content_input" id="inputGuanming" placeholder="不超过4个字">
+						<div class="fl content_input_eg">*例：(冠名内容)♚小可爱</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="express_content pt20">
+						<span class="content_icon fl"><img src="/mychat/img/express_time.png"><span>冠名时间</span></span>
+						<div class="fl">
+							<div class="ta_date" id="div_date1">
+								<input id="inputGuanmingDate" class="form_datetime3 date_title" type="text" value="" readonly="" placeholder="" style="width: 120px;background:#eaeaea;" lay-key="2">
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="fl no_express" id="divCloseGuanming">放弃冠名</div>
+					<div class="fl sure_express" id="divSureGuanming">确认冠名</div>
+					<div class="clearfix"></div>
+					<div class="express_warn">*如导师已被冠名，冠名时间则要设置为现有冠名结束后。&#10; *放弃冠名则示为放弃礼物的冠名特权，再次冠名需重新赠送礼物。
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<style type="text/css">
+			.carteam-xuanyan-mask {
+				background: rgba(0, 0, 0, 0.6);
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				z-index: 3000;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			
+			.carteam-xuanyan-mask .carteam-xuanyan-mask-content {
+				width: 300px;
+				background: #fff;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				padding: 30px;
+				border-radius: 10px;
+			}
+			
+			.carteam-xuanyan-mask .carteam-xuanyan-mask-content textarea {
+				width: 280px;
+				height: 100px;
+				background: #f0f0f0;
+				border-radius: 10px;
+				border: none;
+				padding: 10px;
+				margin-top: 22px;
+			}
+			
+			.carteam-xuanyan-mask .carteam-xuanyan-mask-content button {
+				width: 100%;
+				background: #ff6699;
+				border-radius: 6px;
+				height: 48px;
+				margin-top: 10px;
+				font-size: 16px;
+				color: #fff;
+				border: none;
+			}
+			
+			.carteam-xuanyan-mask .carteam-xuanyan-close {
+				position: absolute;
+				right: 5px;
+				top: 5px;
+				cursor: pointer;
+				background: url(/mychat/img/bossroomclose.png) no-repeat;
+				width: 30px;
+				height: 30px;
+			}
+		</style>
+		<div class="carteam-xuanyan-mask">
+			<div class="carteam-xuanyan-mask-content">
+				<span class="carteam-xuanyan-close"></span>
+				<p style="font-size: 16px; color: #666;text-align: center;">队长宣言</p>
+				<div>
+					<textarea placeholder="最多写20个文字" maxlength="20"></textarea>
+				</div>
+				<div>
+					<button>确定</button>
+				</div>
+			</div>
+		</div>
+
+		<style type="text/css">
+			.temp-autocar-shang-mask {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				z-index: 99;
+				background: rgba(0, 0, 0, 0.6);
+				display: none;
+			}
+			
+			.temp-autocar-shang-mask .temp-autocar-shang-content {
+				position: absolute;
+				width: 450px;
+				height: 280px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 1;
+				background: #fff;
+				border-radius: 8px;
+			}
+			
+			.temp-autocar-shang-content h4 {
+				font-size: 22px;
+				color: #333;
+				margin: 0;
+				padding: 25px 0 10px 0;
+				text-align: center;
+			}
+			
+			.temp-autocar-shang-content p.shang-tips {
+				font-size: 14px;
+				color: #666;
+				text-align: center;
+			}
+			
+			.temp-autocar-shang-content ul {
+				display: flex;
+				list-style: none;
+				margin: 0 auto;
+				justify-content: center;
+				margin-top: 30px;
+			}
+			
+			.temp-autocar-shang-content ul li {
+				width: 70px;
+				height: 70px;
+				margin: 0 14px;
+			}
+			
+			.temp-autocar-shang-content ul li.selected {
+				background: url(/mychat/img/shangselecticon.png) no-repeat right bottom;
+			}
+			
+			.temp-autocar-shang-content ul li img {
+				width: 66px;
+				height: 66px;
+				border: solid 2px #ff5588;
+				border-radius: 100%;
+			}
+			
+			.temp-autocar-shang-content button {
+				width: 202px;
+				height: 40px;
+				background: #ff5588;
+				font-size: 18px;
+				color: #fff;
+				border-radius: 8px;
+				border: none;
+				outline: none;
+				margin-top: 30px;
+			}
+			
+			.temp-autocar-shang-content .temp-close {
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				background: url(/mychat/img/carautocloseicon.png) no-repeat center center;
+				right: 0;
+				top: 0;
+				cursor: pointer;
+			}
+		</style>
+		<div class="temp-autocar-shang-mask">
+			<div class="temp-autocar-shang-content">
+				<h4>悬赏</h4>
+				<p class="shang-tips">勾选后悬赏礼物赠送给队友，取消勾选返回余额</p>
+				<ul>
+
+				</ul>
+				<div style="text-align: center;">
+					<button>赏</button>
+				</div>
+				<div class="temp-close"></div>
+			</div>
+		</div>
+
+		<div class="carauto-create-mask">
+			<div class="carauto-create-content">
+				<p class="carauto-create-title">创建车队</p>
+				<div>
+					<div class="jingji-mode jingji-intro">
+						每人投入固定超时空币石，游戏结束后第一名获得全部。
+					</div>
+					<div class="flex create-area-qu carauto-create-item">
+						<div class="create-xtitle create-area-qu-title">大区</div>
+						<div class="carauto-create-select carauto-create-qu">
+							<p class="carauto-create-selected carauto-create-selected-qu" areaid="-1">请选择大区</p>
+							<div class="carauto-create-select-list">
+								<ul>
+
+								</ul>
+								<div class="other-qu">其它大区</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="flex create-duanwei-qu carauto-create-item">
+						<div class="create-xtitle">段位</div>
+						<div class="carauto-create-select carauto-create-duanwei">
+							<p class="carauto-create-selected carauto-create-selected-duan" levelid="-1">请选择段位</p>
+							<div class="carauto-create-duanwei-select-list">
+								<ul>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex carauto-create-item bind-nickname" style="display: none;">
+						<div class="create-xtitle">昵称</div>
+						<div style="flex: 1; margin-left: 16px;">
+							<input class="bind-nickname-input" maxlength="20" placeholder="下次开车就不用输入昵称啦">
+						</div>
+					</div>
+					<div class="flex carauto-create-item yaoqiu">
+						<div class="create-xtitle">要求</div>
+						<div style="flex: 1; margin-left: 16px;">
+							<textarea class="carauto-create-input-yaoqiu" maxlength="20" placeholder="最多写20个文字"></textarea>
+						</div>
+					</div>
+
+					<div class="flex carauto-create-item xuanshang carauto-create-item-xuanshang">
+						<div style="margin-bottom: 30px;" class="create-xtitle">悬赏</div>
+						<div class="carauto-create-xuanshang-gift" style="flex: 1; margin-left: 16px;">
+							<ul class="shang-gift-list">
+								<li class="current" giftid="1">
+									<img src="/mychat/img/1629711503976254(1).png">
+								</li>
+								<li class="default" giftid="34">
+									<img src="/mychat/img/1898151532696070(1).png">
+								</li>
+								<li class="default" giftid="57">
+									<img src="/mychat/img/2049781539250469(1).png">
+								</li>
+							</ul>
+							<div class="flex carauto-create-gift-num">
+								<input type="number" value="10"><em>个</em><span class="shang-need-diamond"></span>
+								<ul>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="flex create-jingji-shangjin">
+						<div class="create-xtitle create-area-qu-title">参赛金</div>
+						<div class="carauto-create-select carauto-create-qu">
+							<p class="carauto-create-selected jingji-select-money" money="100">请选择赏金</p>
+							<div class="jingji-create-select-money">
+								<ul>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex carauto-create-item carauto-create-sure">
+						<div class="create-xtitle" style="opacity: 0">确认</div>
+						<button>确认</button>
+					</div>
+
+				</div>
+				<div class="carauto-create-close"></div>
+			</div>
+		</div>
+
+		<!-- 上传截图 -->
+		<style type="text/css">
+			.jingji-upload-mask {
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.6);
+				top: 0;
+				left: 0;
+				z-index: 2000;
+				position: fixed;
+				display: none;
+			}
+			
+			.jingji-upload-mask .jingji-upload-content {
+				position: absolute;
+				width: 362px;
+				background: #fff;
+				border-radius: 10px;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				padding: 0 32px;
+				padding-bottom: 10px;
+				padding: 30px 36px;
+			}
+			
+			.jingji-upload-mask .jingji-upload-title {
+				font-size: 22px;
+				text-align: center;
+			}
+			
+			.jingji-upload-mask .jingji-upload-intro {
+				padding: 20px 0;
+				line-height: 24px;
+				font-size: 14px;
+				color: #666
+			}
+			
+			.jingji-upload-mask .jingji-image-area {
+				height: 158px;
+				background: #f7f7f7;
+				border: dashed 2px #ccc;
+				border-radius: 6px;
+				text-align: center;
+				font-size: 14px;
+				color: #666;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.jingji-upload-mask .jingji-image-area input[type='file'],
+			.jingji-upload-mask .jingji-image-area img.jingji-success-image {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				z-index: 6;
+				top: 0;
+				left: 0;
+				outline: none;
+				opacity: 0
+			}
+			
+			.jingji-upload-mask .jingji-image-area img.jingji-success-image {
+				z-index: 2;
+				opacity: 1;
+			}
+			
+			.jingji-upload-mask .jingji-upload-btns {
+				height: 40px;
+				margin-top: 24px;
+			}
+			
+			.jingji-upload-mask .jingji-upload-btns span {
+				text-align: center;
+				line-height: 40px;
+				border-radius: 10px;
+				font-size: 18px;
+				color: #333;
+				font-weight: 200;
+				cursor: pointer;
+			}
+			
+			.jingji-upload-mask .jingji-upload-btns span.jingji-upload-btns-sure {
+				flex: 2;
+				background: #ff5588;
+				color: #fff;
+			}
+			
+			.jingji-upload-mask .jingji-upload-btns span.jingji-upload-btns-sure.disable {
+				background: #ccc;
+				color: #eee;
+			}
+			
+			.jingji-upload-mask .jingji-upload-close {
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				background: url(/mychat/img/carautocloseicon.png) no-repeat center center;
+				right: 0;
+				top: 0;
+				cursor: pointer;
+			}
+		</style>
+		<div class="jingji-upload-mask">
+			<div class="jingji-upload-content">
+				<div class="jingji-upload-title">请上传截图</div>
+				<div class="jingji-upload-intro">
+					<p>1.多人上传胜利截图，由客服审核胜负；</p>
+					<p>2.点退出默认失败;</p>
+					<p>3.90分钟后没选胜负为失败；</p>
+				</div>
+				<div>
+					<div class="jingji-image-area">
+						<div>
+							<p style="margin-top: 40px;margin-bottom: 6px;">
+								<img src="/mychat/img/imagebg.png">
+							</p>
+							<p>
+								点击选择上传截图
+							</p>
+						</div>
+						<img class="jingji-success-image" src="/mychat/img/empty.jpg">
+						<input id="jingjiSuccessFile" type="file" name="">
+					</div>
+				</div>
+				<div class="flex jingji-upload-btns">
+					<span class="jingji-upload-btns-sure">确认</span>
+				</div>
+				<div class="jingji-upload-close"></div>
+			</div>
+		</div>
+
+		<!-- 加入竞技赛模式-->
+		<style type="text/css">
+			.join-jingji-mask {
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.6);
+				top: 0;
+				left: 0;
+				z-index: 2000;
+				position: fixed;
+				display: none;
+			}
+			
+			.join-jingji-mask .join-jingji-content {
+				position: absolute;
+				width: 300px;
+				background: #fff;
+				border-radius: 10px;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				padding: 0 32px;
+				padding-bottom: 10px;
+				padding: 30px 36px;
+			}
+			
+			.join-jingji-mask .join-jingji-title {
+				font-size: 22px;
+				text-align: center;
+			}
+			
+			.join-jingji-mask .join-jingji-intro {
+				font-size: 14px;
+				color: #666;
+				padding: 10px 0;
+			}
+			
+			.join-jingji-mask .join-jingji-btns {
+				margin-top: 20px;
+				text-align: center;
+			}
+			
+			.join-jingji-mask .join-jingji-btns span {
+				background: #ff5588;
+				border-radius: 8px;
+				color: #fff;
+				border: none;
+				border-style: none;
+				outline: none;
+				height: 40px;
+				font-size: 18px;
+				display: inline-block;
+				width: 90%;
+				line-height: 40px;
+				cursor: pointer;
+			}
+			
+			.join-jingji-mask .join-jingji-close {
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				background: url(/mychat/img/carautocloseicon.png) no-repeat center center;
+				right: 0;
+				top: 0;
+				cursor: pointer;
+			}
+		</style>
+		<div class="join-jingji-mask">
+			<div class="join-jingji-content">
+				<div class="join-jingji-title">竞技比赛</div>
+				<div class="join-jingji-intro">每人投入固定超时空币石，游戏结束后第一名获得全部。</div>
+				<div style="text-align: center; height: 100px; background: url(/mychat/img/shangjinbg.png?v=1) no-repeat center center;">
+					<div style="padding: 20px 0 0 70px;" class="jingji-match-money">
+						<p style="font-size: 28px; color: #fff;">竞技比赛</p>
+						<p style="font-size: 14px; color: #fff391;font-weight: bold;">参赛金：<span>1000</span> 超时空币</p>
+					</div>
+				</div>
+				<div class="join-jingji-btns">
+					<span>加入比赛</span>
+				</div>
+				<div class="join-jingji-close"></div>
+			</div>
+		</div>
+
+		<!-- 竞技上传图片成功 -->
+		<style type="text/css">
+			.jingji-upload-success-mask {
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.6);
+				top: 0;
+				left: 0;
+				z-index: 2000;
+				position: fixed;
+				display: none;
+			}
+			
+			.jingji-upload-success-mask .jingji-upload-success-content {
+				position: absolute;
+				width: 300px;
+				background: #fff;
+				border-radius: 10px;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				padding: 0 32px;
+				padding-bottom: 10px;
+				padding: 30px 36px;
+			}
+			
+			.jingji-upload-success-mask .jingji-upload-success-title {
+				font-size: 22px;
+				text-align: center;
+			}
+			
+			.jingji-upload-success-mask ol li {
+				font-size: 14px;
+				color: #666;
+				line-height: 18px;
+			}
+			
+			.jingji-upload-success-mask .jingji-upload-success-backbtn {
+				background: #ff5588;
+				border-radius: 8px;
+				color: #fff;
+				border: none;
+				border-style: none;
+				outline: none;
+				height: 40px;
+				font-size: 18px;
+				width: 90%;
+				line-height: 40px;
+				cursor: pointer;
+				margin: 0 auto;
+				text-align: center;
+			}
+		</style>
+		<div class="jingji-upload-success-mask">
+			<div class="jingji-upload-success-content">
+				<div class="jingji-upload-success-title">图片上传成功</div>
+				<div style="text-align: center;margin-top: 10px;">
+					<img src="/mychat/img/uploadsuccessicon.png">
+				</div>
+				<div>
+					<ol>
+						<li>车队所有成员确认胜负后发放奖金；</li>
+						<li>车队中有成员没有确认胜负，开车90分钟后发放奖金；</li>
+					</ol>
+				</div>
+				<div class="jingji-upload-success-backbtn">返回大厅</div>
+
+			</div>
+		</div>
+
+		<style type="text/css">
+			.lolqu-mask {
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.6);
+				top: 0;
+				left: 0;
+				z-index: 2001;
+				position: fixed;
+				display: none;
+			}
+			
+			.lolqu-mask .lolqu-content {
+				width: 648px;
+				height: 410px;
+				background: #fff;
+				border-radius: 8px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				padding: 32px;
+			}
+			
+			.lolqu-mask .lolqu-channel {
+				margin-left: 20px;
+				align-items: flex-end;
+			}
+			
+			.lolqu-mask .lolqu-channel span {
+				margin: 0 10px;
+				cursor: pointer;
+			}
+			
+			.lolqu-mask .lolqu-channel span.current {
+				color: #ff5588;
+			}
+			
+			.lolqu-mask .lolqu-list {
+				list-style: none;
+				margin-top: 22px;
+				flex-wrap: wrap;
+			}
+			
+			.lolqu-mask .lolqu-list li {
+				width: 150px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				background: #f0f0f0;
+				border-radius: 8px;
+				margin: 0 5px;
+				margin-bottom: 10px;
+				cursor: pointer;
+				border: solid 1px #f0f0f0;
+			}
+			
+			.lolqu-mask .lolqu-list li.current {
+				border: solid 1px #ff5588;
+				background: url(/mychat/img/selectedicon.png) right bottom no-repeat #fff;
+			}
+			
+			.lolqu-mask .lolqu-content-close {
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				background: url(/mychat/img/carautocloseicon.png) no-repeat center center;
+				right: 0;
+				top: 0;
+				cursor: pointer;
+			}
+			
+			.lolqu-mask .lolqu-div-btn {
+				position: absolute;
+				width: 100%;
+				height: 50px;
+				bottom: 24px;
+				left: 0;
+			}
+			
+			.lolqu-mask .lolqu-btn {
+				width: 200px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				display: inline-block;
+				font-size: 18px;
+				font-weight: 100;
+				margin: 0 5px;
+				border-radius: 8px;
+				cursor: pointer;
+			}
+			
+			.lolqu-mask .lolqu-btn.sure {
+				background: #ff5588;
+				color: #fff;
+			}
+			
+			.lolqu-mask .lolqu-btn.cancle {
+				background: #f0f0f0;
+				color: #999;
+			}
+		</style>
+		<div class="lolqu-mask">
+			<div class="lolqu-content">
+				<div class="flex">
+					<span style="font-size: 18px;color: #333;">选择大区</span>
+					<p class="flex lolqu-channel">
+
+					</p>
+				</div>
+				<ul class="flex lolqu-list">
+				</ul>
+				<div class="lolqu-div-btn" style="text-align: center;">
+					<span class="lolqu-btn sure">确认</span>
+					<span class="lolqu-btn cancle">取消</span>
+				</div>
+
+				<div class="lolqu-content-close"></div>
+
+			</div>
+		</div>
+
+		<div class="bangmask_recharge" style="position:fixed;display:none;background:rgba(51, 51, 51, 0.8);top:0;left:0;width:100%;height:100%;z-index:100;align-items:center;justify-content:center;">
+			<div class="recharge-main" style="width:529px;height:750px;position:relative;background:url(/mychat/img/recharge_first_bg.png?v=2);">
+				<div class="recharge_type" style="margin:0 auto;width:400px;height:40px;margin-top:140px;margin-bottom:10px;color:#fff;font-size:26px;text-align:center">充8元赠</div>
+				<div class="recharge_level_1" style="display:flex;justify-content:space-between;align-items:center;width:270px;margin:0 auto;">
+					<div style="text-align:center;background:#fff;width:120px;height:150px;border-radius:20px;"><img src="/mychat/img/recharge_first_kiss.png" style="margin-left:-12.5px;">
+						<p style="color:#666;font-size:16px;margin-top:-24px;">香吻<span style="color:#ff2a52">x20</span></p>
+					</div>
+					<div style="text-align:center;background:#fff;width:120px;height:150px;border-radius:20px;"><img src="/mychat/img/recharge_first_flower.png" style="margin-left:-12.5px;">
+						<p style="color:#666;font-size:16px;margin-top:-24px;">玫瑰<span style="color:#ff2a52">x2</span></p>
+					</div>
+					<div class="recharge_takewawy_8" style="cursor: pointer;width:294px;height:60px;background:url(/mychat/img/recharge_first_take_away.png?v=1);position:absolute;top:349px;left:50%;transform:translateX(-50%);"></div>
+				</div>
+				<div class="recharge_type" style="margin:0 auto;width:400px;height:40px;margin-top:96px;margin-bottom:10px;color:#fff;font-size:26px;text-align:center">充18元赠</div>
+				<div class="recharge_level_2" style="display:flex;justify-content:space-between;align-items:center;width:270px;margin:0 auto;">
+					<div style="text-align:center;background:#fff;width:120px;height:150px;border-radius:20px;"><img src="/mychat/img/recharge_first_kiss.png" style="margin-left:-12.5px;">
+						<p style="color:#666;font-size:16px;margin-top:-24px;">香吻<span style="color:#ff2a52">x66</span></p>
+					</div>
+					<div style="text-align:center;background:#fff;width:120px;height:150px;border-radius:20px;"><img src="/mychat/img/recharge_first_sugar.png" style="margin-left:-12.5px;">
+						<p style="color:#666;font-size:16px;margin-top:-24px;">棒棒糖<span style="color:#ff2a52">x1</span></p>
+					</div>
+					<div class="recharge_takewawy_18" style="cursor: pointer;width:294px;height:60px;background:url(/mychat/img/recharge_first_take_away.png?v=1);position:absolute;top:645px;left:50%;transform:translateX(-50%);"></div>
+				</div>
+				<div class="recharge_close" style="cursor: pointer;width:39px;height:39px;background:url(/mychat/img/recharge_first_close.png);position:absolute;top:15px;right:-10px;"></div>
+			</div>
+		</div>
+		
+		<!-- 头像悬浮窗 -->
+		<div class="chat-huiyuan-info" id="user_210575" uid="210575" style="top: 175px; left: 284px; display: none;">
+			<div class="chat-huiyuan-info-top">
+				<div class="huiyuan-head">
+					<img onerror="this.src=&#39;/mychat/img/noavatar_1.jpg&#39;;" src="/mychat/img/75_avatar_middle.jpg">
+				</div>
+				<div class="huiyuan-head-right">
+					<p class="huiyuan-head-right-nickname"><span style="display:inline-block;width:78px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:middle"><font style="color:#666" id="chat_user_id"></font></span></p>
+					<p class="huiyuan-head-right-pingjia" style="margin-top: 10px;">
+						<span>等级：</span>
+						<span>
+                                        <img class="vipicon" src="/mychat/img/1.gif">
+                                    </span>
+					</p>
+					<p style="width:100px;height:16px;background:#ff9200;color:#fff;font-size:12px;text-align:center;line-height:16px;border-radius:3px; margin-top: 10px;" id="chat_user_nickname"></p>
+					<p></p>
+					<p class="huiyuan-head-right-id"></p>
+					<p style="display:none;" class="huiyuan-head-right-ordernum" id="chat_user_order_num">接单：0</p>
+
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+			<div class="chat-huiyuan-info-bottom" id="user_mod_two">
+				<a style="display:inline-block; width: 30px" uid="210575" position="-1" href="javascript:;" class="chat-huiyuan-chat-btn" id="privateChat" alt="privateChat">私聊</a>
+				<a style="display:inline-block; width: 30px" uid="210575" position="-1" href="javascript:;" class="chat-huiyuan-chat-btn" id="setTicket" alt="setTicket">封禁</a>
+				<a style="display:inline-block; width: 30px" uid="210575" position="-1" href="javascript:;" class="chat-huiyuan-sentgift-btn" id="setOrder" alt="setOrder">下单</a>
+				<a style="display:inline-block; width: 30px" uid="210575" position="-1" href="javascript:;" class="chat-huiyuan-sentgift-btn" id="setDownVideo"alt="setDownVideo">下麦</a>
+			</div>
+		</div>
+		<!--封禁窗口-->
+		<div class="user_mod_win">
+			<table>
+				<tr>
+					<td>被封ID</td>
+					<td><b id="user_id_cname">root</b></td>
+				</tr>
+				<tr>
+					<td>封禁频道</td>
+					<td>
+						<select id="user_mod_channel_cname">
+						  <option value ="chaoshikong">chaoshikong</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>封禁时间</td>
+					<td>
+						<select id="user_mod_time">
+							<option value="5">5分钟</option>
+							<option value="30">30分钟</option>
+							<option value="60">1小时</option>
+							<option value="1440">24小时</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><a class="btn_red" onclick="setTicket($('#user_mod_channel_cname').val(),$('#user_id_cname').html(),$('#user_mod_time').val(),$('.user_mod_win'))">确定封禁</a></td>
+					<td><a class="btn_yel" id="user_mod_win_close">关闭</a></td>
+				</tr>
+			</table>
+		</div>
+		<!--点单过程-->
+		<div class="gboQHC">点单流程</div>
+		<div class="ToastBlack">sss</div>
+		<div class="Toast">
+			<div class="close">×</div>
+			<h1 style="text-align: center; width: 150px; display: block; margin: 0 auto;">点单流程</h1>
+			<p style="margin-top:100px;">
+				需要点的单老板送主持2Y鲜花或公屏扣1示意主持，点击左上角的上麦申请，主持会抱您上麦，打开麦克风或公屏打字说出您的要求，主持会给您派单。
+			</p>	
+					<p>——————————————</p>
+					<p>	点单1黄瓜→主持</p>
+					<p>	——————————————</p>
+					<p>	派单厅营业时间：10：00~02：00</p>
+					<p>	投诉应聘入会联系QQ：3129016370
+			</p>
+			</p>
+		</div>
+		<!--弹出提示语-->
+		<div class="ToastMeg">
+			<span id="ToastMsgContext"></span>
+		</div>
+		<include file="public@chat" />
+		<script type="text/javascript">
+    //全局变量
+    var GV = {
+        ROOT: "__ROOT__/",
+        WEB_ROOT: "__WEB_ROOT__/",
+        JS_ROOT: "static/js/"
+    };
+</script>
+<script src="__STATIC__/js/wind.js"></script>
+<script src="__STATIC__/js/frontend.js"></script>
+	</body>
+
+</html>

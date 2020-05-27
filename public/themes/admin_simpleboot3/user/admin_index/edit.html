@@ -1,0 +1,48 @@
+
+</head>
+<include file="public@header"/><body>
+<div class="wrap">  
+<div class="">
+               <table class="table table-hover table-bordered">
+                <thead>                
+                <tr>
+                    <th>靓号</th>
+                    <th>头像</th>
+                    <th>用户名</th>
+                    <th>手机号码</th>
+                    <th>QQ</th>
+                    <th>地址</th>
+                    <th>性别</th>
+                    <th>出生年月</th>
+                    <th>个性标签</th>
+                </tr>
+            </thead>
+            <tbody>
+                <php>$sex=['0'=>'保密','1'=>'男','2'=>'女'];</php>
+                <tr>
+                    <td>{$user.uid}</td>
+                    <td><img src="{:cmf_get_image_url($user.avatar)}" width="100px"></td>
+                    <td>{$user.user_login}</td>
+                    <td>{$user.mobile}</td>
+                    <td>{$user.qq}</td>
+                    <td>{$user.sheng}-{$user.shi}-{$user.qu}</td>
+                    <td>{$sex[$user.sex]}</td>
+                    <td>{:date('Y-m-d',$user.birthday)}</td>
+                    <td>{$user.gexing}</td>
+                </tr>
+            </tbody>
+               </table>
+                </div>
+            </div>          
+        <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('adminIndex/edit_uid')}">
+        <div class="col-sm-10">
+            <input type="hidden" name="id" value="{$user.id}">
+					新靓号：
+                        <input class="form-control" type="text" name="uid" value="" placeholder="请输入新靓号,要求纯数字，最少五位" />
+                    <br><br>
+            <button type="submit" class="btn btn-primary js-ajax-submit">确定</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

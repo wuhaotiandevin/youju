@@ -1,0 +1,106 @@
+
+	.user_mod_win{ width: 500px; height: 300px; position: absolute; top: 50%; left: 50%; margin-left: -250px; margin-top: -150px; background: white;z-index: 999999;border-radius: 5px;display: none}
+	.user_mod_win table{ width: 100%; height: 100%; text-align: center;}
+	.user_mod_win .btn_yel{display: block; background: linear-gradient(to right,#ff6f00,#ff9f16); padding: 5px; color: white; cursor: pointer;}
+	.user_mod_win .btn_red{display: block; background: linear-gradient(to right,#FF3030,#FF0000); padding: 5px; color: white; cursor: pointer;}
+	 .btn-success {
+                                            color: #fff;
+                                            background-color: #9ac200;
+                                            border-color: #86a900;
+                                        }
+                                        .btn {
+                                            display: inline-block;
+                                            margin-bottom: 0;
+                                            font-weight: normal;
+                                            text-align: center;
+                                            vertical-align: middle;
+                                            -ms-touch-action: manipulation;
+                                            touch-action: manipulation;
+                                            cursor: pointer;
+                                            background-image: none;
+                                            border: 1px solid transparent;
+                                            white-space: nowrap;
+                                            padding: 6px 12px;
+                                            font-size: 14px;
+                                            line-height: 1.42857143;
+                                            border-radius: 4px;
+                                            -webkit-user-select: none;
+                                            -moz-user-select: none;
+                                            -ms-user-select: none;
+                                            user-select: none;
+                                        }
+
+	.gboQHC {
+		position: absolute;
+		top: 580px;
+		right: 180px;
+	    margin-bottom: 16px;
+	    width: 100px;
+	    text-align: center;
+	    line-height: 28px;
+	    color: rgb(0, 0, 0);
+	    cursor: pointer;
+	    z-index: 99;
+	    padding: 1px 15px 1px 38px;
+	    background: url("../img/clickorder.png") 2px center / auto no-repeat, linear-gradient(rgb(249, 238, 210) 0%, rgb(247, 230, 187) 100%), linear-gradient(rgb(255, 234, 0), rgb(255, 234, 0));
+	    border-radius: 15px;
+	}
+	.ToastBlack{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		display: none;
+		background: #000;
+		opacity: 0.5;
+		z-index: 999;
+	}
+	.Toast{
+		position: absolute;
+		width: 600px;
+		height: 500px;
+		padding: 10px;
+		top: 50%;
+		left: 50%;
+		overflow: hidden;
+		margin-top: -250px;
+		margin-left: -300px;
+		background: white;
+		border-radius: 10px;
+		z-index: 9999;
+		display: none;
+		border-top: 3px solid #fee5eb;
+	}
+	.Toast .close{
+		float: right;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	.Toast p{
+		padding-left: 30px;
+		padding-right: 30px;
+		text-align: center;
+	}
+	.logo{
+		float: left;
+		margin-top: 2px;
+		width: 60px;
+		height: 60px;
+		background: url(../img/logo.png);
+	}
+	.ToastMeg{
+		position: absolute;
+		top: 80%;
+		left: 50%;
+		margin-left: -60px;
+		color: white;
+		overflow: hidden;
+		font-size: 14px;
+		text-align: center;
+		padding: 5px 10px;
+		z-index: 999999;
+		border-radius: 10px;
+		display: none;
+		background: rgb(0,0,0,0.8);
+	}

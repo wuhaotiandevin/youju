@@ -1,0 +1,18 @@
+
+</head>
+<include file="public@header"/><body>
+<div class="wrap" style="padding: 20px 20px 20px;">  
+<div class="">
+               <h3>{$user['user_login']}当前标签:{$user.tags}</h3>
+                </div>
+            </div>
+            <form class="js-ajax-form well form-inline margin-top-20" method="post" action="{:url('adminIndex/edit_tags')}">
+                <input type="hidden" name="id" value="{$user.id}">
+        标签：
+        <input type="text" class="form-control" name="biaoqian" style="width: 200px;" value="" placeholder="请输入标签，最多四个字">
+        <input type="submit" class="btn btn-primary js-ajax-submit" value="确定">
+    </form>          
+        
+</div>
+</body>
+</html>

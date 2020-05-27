@@ -1,0 +1,68 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('category/index')}">{$parent_name}</a></li>
+        <li><a href="{:url('category/add')}">添加服务类目</a></li>
+    </ul>
+    <form method="post" class="js-ajax-form margin-top-20" action="{:url('Category/listOrder')}">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-sm js-ajax-submit" type="submit">{:lang('SORT')}</button>
+        </div>
+        <php>$status=array("1"=>lang('DISPLAY'),"0"=>lang('HIDDEN'));</php>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x"
+                                             data-checklist="js-check-x"></label></th>
+                <th width="50">{:lang('SORT')}</th>
+                <th width="50">ID</th>
+                <th>类目名称</th>
+                <th>父级类目</th>
+                <th width="220">{:lang('ACTIONS')}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="categorys" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]"
+                               value="{$vo.id}"></td>
+                    <td><input name='list_orders[{$vo.id}]' class="input input-order mr5" type='text' size='3'
+                               value='{$vo.list_order}'></td>
+                    <td>{$vo.id}</td>
+                    <td><a href="{:url('category/index',array('parent_id'=>$vo['id']))}">{$vo.cat_name}</a></td>
+                    <td>{$parent_name}</td>
+                    <td>
+                        <eq name="vo.parent_id" value="0"><a href="{:url('category/add',array('parent_id'=>$vo['id']))}">添加等级</a></eq>
+                        <a href="{:url('category/edit',array('id'=>$vo['id'],'parent_id'=>$vo['parent_id']))}">{:lang('EDIT')}</a>
+                        <!-- <a href="{:url('category/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">
+                            {:lang('DELETE')}
+                        </a> -->
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th width="16">
+                    <label>
+                        <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
+                    </label>
+                </th>
+                <th width="50">{:lang('SORT')}</th>
+                <th width="50">ID</th>
+                <th>类目名称</th>
+                <th>父级类目</th>
+                <th width="120">{:lang('ACTIONS')}</th>
+            </tr>
+            </tfoot>
+        </table>
+        <div class="table-actions">
+            <button class="btn btn-primary btn-sm js-ajax-submit" type="submit">{:lang('SORT')}</button>
+        </div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

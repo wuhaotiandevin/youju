@@ -1,0 +1,48 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="index">平台扣费比例设置</a></li>
+		</ul>
+		<form method="post" class="js-ajax-form margin-top-20" role="form" action="{:url('setting/koudian_updatePost')}">
+			<div class="form-group">
+				<label>服务费平台扣费比例(如:1%则写0.01)</label>
+				<div class="row">
+					<div class="col-md-4">
+						<input type="text" class="form-control" name="fuwufei_kd"  value="{$fuwufei_kd.option_value}">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>礼物平台扣费比例(如:1%则写0.01)</label>
+				<div class="row">
+					<div class="col-md-4">
+						<input type="text" class="form-control" name="liwu_kd"  value="{$liwu_kd.option_value}">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>推荐位费用设置(如:1元则写1)</label>
+				<div class="row">
+					<div class="col-md-4">
+						<input type="text" class="form-control" name="tuijian"  value="{$tuijian.option_value}">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>改名卡费用设置(如:1元则写1)</label>
+				<div class="row">
+					<div class="col-md-4">
+						<input type="text" class="form-control" name="gaiming"  value="{$gaiming.option_value}">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+			</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

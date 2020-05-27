@@ -1,0 +1,57 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('guild/index')}">所有公会</a></li>
+        <li><a href="{:url('guild/add')}">添加公会</a></li>
+    </ul>
+    <form method="post" class="js-ajax-form margin-top-20" action="{:url('guild/listOrder')}">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-sm js-ajax-submit" type="submit">{:lang('SORT')}</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x"
+                                             data-checklist="js-check-x"></label></th>
+                <th width="50">{:lang('SORT')}</th>
+                <th width="50">ID</th>
+                <th>公会名称</th>
+                <th>口号</th>
+                <th width="100">入会人数</th>
+                <th width="100">待审核人数</th>
+                <th width="150">{:lang('ACTIONS')}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="guilds" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]"
+                               value="{$vo.id}"></td>
+                    <td><input name='list_orders[{$vo.id}]' class="input input-order mr5" type='text' size='3'
+                               value='{$vo.list_order}'></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.slogan}</td>
+                    <td>{$vo.count}</td>
+                    <td>{$vo.count1}</td>
+                    <td>
+                        <a href="javascript:parent.openIframeLayer('{:url('guild/member',array('id'=>$vo['id']))}','管理 {$vo.name} 页面',{});">管理人员</a>
+                        <a href="{:url('guild/edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+                        <!-- <a href="{:url('guild/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">
+                            {:lang('DELETE')}
+                        </a> -->
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+        <div class="table-actions">
+            <button class="btn btn-primary btn-sm js-ajax-submit" type="submit">{:lang('SORT')}</button>
+        </div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

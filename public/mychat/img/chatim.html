@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://y.tuwan.com/chatim?v=1564403157363 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title></title>
+	<script src="./jquery.js"></script>
+</head>
+<body>
+	<script type="text/javascript" src="./rtcSupport.js"></script>
+	<script type="text/javascript" src="./NIM_Web_SDK_v4.7.0.js"></script>
+	<script type="text/javascript" src="./NIM_Web_NIM_v4.7.0.js"></script>
+	<script type="text/javascript" src="./NIM_Web_Netcall_v4.7.0.js"></script>
+	<script type="text/javascript" src="./NIM_Web_WebRTC_v4.7.0.js"></script>
+	<script type="text/javascript" src="./twim.js"></script>
+	<script type="text/javascript">
+	    jQuery(document).ready(function() {
+	        var unReadCount = 0;
+	        var idArr = [];
+	        var unReadRrr = [];
+	        var cb = {
+	            onTextMessage: onTextMessage,
+	            onImageMessage:onImageMessage,
+	            oncustomdiamondchange:oncustomdiamondchange,
+	            onVideoMessage:onVideoMessage,
+	            onConnect: function(accid) {
+
+	            },
+	            onSessions: function(sessions) {
+	                console.info("------ygb----onsessions---");
+	                console.log(sessions);
+	                // alert("ygb----onsessions");
+
+	                for (var i = 0; i < sessions.length; i++) {
+	                    idArr.push(sessions[i].id)
+	                    unReadRrr.push(sessions[i].unread)
+	                    unReadCount += parseInt(sessions[i].unread)
+	                    console.log(unReadCount)
+	                }
+
+	                if (unReadCount == 0) {
+	                    // $('.messageNums').css('display', "none")
+	                } else {
+	                	parent.getChildMessage(unReadCount);
+	                    // $('.messageNums').html(unReadCount)
+	                    // $('.messageNums').css('display', "block")
+	                }
+	            },
+	            onupdatesession: function(session) {
+	                console.info("------ygb----onupdatesession---");
+	                if (idArr.indexOf(session.id) == -1) {
+	                    unReadCount += parseInt(session.unread)
+	                } else {
+	                    var index = idArr.indexOf(session.id);
+	                    unReadRrr[index] = session.unread;
+	                    unReadCount = eval(unReadRrr.join("+"));
+	                    parent.getChildMessage(unReadCount);	                   
+	                }
+	                parent.getChildMessage(unReadCount);
+	            }
+	        }
+
+
+	        function onTextMessage(msg) {
+	            console.info(msg);
+	            const type = msg.type;
+	            const fromNick = msg.fromNick;
+                const text = msg.text;
+                const from = msg.from;
+                const to = msg.to;
+	            
+	            
+	            parent.setMessageUser(fromNick, from, text);
+	        }
+	        function onImageMessage(msg){
+	        	const type = msg.type;
+	            const fromNick = msg.fromNick;
+                const from = msg.from;
+                const to = msg.to;
+                parent.setMessageUser(fromNick, from, '[图片]');
+	        }
+	        function onVideoMessage(msg){
+	        	const type = msg.type;
+	            const fromNick = msg.fromNick;
+                const from = msg.from;
+                const to = msg.to;
+                parent.setMessageUser(fromNick, from, '[视频]');
+	        }
+	        function oncustomdiamondchange(msg){
+	        	console.info(msg);
+	            const fromNick = msg.fromNick;
+                const from = msg.from;
+	        	const content = JSON.parse(msg.content);
+	        	const type = content.type;
+	        	let message ="";
+	        	if(type==20){
+	        		message="请回复真心话"
+	        	}
+	        	else if(type == 21){
+	        		message=fromNick+"回复的真心话"
+	        	}
+	        	else{
+	        		message = content.title || content.content
+	        	}
+	        	parent.setMessageUser(fromNick, from, '['+ message +']');
+	        }
+
+
+	        var twim = new window.TWAudio.twIM(cb);
+	        twim.login();
+
+
+
+	    })
+	</script>
+
+</body></html>

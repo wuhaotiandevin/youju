@@ -1,0 +1,52 @@
+
+</head>
+<include file="public@header" /><body>
+	<div class="wrap J_check_wrap">          
+          <form class="well form-search" method="post" action="{:url('Admin/haoma/add')}">
+            <div class="search_type cc mb10">
+              <div class=""> 
+                <span class="mr20">
+                新增靓号：
+                <input type="text" class="form-control" name="uid" style="width:200px;display: inherit;" value="">
+                出售价格：
+                <input type="text" name="price" class="form-control" style="width:200px;display: inherit;" value="" >元
+                <input type="submit" class="btn" value="确定"/>
+                </span>
+              </div>
+            </div>
+          </form>
+          <div class="table_lmb10ist">
+ 				<table width="100%" class="table table-hover">
+                <thead>
+                      <tr> 
+                        <th colspan="6" > 
+                        <form class="well form-search" method="post" action="{:url('Admin/haoma/index')}"><div class="search_type cc mb10"><span class="mr20">靓号列表:
+                        <input type="text" class="form-control" name="keyword" style="width:200px;display: inherit;" value="{$keyword}" placeholder="请输入靓号">
+                        <input type="submit" class="btn" value="搜索"/></span></div>
+                    </form>
+                        </th>
+                      </tr>
+                </thead>    
+                
+                   <tr>             
+                	<volist name='haoma' id='vo' key='k' mod="5" >
+                    	<if condition=" $k gt 5" >
+                        <eq name='mod' value='0' ></tr><tr></eq>
+                        </if>
+                        <td>
+                        	<strong class="rname">{$vo.haoma}</strong>价格:{$vo.price}
+                            <a href="{:url('Admin/haoma/delete',array('id'=>$vo['id']))}" class="J_ajax_del">删除</a>
+                        </td>
+                    </volist>
+                    </tr>
+                </table>
+                
+                
+            </div>
+            <div class="pagination">{$page}</div>
+    		
+ 
+	</div>
+	<script src="__ROOT__/statics/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('shensu/index')}">所有撤单</a></li>
+    </ul><br>
+    同意撤单以后，订单金额将原路返回到订单用户钱包，此订单自动取消。拒绝撤单以后，订单将按验收处理。
+    <br>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="50">ID</th>
+                <th width="100">订单ID</th>
+                <th width="100">用户</th>
+                <th width="100">用户手机</th>
+                <th width="100">用户QQ</th>
+                <th width="100">陪玩</th>
+                <th width="100">陪玩手机</th>
+                <th width="100">陪玩QQ</th>
+                <th width="150">订单金额</th>
+                <th width="150">撤单原因</th>
+                <th width="150">撤单说明</th>
+                <th width="100">发起时间</th>
+                <th width="100">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="shensu" id="vo">
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.order_id}</td>
+                    <td>{$vo.user_login}</td>
+                    <td>{$vo.mobile}</td>
+                    <td>{$vo.qq}</td>
+                    <td>{$vo.user_login1}</td>
+                    <td>{$vo.mobile1}</td>
+                    <td>{$vo.qq1}</td>
+                    <td>{$vo.order_amount}</td>
+                    <td>{$vo.style}</td>
+                    <td><textarea style="border: 0;width: 100%;height: 100px;">{$vo.content}</textarea></td>
+                    <td>{:date('Y-m-d H:i',$vo['create_time'])}</td>
+                     <td>
+                       <switch name="vo.state">
+                        <case value="0">等待陪玩处理</case>
+                        <case value="1">已处理完成</case>
+                        <case value="2">
+                        <a href="{:url('shensu/up_shensu',array('id'=>$vo['id'],'state'=>1))}" class="js-ajax-dialog-btn">同意撤单</a> 
+                        <a href="{:url('shensu/up_shensu',array('id'=>$vo['id'],'state'=>2))}" class="js-ajax-dialog-btn">拒绝撤单</a>
+                        </case>
+                    </switch>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+        <div class="pagination">{$page}</div>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,5698 @@
+* {
+	font-family: "Microsoft YaHei"
+}
+
+body,
+p,
+ul {
+	padding: 0;
+	margin: 0
+}
+
+body,
+html {
+	height: 100%;
+	overflow: hidden
+}
+
+.flex {
+	display: flex
+}
+
+.hide {
+	display: none
+}
+
+.fancybox-active {
+	height: 100%
+}
+
+.flexinline {
+	display: inline-flex
+}
+
+.flexvcenter {
+	align-items: center
+}
+
+.flexhcenter {
+	justify-content: center
+}
+
+.person-keng {
+	position: relative;
+	margin: 0 auto;
+	border-radius: 100%
+}
+
+.person-keng div.keng-bg {
+	background: url(../img/chareemptyicon.png?v=1) no-repeat center center #ccc;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	border-radius: 100%;
+	border: solid 2px #fff;
+	background-size: 40%
+}
+
+.person-keng img.person-header {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	z-index: 2;
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+.person-keng span.tag {
+	position: absolute;
+	color: #fff;
+	background: #f459a3;
+	font-size: 12px;
+	text-align: center;
+	padding: 1px 5px;
+	border-radius: 4px;
+	bottom: -6px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 3;
+	width: 50px
+}
+
+.keng-name {
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	margin-top: 10px
+}
+
+.empty-keng {
+	color: #ccc
+}
+
+span.keng-close {
+	width: 24px;
+	height: 24px;
+	background: url(../img/closeiconv2.png?v=1) no-repeat;
+	right: -8px;
+	top: -4px;
+	border-radius: 100%;
+	position: absolute;
+	cursor: pointer;
+	display: none;
+	z-index: 9
+}
+
+div.shangche-bg {
+	background: #f58!important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff
+}
+
+.chat-main {
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	height: 100%
+}
+
+.chat-head {
+	background: url(../img/chatroomheaderbg.jpg?v=2) no-repeat 0 0 #969;
+	height: 65px;
+	order: 1
+}
+
+.chat-head-left {
+	width: 314px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%
+}
+
+.chat-head-right {
+	flex: 1 auto;
+	height: 100%;
+	display: flex;
+	justify-content: flex-end
+}
+
+.channel-info-title,
+.chat-head-right .chat-btnlogin,
+.chat-head-right .chat-btnoutlogin,
+.hero-week-rank {
+	cursor: pointer
+}
+
+.chat-head-right .chat-btnlogin::after {
+	content: url(../img/headicon.png);
+	margin-left: 6px
+}
+
+.chat-logo {
+	color: #fff;
+	flex: 1 auto
+}
+
+.chat-logo p {
+	text-align: center;
+	line-height: 30px;
+	font-size: 14px;
+	margin-left: 30px;
+	width: 140px;
+	height: 66px
+}
+
+.chat-online-status {
+	position: relative;
+	line-height: 0;
+	flex: 1 auto
+}
+
+.chat-online-status span {
+	padding-left: 16px;
+	color: #fff;
+	font-size: 14px
+}
+
+.chat-online-status span::before {
+	content: "";
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	background: #3f3;
+	border-radius: 8px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%)
+}
+
+.chat-content {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex: 1 auto;
+	flex: 1 auto;
+	flex-direction: row;
+	flex-flow: row;
+	order: 2
+}
+
+.chat-content .chat-left {
+	width: 280px;
+	flex: 0 0 280px;
+	order: 1;
+	position: relative
+}
+
+.chat-room-list {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-right: solid 1px #eee;
+	overflow-x: hidden;
+	overflow-y: auto
+}
+
+.chat-room-list::-webkit-scrollbar {
+	width: 6px;
+	background-color: #f9f9f9
+}
+
+.chat-room-list::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(220, 220, 220, .3);
+	background-color: #ccc
+}
+
+.chat-room-list-main {
+	padding-top: 30px;
+	padding-bottom: 80px
+}
+
+.chat-room-list div[id^=channelroom_] {
+	overflow: hidden;
+	padding-left: 15px
+}
+
+.chat-room-item {
+	margin-bottom: 16px
+}
+
+.chat-room-all-item .chat-room-name,
+.chat-room-item .chat-room-name {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	-moz-user-select: none;
+	padding: 8px 0 8px 15px
+}
+
+.chat-room-all-item .chat-room-name-zhan {
+	width: 14px;
+	height: 14px;
+	border: solid 1px #999;
+	border-radius: 2px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	background: #fff;
+	flex: 0 auto
+}
+
+.chat-room-all-item .chat-room-name-zhan img {
+	-webkit-transition: -webkit-transform .4s ease-out;
+	-moz-transition: -moz-transform .4s ease-out;
+	transition: transform .4s ease-out
+}
+
+.chat-room-all-item .chat-room-name-zhan img.room-route {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	transform: rotate(-90deg)
+}
+
+.chat-room-all-item .chat-room-name-line-999 {
+	border-left: dashed 1px #999;
+	display: inline-flex;
+	height: 24px;
+	margin: 0 5px 0 8px
+}
+
+.chat-room-all-item .chat-room-name-line-red {
+	border-left: dashed 1px #999;
+	display: inline-flex;
+	height: 20px;
+	margin: 0 2px 0 5px
+}
+
+.chat-room-all-item .chat-room-name-line-heng {
+	border-top: dashed 1px #999;
+	display: inline-flex;
+	height: 1px;
+	width: 16px;
+	margin: 0
+}
+
+.chat-room-all-item .chat-room-name-count {
+	display: inline-flex;
+	justify-content: flex-end;
+	font-size: 12px;
+	color: #379fd6
+}
+
+.chat-content .chat-center {
+	flex: 5 auto;
+	order: 2
+}
+
+.chat-room-zhuchi {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px
+}
+
+.chat-room-zhuchi .chat-room-zhuchi-item {
+	display: flex;
+	align-items: center;
+	padding: 4px 0
+}
+
+.chat-room-zhuchi .chat-room-zhuchi-item span {
+	display: inline-block;
+	font-size: 15px;
+	color: #666
+}
+
+.user-market span {
+	margin-left: 4px
+}
+
+.chat-room-zhuchi .chat-room-zhuchi-item span img {
+	height: 18px
+}
+
+.chat-room-zhuchi .chat-room-zhuchi-item span img.chat-room-img-header {
+	width: 30px;
+	height: 30px;
+	border: solid 2px #e8e8e8;
+	border-radius: 30px
+}
+
+.chat-room-zhuchi .chat-room-zhuchi-item span img.chat-room-img-header-liang {
+	border: solid 2px #52e559
+}
+
+.chat-room-zhuchi .chat-room-zhuchi-item span img.nomic {
+	border: solid 2px red
+}
+
+.chat-room-zhuchi .chat-room-zhuchi-item span img.img-laoban-icon {
+	height: 20px
+}
+
+.chat-room-zhuchi .chat-room-zhuchi-item span button {
+	height: 20px;
+	width: 40px;
+	font-size: 12px;
+	margin-left: 10px;
+	line-height: 20px;
+	text-align: center;
+	padding: 0;
+	outline: 0
+}
+
+.chat-room-zhuchi .chat-room-zhuchi-item .chat-room-zhuchi-item-tag {
+	border-radius: 3px;
+	background: #a659f6;
+	padding: 0 3px;
+	border: solid 1px #9751e0;
+	color: #fff;
+	font-size: 12px
+}
+
+i.chat-room-jiedai-tag {
+	display: inline-flex;
+	border-radius: 3px;
+	background: #a659f6;
+	padding: 0 3px;
+	border: solid 1px #9751e0;
+	color: #fff;
+	font-size: 12px;
+	font-style: normal
+}
+
+i.chat-room-peiwan-tag,
+span.chat-room-peiwan-tag {
+	display: inline-flex;
+	border-radius: 3px;
+	background: #f459a3;
+	padding: 0 3px;
+	color: #fff;
+	font-size: 12px;
+	font-style: normal;
+	margin-top: 2px;
+	height: 18px;
+	line-height: 18px
+}
+
+.chat-room-tag-parent {
+	display: inline-flex;
+	justify-content: center;
+	width: 32px
+}
+
+.chat-huiyuan-info {
+	position: absolute;
+	width: 300px;
+	height: 190px;
+	background: #fff;
+	top: 0;
+	left: 220px;
+	z-index: 999;
+	border-radius: 16px;
+	overflow: hidden;
+	border: solid 1px #ddd;
+	z-index: 110
+}
+
+.chat-huiyuan-info .chat-huiyuan-info-top {
+	padding: 16px;
+	background: #eee;
+	height: 112px;
+	position: relative
+}
+
+.chat-huiyuan-info .huiyuan-head {
+	float: left
+}
+
+.chat-huiyuan-info .huiyuan-head img {
+	width: 112px;
+	height: 112px;
+	border-radius: 10px
+}
+
+.chat-huiyuan-info .huiyuan-head-right {
+	font-size: 14px;
+	margin-left: 16px;
+	float: left
+}
+
+.chat-huiyuan-info .huiyuan-head-right .huiyuan-head-right-nickname {
+	font-size: 14px;
+	color: #333
+}
+
+.chat-huiyuan-info .huiyuan-head-right .huiyuan-head-right-id {
+	font-size: 12px;
+	color: #666;
+	margin-top: 16px;
+	line-height: 24px
+}
+
+.chat-huiyuan-info .huiyuan-head-right .huiyuan-head-right-pingjia {
+	font-size: 12px;
+	color: #666;
+	line-height: 24px
+}
+
+.chat-huiyuan-info .huiyuan-head-right .huiyuan-head-right-ordernum {
+	font-size: 12px;
+	color: #666;
+	line-height: 24px
+}
+
+.huiyuan-head-right img.staricon {
+	width: 12px;
+	height: 12px
+}
+
+.huiyuan-head-right img.vipicon {
+	height: 18px
+}
+
+.chat-huiyuan-info .chat-huiyuan-info-bottom {
+	text-align: center;
+	margin-top: 12px
+}
+
+.chat-huiyuan-info .chat-huiyuan-info-bottom a {
+	display: inline-block;
+	font-size: 14px;
+	text-decoration: none
+}
+
+.chat-huiyuan-info .chat-huiyuan-chat-btn,
+.chat-huiyuan-info .chat-huiyuan-sentgift-btn {
+	background: #ffe9f0;
+	padding: 2px 20px;
+	border-radius: 50px;
+	color: #ff46a0
+}
+
+.chat-huiyuan-info .chat-huiyuan-yue-btn {
+	background: #f69;
+	padding: 2px 20px;
+	color: #fff;
+	border-radius: 50px
+}
+
+.guanliyuan-guanli {
+	position: absolute;
+	right: 5px;
+	bottom: 5px
+}
+
+.guanliyuan-guanli span {
+	font-size: 12px;
+	color: #666;
+	background: #fff;
+	border: solid 1px #ddd;
+	padding: 0 5px;
+	border-radius: 2px;
+	cursor: pointer
+}
+
+.chat-center-message .chatroom-gonggao {
+	padding-top: 0;
+	font-size: 14px;
+	color: #999;
+	line-height: 32px
+}
+
+.redpacket-message {
+	width: 248px;
+	height: 98px;
+	background: url(../img/chatredpacket.png) no-repeat;
+	padding-top: 24px;
+	margin-top: 16px;
+	cursor: pointer
+}
+
+.redpacket-message p {
+	line-height: 24px;
+	font-size: 16px;
+	color: #fff;
+	padding-left: 85px;
+	padding-right: 10px
+}
+
+.redpacket-message p.redpacket-message-qiang-btn {
+	color: #ffd727
+}
+
+.readpacket-get-message {
+	border-radius: 32px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #8f4a59;
+	background: url(../img/redpacket.png?v=1) no-repeat 16px center #ffe0f1;
+	text-indent: 20px;
+	padding: 0 16px
+}
+
+.readpacket-get-message-wang {
+	color: #ff017a
+}
+
+.readpacket-get-message span {
+	color: #ff017a
+}
+
+#chatHeadImage {
+	position: relative
+}
+
+.jump-to-center {
+	color: #fff
+}
+
+.user-own-message {
+	color: #fff;
+	font-size: 16px;
+	position: relative;
+	background: url(../img/messageicon.png) no-repeat 0 center;
+	padding-left: 40px
+}
+
+.user-own-message .newimmessage-tips {
+	position: absolute;
+	z-index: 9;
+	width: 204px;
+	height: 57px;
+	top: 17px;
+	left: -17px;
+	background: url(../img/messagebg.png?v=1) no-repeat;
+	color: #666;
+	font-size: 16px;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	display: none
+}
+
+.user-own-message .newimmessage-tips p {
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	width: 170px;
+	overflow: hidden;
+	margin-top: 16px;
+	margin-left: 18px;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.user-own-message em {
+	display: none;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 100%;
+	background: red;
+	color: #ff5e7d;
+	font-style: normal;
+	text-align: center;
+	line-height: 16px;
+	color: #fff;
+	left: 16px;
+	top: -8px;
+	font-size: 12px;
+	border: solid 2px #fff
+}
+
+.voicechange-main {
+	align-items: center;
+	color: #fff;
+	padding: 0 5px;
+	display: none
+}
+
+.danmu-main {
+	align-items: center;
+	color: #fff;
+	padding: 0 5px
+}
+
+.danmu-main span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 6px;
+	background: url(../img/danicon.png) no-repeat 0 0
+}
+
+.danmu-main span.open {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 6px;
+	background-position: -20px 0
+}
+
+chimee-volume.chimee-flex-component.vertical {
+	padding-right: 0
+}
+
+chimee-screen.chimee-flex-component {
+	flex-basis: auto
+}
+
+.chimee-flex-component {
+	padding: 0 8px
+}
+
+.preinfotips {
+	position: fixed;
+	display: flex;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10000;
+	align-items: center;
+	justify-content: center
+}
+
+.pretips-content {
+	width: 584px;
+	height: 224px;
+	position: relative;
+	border-radius: 20px;
+	background: url(../img/chrome_tips_bg.png) no-repeat center center
+}
+
+.pretips-close {
+	position: absolute;
+	width: 36px;
+	height: 36px;
+	right: 0;
+	top: 0;
+	border-radius: 36px;
+	z-index: 9;
+	font-size: 60px;
+	text-align: center;
+	cursor: pointer;
+	background: url(../img/close.png) center center no-repeat #7f7f7f;
+	background-size: 18px 18px
+}
+
+.pretipsinfo {
+	display: flex;
+	align-items: center;
+	height: 224px
+}
+
+.download_now {
+	cursor: pointer;
+	border-radius: 10px;
+	width: 138px;
+	height: 48px;
+	text-align: center;
+	line-height: 48px;
+	color: #fff;
+	font-size: 22px;
+	background: #4fca1e
+}
+
+.close_now {
+	cursor: pointer;
+	border-radius: 10px;
+	width: 138px;
+	height: 48px;
+	text-align: center;
+	line-height: 48px;
+	color: #fff;
+	font-size: 22px;
+	background: #ccc
+}
+
+.chat-room-users {
+	margin-top: 20px
+}
+
+.chat-room-users .chat-room-ddteacher {
+	flex-direction: column
+}
+
+.chat-room-users .chat-room-all-item,
+.chat-room-users .chat-room-item {
+	display: flex;
+	align-items: center;
+	height: 44px
+}
+
+.chat-room-users .chat-room-item:hover {
+	background: #eee
+}
+
+.chat-room-users .chat-room-item span {
+	display: inline-flex;
+	align-items: center
+}
+
+.chat-room-users .chat-room-item img.chat-room-img-header {
+	width: 30px;
+	height: 30px;
+	border: solid 2px #e8e8e8;
+	border-radius: 30px
+}
+
+.chat-room-users .chat-room-item img.chat-room-img-header-liang {
+	border: solid 2px #52e559
+}
+
+.chat-room-users .chat-room-item img.nomic {
+	border: solid 2px red
+}
+
+.current_bg {
+	position: relative;
+	width: 50px;
+	height: 50px!important;
+	background: url(../img/headframe.png) no-repeat center center;
+	background-size: 50px 50px;
+	z-index: 12
+}
+
+.current_bg_header {
+	width: 40px;
+	height: 40px;
+	background: url(../img/headframe.png) no-repeat center center;
+	background-size: 40px 40px;
+	z-index: 12;
+	position: relative
+}
+
+.img_position {
+	position: absolute;
+	left: 8px;
+	top: 4px;
+	z-index: 10
+}
+
+.chat-room-users .chat-room-item span.chat-room-span-header {
+	position: relative
+}
+
+.chat-room-users .chat-room-item span.chat-room-img-speak {
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
+	background: #54df87;
+	margin-right: 8px;
+	color: #666;
+	font-size: 12px
+}
+
+.chat-room-all-item span.chat-room-img-online {
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
+	background: #ccc;
+	margin-right: 8px;
+	color: #666;
+	font-size: 12px
+}
+
+.chat-room-users .chat-room-item span.chat-room-name {
+	color: #666;
+	font-size: 15px;
+	padding: 2px 0
+}
+
+.chat-room-users .chat-room-item div.chat-room-item-icons {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	align-items: center;
+	flex: 1 auto
+}
+
+.chat-room-users .chat-room-item img.img-xin-icon {
+	width: 11px;
+	height: 9px
+}
+
+.chat-room-users .chat-room-item img.img-guan-icon {
+	height: 18px
+}
+
+img.img-laoban-icon {
+	width: 24px;
+	height: 20px
+}
+
+.chat-room-users .chat-room-item img.img-laoban-icon {
+	width: 24px;
+	height: 20px
+}
+
+.chat-room-users .chat-room-item div.chat-room-item-icons {
+	padding-right: 14px
+}
+
+.chat-room-users .chat-room-item div.chat-room-item-icons span {
+	margin-right: 4px
+}
+
+.chat-room-all-item .chat-talk-light {
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
+	background: #ccc
+}
+
+.chat-room-all-item span.chat-talk-light-liang {
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
+	background: #54df87
+}
+
+.chat-center-banner {
+	flex-direction: column;
+	position: relative;
+	display: none
+}
+
+.chat-center-banner .chat-center-banner-main {
+	height: 230px;
+	background: url(../img/mainbannerbg.jpg) no-repeat center center;
+	margin: 10px;
+	border-radius: 6px
+}
+
+.chat-center-banner .chat-banner-main {
+	overflow: hidden;
+	height: 118px;
+	margin: 16px
+}
+
+.chat-center-banner-left {
+	width: 300px;
+	margin-right: 4px;
+	justify-content: flex-start
+}
+
+.chat-center-banner-left img {
+	width: 118px;
+	border-radius: 10px
+}
+
+.chat-center-banner-left .chat-center-zhuchi-info {
+	justify-content: center;
+	color: #666;
+	font-size: 14px;
+	margin-left: 16px;
+	flex-direction: column
+}
+
+.chat-center-banner-left .chat-center-zhuchi-info .chat-center-zhuchi-info-title {
+	height: 30px;
+	justify-content: center;
+	align-items: center;
+	order: 1
+}
+
+.chat-center-banner-left .chat-center-zhuchi-info .chat-center-redline {
+	border-bottom: solid 1px #666;
+	width: 36px;
+	height: 1px
+}
+
+.chat-center-banner-right {
+	flex: 1 auto;
+	position: relative;
+	height: 118px;
+	display: flex
+}
+
+.chat-center-banner-right .chat-center-banner-list {
+	width: 999px;
+	height: 100%;
+	position: relative
+}
+
+.chat-center-banner-right img {
+	width: 100%;
+	height: 100%;
+	position: absolute
+}
+
+.chat-banner-info-base {
+	color: #333;
+	font-size: 13px;
+	order: 2;
+	display: flex;
+	margin: 3px 0;
+	align-items: center
+}
+
+.chat-banner-pingjia img {
+	width: 16px
+}
+
+.chat-banner-grade img {
+	width: 14px
+}
+
+.chat-banner-grade img.vipicon {
+	width: 36px;
+	border-radius: 0
+}
+
+.chat-center-inputcontent {
+	height: 40px;
+	flex: 0 0 40px;
+	background: #fee5eb
+}
+
+.chat-center-main {
+	flex-direction: row;
+	flex: 1 auto
+}
+
+.chat-center-left {
+	flex: 1 auto;
+	flex-direction: column
+}
+
+.chat-center .chat-center-right {
+	flex: 0 0 340px;
+	border-left: solid 1px #eee;
+	overflow-y: auto;
+	position: relative
+}
+
+.chat-center .chat-center-right .kaihei-chat-content {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow-y: auto;
+	overflow-x: hidden
+}
+
+.chat-center .chat-center-right .kaihei-chat-content::-webkit-scrollbar {
+	width: 6px;
+	background-color: #f9f9f9
+}
+
+.chat-center .chat-center-right .kaihei-chat-content::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(220, 220, 220, .3);
+	background-color: #ccc
+}
+
+.chat-center .chat-center-right .kaihei-chat-main {
+	padding-bottom: 32px
+}
+
+.kaihei-chat-main .kaiheigonggao {
+	font-size: 14px;
+	color: #999;
+	line-height: 24px;
+	padding: 10px
+}
+
+.kaihei-chat-main .kaihei-chat-item {
+	padding: 0 10px;
+	font-size: 14px;
+	color: #666;
+	line-height: 24px;
+	margin-top: 10px;
+	display: flex
+}
+
+.kaihei-chat-main .kaihei-chat-item .kaihei-chat-message img {
+	height: 24px
+}
+
+.kaihei-chat-main .kaihei-chat-item div.kaihei-chat-gift {
+	padding: 0 10px;
+	background: rgba(254, 208, 219, .6);
+	border-radius: 30px
+}
+
+.kaihei-chat-main .kaihei-chat-item div.kaihei-chat-gift img {
+	height: 24px
+}
+
+.kaihei-chat-main .kaihei-chat-item div.kaihei-chat-redpack {
+	padding: 0 10px;
+	border-radius: 30px;
+	background: url(../img/redpacket.png?v=1) no-repeat 10px center rgba(254, 208, 219, .6);
+	padding-left: 32px
+}
+
+.kaihei-chat-main .kaihei-chat-item div.kaihei-chat-image img {
+	max-width: 300px;
+	margin-top: 10px
+}
+
+.chat-center .chat-center-right .chat-room-introduce {
+	font-size: 14px;
+	color: #999;
+	padding: 0 20px;
+	overflow-x: hidden;
+	display: none
+}
+
+.chat-center .chat-center-right .chat-room-introduce p.introduce-title {
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #666;
+	text-indent: 26px
+}
+
+.chat-center .chat-center-right .chat-room-introduce p.music-titlebg {
+	background: url(../img/musictitlebg.png) no-repeat left center
+}
+
+.chat-center .chat-center-right .chat-room-introduce p.piaxi-titlebg {
+	background: url(../img/piaxititlebg.png?v=1) no-repeat left center
+}
+
+ul.music-gedan-list {
+	margin-top: 5px;
+	flex-wrap: wrap;
+	list-style: none
+}
+
+ul.music-gedan-list li {
+	margin-right: 10px
+}
+
+ul.music-gedan-list li:nth-child(2n) {
+	margin-right: 0
+}
+
+ul.music-gedan-list li p {
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+	line-height: 26px
+}
+
+ul.music-gedan-list li img {
+	width: 142px;
+	height: 142px;
+	border-radius: 5px
+}
+
+ul.music-piaxi-list {
+	flex-direction: column;
+	margin-top: 5px;
+	list-style: none
+}
+
+ul.music-piaxi-list li {
+	height: 44px;
+	line-height: 44px;
+	width: 284px;
+	font-size: 14px;
+	border-bottom: none;
+	padding: 0 13px;
+	display: flex;
+	background: url(../img/piaximid.png) no-repeat
+}
+
+ul.music-piaxi-list li:first-child {
+	background: url(../img/piaxitop.png) no-repeat
+}
+
+ul.music-piaxi-list li:last-child {
+	background: url(../img/piaxibottom.png) no-repeat
+}
+
+ul.music-piaxi-list li span.piaxi-name {
+	flex: 1;
+	overflow: hidden
+}
+
+ul.music-piaxi-list li em {
+	margin-right: 10px;
+	color: #999;
+	font-style: normal
+}
+
+ul.music-piaxi-list li span.piaxi-name {
+	color: #666
+}
+
+ul.music-piaxi-list li span.piaxi-time {
+	color: #999;
+	font-size: 12px
+}
+
+.biaobai-title {
+	text-align: center
+}
+
+.biaobai-title p {
+	background: #f58;
+	border-radius: 6px;
+	height: 32px;
+	line-height: 32px;
+	color: #fff;
+	margin-top: 8px;
+	cursor: pointer
+}
+
+.biaobai-title p span {
+	background: url(../img/biaobaiicon.png) no-repeat;
+	padding-left: 24px
+}
+
+.biaobai-introduce ul.biaobai-list {
+	list-style: none;
+	flex-direction: column;
+	margin-top: 10px
+}
+
+.biaobai-introduce ul.biaobai-list li {
+	width: 300px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px
+}
+
+.biaobai-introduce ul.biaobai-list li.blue {
+	background: #cfe6ff
+}
+
+.biaobai-introduce ul.biaobai-list li.blue .biaobai-content {
+	color: #3781d1;
+	word-break: break-word
+}
+
+.biaobai-introduce ul.biaobai-list li.green {
+	background: #c2f2d2
+}
+
+.biaobai-introduce ul.biaobai-list li.green .biaobai-content {
+	color: #209948;
+	word-break: break-word
+}
+
+.biaobai-introduce ul.biaobai-list li.fense {
+	background: #f3c8e9
+}
+
+.biaobai-introduce ul.biaobai-list li.fense .biaobai-content {
+	color: #c44ba8;
+	word-break: break-word
+}
+
+.biaobai-introduce ul.biaobai-list li.yellow {
+	background: #f2e79a
+}
+
+.biaobai-introduce ul.biaobai-list li.yellow .biaobai-content {
+	color: #c59328
+}
+
+.biaobai-introduce ul.biaobai-list li.fense1 {
+	background: #ffeaea
+}
+
+.biaobai-introduce ul.biaobai-list li.fense1 .biaobai-content {
+	color: #ff5b6a
+}
+
+.biaobai-introduce .biaobai-content {
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	padding: 16px 40px;
+	font-size: 14px
+}
+
+.biaobai-introduce .biaobai-user {
+	align-items: center;
+	padding-left: 10px;
+	margin-top: 8px;
+	color: #999
+}
+
+.biaobai-introduce .biaobai-user a {
+	color: #999;
+	text-decoration: none
+}
+
+.biaobai-introduce .biaobai-user-song {
+	justify-content: flex-end;
+	padding-right: 10px;
+	margin-top: 0;
+	margin-bottom: 8px;
+	color: #999
+}
+
+.biaobai-introduce .biaobai-user img {
+	width: 32px;
+	height: 32px;
+	border-radius: 32px;
+	margin: 0 5px
+}
+
+.chat-center .chat-center-right::-webkit-scrollbar {
+	width: 6px;
+	background-color: #f9f9f9
+}
+
+.chat-center .chat-center-right::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(220, 220, 220, .3);
+	background-color: #ccc
+}
+
+.chat-center-right-title {
+	justify-content: left;
+	font-size: 14px;
+	color: #666;
+	background: url(../img/loveicon.png) no-repeat left center;
+	text-indent: 28px;
+	flex: 1 auto
+}
+
+.chat-center-right-title span.chat-center-right-huan {
+	text-align: right;
+	background: url(../img/refshicon.png?v=1) no-repeat right+46px center;
+	cursor: pointer
+}
+
+.chat-center-right-title span {
+	flex: 1 auto
+}
+
+.chat-center-right-title .chat-center-right-line {
+	height: 1px;
+	background: #ccc;
+	width: 35px
+}
+
+.chat-center-right-list {
+	flex-direction: column;
+	margin-top: 14px
+}
+
+.chat-center-right-list ul {
+	list-style: none
+}
+
+.chat-center-right-list ul li {
+	float: left;
+	margin-right: 10px
+}
+
+.chat-center-right-list ul li:nth-child(2n) {
+	margin-right: 0
+}
+
+.chat-center-right-list .chat-center-right-item {
+	position: relative;
+	margin-bottom: 16px;
+	width: 142px;
+	height: 142px
+}
+
+.chat-center-right-list .chat-center-right-item img {
+	width: 100%
+}
+
+.chat-center-right-list .chat-center-right-item .chat-center-right-item-info {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	bottom: 0;
+	left: 0;
+	background: rgba(51, 51, 51, .6);
+	flex-direction: row-reverse;
+	justify-content: center;
+	text-align: center;
+	align-items: center
+}
+
+.chat-center-right-list .chat-center-right-item .chat-center-right-item-info a {
+	color: #fff;
+	font-size: 12px;
+	border-radius: 2px;
+	display: inline-flex;
+	margin-top: 5px;
+	height: 20px;
+	padding: 0 5px;
+	line-height: 20px;
+	text-decoration: none
+}
+
+.chat-center-right-list .chat-center-right-item .chat-center-right-item-info a.chat-right-voice {
+	background: #878f96;
+	order: 3;
+	align-items: center;
+	float: left;
+	margin-left: 5px
+}
+
+.chat-center-right-list .chat-center-right-item .chat-center-right-item-info a.chat-right-voice img {
+	width: 16px;
+	height: 16px;
+	margin-left: 5px
+}
+
+.chat-center-right-list .chat-center-right-item .chat-center-right-item-info a.chat-right-gift {
+	background: #f66;
+	order: 2
+}
+
+.chat-center-right-list .chat-center-right-item .chat-center-right-item-info a.chat-right-order {
+	background: #cc3467;
+	order: 1;
+	float: right;
+	margin-right: 5px
+}
+
+.chat-center-banner .main-zhuci {
+	width: 214px;
+	position: relative;
+	text-align: center;
+	background: url(../img/rightline.png) no-repeat right center
+}
+
+.chat-center-banner .main-zhuci .main-zhuci-header-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin-top: -10px;
+	z-index: 2
+}
+
+.chat-center-banner .main-zhuci .main-zhuci-header {
+	position: relative
+}
+
+.chat-center-banner .main-zhuci .main-zhuci-header .keng-teacher-zhuci-keng {
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	left: 3px;
+	top: 3px;
+	background: url(../img/mainemptybg.png) no-repeat center center #c1c4c9;
+	border-radius: 100%;
+	z-index: -1
+}
+
+.chat-center-banner .main-zhuci .main-zhuci-header span.span-main-tag {
+	position: absolute;
+	padding: 2px 6px;
+	background: #f459a3;
+	border-radius: 3px;
+	font-size: 12px;
+	color: #fff;
+	bottom: -6px;
+	left: 50%;
+	transform: translateX(-50%)
+}
+
+.chat-center-banner .main-zhuci .main-zhuci-header span.chatmain-span-xiamai {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	background: url(../img/closeiconv2.png?v=1) no-repeat;
+	right: 0;
+	top: 0;
+	display: none;
+	cursor: pointer;
+	z-index: 6
+}
+
+.chat-center-banner .main-zhuci .main-zhuci-name {
+	color: rgba(255, 255, 255, .5);
+	font-size: 14px;
+	line-height: 24px;
+	margin-top: 6px
+}
+
+.chat-center-banner .main-zhuci .main-zhuci-header img {
+	width: 120px;
+	height: 120px;
+	border-radius: 100%;
+	border: solid 3px transparent
+}
+
+.chat-center-banner .main-all-pingjia {
+	flex-direction: column;
+	justify-content: center;
+	padding-bottom: 20px;
+	margin-left: 20px
+}
+
+.chat-center-banner .main-all-pingjia button {
+	width: 90px;
+	height: 34px;
+	border-radius: 34px;
+	border: none;
+	opacity: .7;
+	color: #ccc;
+	margin: 6px 0;
+	outline: 0
+}
+
+.chat-center-banner .main-all-pingjia button.pall666 {
+	background: url(../img/zanicon.png) no-repeat right 5px center rgba(0, 0, 0, .4);
+	background-size: 21px;
+	padding: 0;
+	padding-right: 16px
+}
+
+.chat-center-banner .main-all-pingjia button.pall999 {
+	background: url(../img/bianicon.png) no-repeat right 5px center rgba(0, 0, 0, .4);
+	background-size: 21px;
+	padding: 0;
+	padding-right: 16px
+}
+
+.chat-center-banner .main-all-pingjia button:hover {
+	color: #f0f0f0;
+	opacity: 1
+}
+
+.chat-center-banner .main-kengwei {
+	align-items: center;
+	padding-bottom: 20px;
+	flex-wrap: wrap
+}
+
+.chat-center-banner .main-kengwei .main-keng-item {
+	width: 100px;
+	text-align: center;
+	position: relative;
+	margin-left: 45px;
+	cursor: pointer;
+}
+
+.chat-center-banner .main-kengwei .main-keng-item span.main-xu {
+	width: 22px;
+	height: 22px;
+	border-radius: 100%;
+	background: rgba(255, 133, 133, .8);
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	font-size: 12px;
+	color: #fff;
+	line-height: 22px;
+	z-index: 9
+}
+
+.chat-center-banner .main-kengwei .main-keng-item span.chat-span-xiamai {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	background: url(../img/closeiconv2.png?v=1) no-repeat;
+	right: 0;
+	top: 0;
+	display: none;
+	cursor: pointer;
+	z-index: 6
+}
+
+p {
+	color: #666;
+	font-size: 14px
+}
+
+.chat-center-banner .main-kengwei .main-keng-item .main-keng-peipei-item {
+	width: 100px;
+	height: 100px;
+	background: url(../img/mainemptybg.png) no-repeat center center #c1c4c9;
+	border-radius: 100%;
+	line-height: 0;
+	position: relative;
+	background-size: 60%
+}
+
+.chat-center-banner .main-kengwei .main-keng-item .main-keng-peipei-item img {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	border: solid 3px transparent;
+	position: absolute;
+	top: -3px;
+	left: -3px
+}
+
+.chat-center-banner .main-kengwei .main-keng-item p {
+	color: rgba(255, 255, 255, .5);
+	margin-top: 6px;
+	position: absolute;
+	bottom: -30px;
+	text-align: center;
+	width: 100px;
+	height: 32px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 32px
+}
+
+.chat-center-banner-main .div-clickzan {
+	position: absolute;
+	bottom: -60px;
+	left: 0;
+	width: 100px;
+	display: none;
+	justify-content: center
+}
+
+.chat-center-banner-main .div-clickzan button {
+	margin: 0 4px;
+	padding: 0 6px;
+	font-size: 14px;
+	color: #666;
+	border: none;
+	background: rgba(0, 0, 0, .4);
+	color: #ccc;
+	outline: 0
+}
+
+.chat-center-banner-main .div-clickzan button.p666 {
+	width: 34px;
+	height: 34px;
+	border-radius: 100%;
+	background: url(../img/zanicon.png) no-repeat center center rgba(0, 0, 0, .4);
+	background-size: 21px;
+	opacity: .7
+}
+
+.chat-center-banner-main .div-clickzan button.p999 {
+	width: 34px;
+	height: 34px;
+	border-radius: 100%;
+	background: url(../img/bianicon.png) no-repeat center center rgba(0, 0, 0, .4);
+	background-size: 21px;
+	opacity: .7
+}
+
+.chat-center-banner-main .div-clickzan button:hover {
+	opacity: 1
+}
+
+.main-zhuci-header-content div.div-clickzan {
+	width: 126px;
+	bottom: -36px
+}
+
+.speaking .keng-teacher-guangyun,
+.speaking .keng-teacher-guangyun2,
+.speaking .keng-teacher-guangyun3 {
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	z-index: -1;
+	background: 0 0;
+	border-radius: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	animation: waveCircle 2.4s ease-out;
+	animation-iteration-count: infinite
+}
+
+.speaking .keng-teacher-guangyun2 {
+	animation-delay: .8s;
+	-webkit-animation-delay: .8s
+}
+
+.speaking .keng-teacher-guangyun3 {
+	animation-delay: 1.6s;
+	-webkit-animation-delay: 1.6s
+}
+
+@-webkit-keyframes waveCircle {
+	0% {
+		transform: scale(1);
+		opacity: 0
+	}
+	10% {
+		transform: scale(1.05);
+		opacity: .1
+	}
+	20% {
+		transform: scale(1.1);
+		opacity: .2
+	}
+	30% {
+		transform: scale(1.15);
+		opacity: .3
+	}
+	40% {
+		transform: scale(1.2);
+		opacity: .4
+	}
+	50% {
+		transform: scale(1.25);
+		opacity: .5
+	}
+	60% {
+		transform: scale(1.3);
+		opacity: .4
+	}
+	70% {
+		transform: scale(1.35);
+		opacity: .3
+	}
+	80% {
+		transform: scale(1.4);
+		opacity: .2
+	}
+	90% {
+		transform: scale(1.45);
+		opacity: .1
+	}
+	100% {
+		transform: scale(1.5);
+		opacity: 0
+	}
+}
+
+.chat-center-keng {
+	height: 260px;
+	border-bottom: solid 1px #eee;
+	display: none;
+	margin: 10px;
+	border-radius: 6px
+}
+
+.chat-center-keng .chat-keng-boss {
+	width: 260px;
+	height: 100%;
+	background: url(../img/rightline.png) no-repeat right center;
+	position: relative
+}
+
+.chat-center-keng .chat-keng-boss .rightline {
+	position: absolute;
+	height: 80%;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1px;
+	background: #eee
+}
+
+.chat-center-keng .chat-keng-boss .chat-keng-boss-content {
+	position: absolute;
+	width: 136px;
+	height: 210px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%)
+}
+
+.chat-center-keng .chat-keng-boss .chat-keng-boss-content .chat-keng-boss-name {
+	text-align: center;
+	color: #f60;
+	font-size: 14px;
+	line-height: 24px;
+	margin-top: -5px
+}
+
+.chat-center-keng .chat-keng-boss .chat-keng-boss-content .chat-keng-boss-name .boss-name-text {
+	font-size: 14px;
+	color: #fff
+}
+
+.chat-center-keng .chat-keng-boss .chat-keng-boss-content .chat-keng-boss-name img {
+	width: 34px
+}
+
+.chat-center-keng .chat-keng-boss .chat-keng-boss-content .chat-keng-boss-name span.boss-age {
+	font-size: 12px;
+	color: #fff;
+	background: #f459a3;
+	padding: 0 5px;
+	border-radius: 4px;
+	margin-right: 6px
+}
+
+.chat-center-keng .chat-keng-boss .chat-keng-boss-head {
+	width: 136px;
+	height: 164px;
+	position: relative;
+	background: url(../img/sofa02.png) no-repeat center center
+}
+
+.boss-head.boss-guang {
+	background: url(../img/beiguang.png?v=1) no-repeat 0 0;
+	position: absolute;
+	width: 184px;
+	height: 184px;
+	top: 50%;
+	left: 50%;
+	margin-left: -92px;
+	margin-top: -92px;
+	z-index: -1
+}
+
+.boss-head.boss-guang-roat {
+	-webkit-animation: spin 10s linear 1s 5 alternate;
+	animation: spin 10s linear infinite
+}
+
+@-webkit-keyframes spin {
+	from {
+		-webkit-transform: rotate(0)
+	}
+	to {
+		-webkit-transform: rotate(360deg)
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0)
+	}
+	to {
+		transform: rotate(360deg)
+	}
+}
+
+.boss-head.boss-border {
+	border: solid 3px #ffbe31;
+	width: 120px;
+	height: 120px;
+	z-index: 3;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%)
+}
+
+.boss-head.boss-border .boss-head-tag {
+	position: absolute;
+	width: 46px;
+	height: 35px;
+	line-height: 20px;
+	bottom: -8px;
+	background: url(../img/bosstag.png) no-repeat;
+	border-radius: 4px;
+	color: #7d4100;
+	font-size: 12px;
+	left: 50%;
+	transform: translateX(-50%)
+}
+
+.boss-head.boss-header img {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%)
+}
+
+.chat-center-keng .chat-keng-mai {
+	flex: 1 auto;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap
+}
+
+.chat-center-keng .chat-keng-mai ul {
+	list-style: none;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 50px;
+	margin-top: 6px
+}
+
+.chat-center-keng .chat-keng-mai ul li {
+	float: left;
+	margin: 10px 0
+}
+
+.chat-center-keng .chat-keng-mai .chat-keng-teacher {
+	height: 80px;
+	width: 80px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	border: solid 2px #fff9fa;
+	margin: 0 auto;
+	position: relative;
+	background: url(../img/chareemptyicon.png?v=1) no-repeat center center #e0e0e0
+}
+
+.chat-center-keng .chat-keng-mai .chat-keng-teacher-name {
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+	line-height: 24px;
+	height: 24px;
+	margin-top: 4px
+}
+
+.chat-center-keng .chat-keng-mai .chat-keng-teacher .chat-keng-zhuchi-tag {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 30px;
+	height: 16px;
+	background: #f459a3;
+	border-radius: 3px;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	bottom: -6px;
+	z-index: 3;
+	line-height: 14px
+}
+
+.chat-center-keng .chat-span-xiamai {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	background: url(../img/closeiconv2.png?v=1) no-repeat;
+	right: -13px;
+	top: -8px;
+	display: none;
+	cursor: pointer;
+	z-index: 6
+}
+
+.chat-center-keng .chat-span-xuhao-number {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	background: #fd8da7;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	line-height: 16px;
+	top: 7px;
+	left: 0;
+	z-index: 5;
+	opacity: .8
+}
+
+.chat-center-keng .chat-keng-mai .chat-keng-teacher img {
+	height: 84px;
+	width: 84px;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 2;
+	top: -2px;
+	left: -2px
+}
+
+.chat-keng-teacher-speaking {
+	border: solid 3px #92e18a
+}
+
+.chat-center-kaihei-keng {
+	height: 116px;
+	background: url(../img/kaiheibannerbg.jpg) no-repeat;
+	background-size: cover;
+	display: none
+}
+
+.chat-center-kaihei-keng .kaihei-keng-zhuci {
+	align-items: center;
+	margin-left: 20px;
+	width: 240px
+}
+
+.chat-center-kaihei-keng .kaihei-keng-zhuci-header-parent {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	background: url(../img/mainemptybg.png) no-repeat center center #c1c4c9;
+	background-size: 60%;
+	position: relative
+}
+
+.chat-center-kaihei-keng img.kaihei-keng-zhuci-header {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	border: solid 2px transparent;
+	margin-top: -2px;
+	margin-left: -2px;
+	position: absolute
+}
+
+.chat-center-kaihei-keng .kaihei-keng-zhuci-info {
+	margin-left: 10px
+}
+
+.chat-center-kaihei-keng .kaihei-keng-zhuci-info p {
+	line-height: 26px
+}
+
+.chat-center-kaihei-keng .kaihei-keng-users {
+	flex: 1 auto;
+	min-width: 480px;
+	max-width: 600px
+}
+
+.chat-center-kaihei-keng .kaihei-keng-users ul {
+	display: flex;
+	list-style: none;
+	height: 100%
+}
+
+.chat-center-kaihei-keng .kaihei-keng-users ul li {
+	flex: 0 0 100px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-left: 45px
+}
+
+.chat-center-kaihei-keng .kaihei-keng-users ul li span.kaihei-header-close {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	background: url(../img/kaiheiclose.png) no-repeat;
+	right: -8px;
+	top: -4px;
+	cursor: pointer;
+	display: none;
+	z-index: 6
+}
+
+.chat-center-kaihei-keng .kaihei-keng-users ul li div {
+	width: 88px;
+	height: 88px;
+	position: relative;
+	background: url(../img/mainemptybg.png) no-repeat center center #c1c4c9;
+	background-size: 60%;
+	border-radius: 100%
+}
+
+.chat-center-kaihei-keng .kaihei-keng-users ul li p {
+	font-size: 12px;
+	color: #666;
+	line-height: 22px
+}
+
+.chat-center-kaihei-keng .kaihei-keng-users ul li p.kaihei-keng-user-name {
+	height: 16px
+}
+
+.chat-center-kaihei-keng .kaihei-keng-users ul li img.kaihei-keng-user-header {
+	width: 88px;
+	height: 88px;
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	border-radius: 100%;
+	border: solid 2px transparent
+}
+
+.chat-center-carteam-keng {
+	margin: 10px;
+	border-radius: 6px;
+	overflow: hidden;
+	height: 0;
+	display: none
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci,
+.chat-center-pudg-auto .pudgauto-keng-zhuci {
+	flex: 0 0 271px;
+	background-size: 100%;
+	justify-content: center;
+	align-items: center;
+	position: relative
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci div.zhuci-voice-swich,
+.chat-center-pudg-auto .pudgauto-keng-zhuci div.zhuci-voice-swich {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 22px;
+	height: 20px;
+	background: url(../img/voiceswich.png?v=1) no-repeat 0 0;
+	z-index: 9;
+	cursor: pointer
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci div.zhuci-voice-swich-close,
+.chat-center-pudg-auto .pudgauto-keng-zhuci div.zhuci-voice-swich-close {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 22px;
+	height: 20px;
+	background-position: -23px 0;
+	z-index: 9
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-jiabin,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-jiabin {
+	margin-top: 20px
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-jiabin>div,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-jiabin>div {
+	margin: 0 6px
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci p,
+.chat-center-pudg-auto .pudgauto-keng-zhuci p {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #ccc
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci p.jiabin-name,
+.chat-center-pudg-auto .pudgauto-keng-zhuci p.jiabin-name {
+	width: 64px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	height: 28px;
+	line-height: 28px
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-jiabin-header,
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-zhuci-header,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-jiabin-header,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-zhuci-header {
+	position: relative;
+	text-align: center;
+	cursor: pointer
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-person-item .carauto-person-header span.carteam-tag,
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-jiabin-header span.tag,
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-zhuci-header span.carteam-tag,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-jiabin-header span.tag,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-zhuci-header span.carteam-tag {
+	position: absolute;
+	bottom: -6px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #f459a3;
+	font-size: 12px;
+	color: #fff;
+	padding: 0 2px;
+	border-radius: 4px
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-jiabin-header span.numcode,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-jiabin-header span.numcode {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 16px;
+	background: #fd8da7;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	line-height: 16px;
+	top: 4px;
+	left: 0;
+	z-index: 5;
+	opacity: .8
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-jiabin-header span.close-jiabin,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-jiabin-header span.close-jiabin {
+	width: 24px;
+	height: 24px;
+	background: url(../img/closeiconv2.png?v=1) no-repeat;
+	right: -8px;
+	top: -4px;
+	border-radius: 100%;
+	position: absolute;
+	cursor: pointer;
+	display: none;
+	z-index: 6
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-person-item .carauto-person-header span.carteamperson-close,
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-zhuci-header span.carteamperson-close,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-zhuci-header span.carteamperson-close {
+	width: 24px;
+	height: 24px;
+	background: url(../img/closeiconv2.png?v=1) no-repeat;
+	right: -8px;
+	top: -4px;
+	border-radius: 100%;
+	position: absolute;
+	cursor: pointer;
+	display: none;
+	z-index: 9
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-zhuci-header>div,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-zhuci-header>div {
+	width: 116px;
+	height: 116px;
+	border-radius: 100%;
+	background: url(../img/carteamemptybg.png) no-repeat center center #c1c4c9;
+	background-size: 32px;
+	position: relative;
+	line-height: 0;
+	border: solid 2px #fff;
+	margin: 0 auto
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-zhuci-header img,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-zhuci-header img {
+	width: 120px;
+	height: 120px;
+	border-radius: 100%;
+	border: solid 2px transparent;
+	position: absolute;
+	left: -4px;
+	top: -4px
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-jiabin-header,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-jiabin-header {
+	background: url(../img/carteamemptybg.png) no-repeat center center #c1c4c9;
+	border-radius: 100%;
+	border: solid 2px #fff;
+	width: 60px;
+	height: 60px;
+	position: relative
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-jiabin-header img,
+.chat-center-pudg-auto .pudgauto-keng-zhuci .carteam-jiabin-header img {
+	width: 64px;
+	height: 64px;
+	border-radius: 100%;
+	border: solid 2px transparent;
+	position: absolute;
+	top: -4px;
+	left: -4px
+}
+
+.chat-center-carteam-keng .carteam-keng-users {
+	flex: 1;
+	position: relative
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul {
+	list-style: none
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li {
+	display: flex;
+	align-items: center;
+	height: 134px;
+	padding: 0 0 0 16px
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li img.xuanyan-editicon {
+	width: 32px;
+	height: 32px;
+	margin-left: 10px;
+	cursor: pointer
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang-xuanyan {
+	padding: 5px;
+	border-radius: 6px;
+	margin-left: 20px;
+	display: none;
+	align-items: center
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang-xuanyan div.carteam-edit-div {
+	display: none;
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+	background: url(../img/editiconbg.png) no-repeat
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang-xuanyan div.carteam-edit-icon1 {
+	background-position: 0 0
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang-xuanyan div.carteam-edit-icon2 {
+	background-position: -13px 0
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang-xuanyan div.carteam-edit-icon3 {
+	background-position: -26px 0
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang-xuanyan p {
+	margin: 0;
+	line-height: 20px;
+	text-align: left;
+	height: 20px
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang {
+	cursor: pointer
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang div.carteam-duizhang-header {
+	width: 84px;
+	height: 84px;
+	background: url(../img/carteamemptybg.png) no-repeat center center #c1c4c9;
+	border-radius: 100%;
+	background-size: 28px;
+	position: relative;
+	border: solid 2px #fff
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang div span.carteamperson-close {
+	width: 24px;
+	height: 24px;
+	background: url(../img/closeiconv2.png?v=1) no-repeat;
+	right: -8px;
+	top: -4px;
+	border-radius: 100%;
+	position: absolute;
+	cursor: pointer;
+	display: none
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang div span.carteam-tag {
+	position: absolute;
+	bottom: -6px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #f459a3;
+	font-size: 12px;
+	color: #fff;
+	padding: 0 6px;
+	border-radius: 4px
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-title {
+	font-size: 14px;
+	color: #ddd;
+	margin-right: 24px;
+	line-height: 16px
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li.firstdui div.carteam-title {
+	color: #c2a4ff
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li.seconddui div.carteam-title {
+	color: #becfff
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li.thirddui div.carteam-title {
+	color: #ffc6cb
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li p {
+	text-align: center;
+	margin-top: 4px;
+	color: #ccc;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	height: 22px;
+	line-height: 22px
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li p.carteam-duizhang-name {
+	width: 88px
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li p.carteam-duiyuan-name {
+	width: 72px
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li button {
+	margin-top: -16px;
+	margin-left: 20px
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duizhang img {
+	width: 88px;
+	height: 88px;
+	border-radius: 100%;
+	border: solid 2px transparent;
+	position: absolute;
+	left: -4px;
+	top: -4px
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duiyuan {
+	margin-left: 32px;
+	cursor: pointer
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duiyuan div {
+	width: 68px;
+	height: 68px;
+	background: url(../img/carteamemptybg.png) no-repeat center center #c1c4c9;
+	border-radius: 100%;
+	background-size: 28px;
+	position: relative;
+	border: solid 2px #fff
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duiyuan div.carteam-duiyuan-last {
+	background: #f58;
+	text-align: center;
+	line-height: 68px;
+	color: #fff
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duiyuan div span {
+	width: 24px;
+	height: 24px;
+	background: url(../img/closeiconv2.png?v=1) no-repeat;
+	right: -8px;
+	top: -4px;
+	border-radius: 100%;
+	position: absolute;
+	cursor: pointer;
+	display: none;
+	z-index: 3
+}
+
+.chat-center-carteam-keng .carteam-keng-users ul li div.carteam-duiyuan img {
+	width: 72px;
+	height: 72px;
+	border-radius: 100%;
+	border: solid 2px transparent;
+	position: absolute;
+	left: -4px;
+	top: -4px;
+	z-index: 2
+}
+
+.chat-center-window {
+	flex: 1 auto;
+	position: relative
+}
+
+.chat-center-window-main {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow-y: auto
+}
+
+.chat-center-window-main::-webkit-scrollbar {
+	width: 6px;
+	background-color: #f9f9f9
+}
+
+.chat-center-window-main::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(220, 220, 220, .3);
+	background-color: #ccc
+}
+
+.chat-center-window .chat-center-message {
+	flex-direction: column;
+	padding: 20px
+}
+
+.chat-center-window .chat-text-content {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 16px
+}
+
+.chat-center-window .chatroom-tag {
+	margin-right: 5px
+}
+
+.chat-center-window .chat-center-time {
+	color: #999
+}
+
+.chat-center-window .chat-center-talktext {
+	line-height: 30px;
+	color: #333
+}
+
+.chat-center-window .chat-center-talktext a {
+	color: #00f;
+	text-decoration: underline
+}
+
+.chat-center-window .chat-center-talktext .chat-message-image {
+	margin-top: 16px;
+	cursor: pointer;
+	border-radius: 10px
+}
+
+.chat-center-window .chat-gift-main {
+	justify-content: center
+}
+
+.chat-center-window .chat-gift-content {
+	line-height: 30px;
+	font-size: 14px;
+	color: #666;
+	text-align: center;
+	width: 40%;
+	margin-bottom: 16px;
+	border-radius: 30px;
+	align-items: center
+}
+
+.chat-center-window .chat-gift-content-fen {
+	background: rgba(254, 208, 219, .6)
+}
+
+.chat-center-window .chat-gift-content-blue {
+	background: rgba(201, 233, 244, .6)
+}
+
+.chat-center-window .chat-gift-content span {
+	display: inline-flex;
+	padding: 0 5px
+}
+
+.chat-center-window .chat-center-newmessage {
+	position: absolute;
+	/*width: 100px;*/
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: url(../img/downicon.png) no-repeat left 30px center rgba(254, 102, 153, .5);
+	height: 30px;
+	border-radius: 30px;
+	padding: 0 20px;
+	background-size: 12px 14px;
+	line-height: 30px;
+	color: #fff;
+	text-indent: 30px;
+	cursor: pointer;
+	z-index: 9;
+	display: none
+}
+
+.chat-dami-heart {
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	right: 20px;
+	width: 195px;
+	height: 122px;
+	display: none
+}
+
+.chat-dami-heart img.heart1 {
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+.chat-dami-heart img.heart2 {
+	position: absolute;
+	right: 0;
+	bottom: 0
+}
+
+.chat-diandan {
+	width: 170px;
+	height: 69px;
+	border-radius: 60px;
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	display: flex;
+	justify-content: flex-end
+}
+
+.chat-diandan .chat-diandan-btn,
+.chat-diandan .chat-diandan-btn-music,
+.chat-diandan .chat-diandan-complete,
+.chat-diandan .chat-diandan-shangkeng,
+.chat-diandan .chat-diandan-shiyin,
+.chat-diandan .chat-shangche-btn,
+.chat-diandan .chat-shangmai-btn {
+	display: flex;
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	background: #f58;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	line-height: 1;
+	color: #fff;
+	font-weight: 500;
+	cursor: pointer;
+	font-size: 16px;
+	opacity: .9;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	margin: 0 5px
+}
+
+.chat-diandan .carteamroom-btns,
+.chat-diandan .chat-diandan-btn-music,
+.chat-diandan .diandanroom-btns,
+.chat-diandan .ktvroom-btns,
+.chat-diandan .paidanroom-btns {
+	display: none
+}
+
+.chat-diandan .diandanroom-btns,
+.chat-diandan .paidanroom-btns {
+	width: 140px;
+	justify-content: flex-end
+}
+
+.chat-diandan .carteamroom-btns {
+	width: 80px
+}
+
+.chat-diandan .chat-diandan-complete {
+	background: #bf38dc;
+	padding: 0 10px
+}
+
+.chat-diandan .chat-shangche-btn {
+	padding: 0 10px
+}
+
+.chat-diandan .chat-diandan-btn font {
+	font-size: 16px
+}
+
+.chat-diandan .chat-diandan-btn:hover {
+	opacity: 1
+}
+
+.chat-diandan .chat-diandan-btn-disable {
+	background: #ccc;
+	color: #fefefe
+}
+
+.chat-diandan .chat-diandan-btn-disable:hover {
+	background: #ccc;
+	color: #fefefe
+}
+
+.chat-diandan .chat-diandan-btn-music {
+	margin-left: 10px
+}
+
+.chat-diandan .chat-diandan-btn-music .chat-diandan-list {
+	position: absolute;
+	width: 320px;
+	height: 320px;
+	right: 0;
+	top: -330px;
+	background: #eee;
+	border-radius: 10px;
+	display: none
+}
+
+.chat-diandan .chat-diandan-btn-music .chat-diandan-list p {
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #ccc;
+	font-size: 14px;
+	color: #666
+}
+
+.chat-diandan-list .chat-diandan-list-content {
+	margin-top: 10px;
+	height: 230px;
+	overflow-y: auto;
+	overflow-x: hidden
+}
+
+.chat-diandan-list .chat-diandan-list-content::-webkit-scrollbar {
+	width: 6px;
+	background-color: #f9f9f9
+}
+
+.chat-diandan-list .chat-diandan-list-content::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(220, 220, 220, .3);
+	background-color: #ccc
+}
+
+.chat-diandan-list .chat-diandan-list-content li {
+	align-items: center;
+	padding: 0 10px;
+	background: #f9f9f9;
+	height: 60px;
+	border-bottom: solid 1px #efefef
+}
+
+.chat-diandan-list .chat-diandan-list-content li img.chat-diandan-headerimg {
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	margin-left: 10px
+}
+
+.chat-diandan-list .chat-diandan-list-content li span.chat-diandan-xuhao {
+	width: 18px;
+	height: 18px;
+	border-radius: 18px;
+	color: #fff;
+	text-align: center;
+	background: #2797f5;
+	line-height: 18px;
+	font-size: 12px
+}
+
+.chat-diandan-list .chat-diandan-list-content li span.chat-diandan-bbtn {
+	width: 37px;
+	height: 24px;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	line-height: 24px;
+	margin-left: 10px;
+	cursor: pointer;
+	display: none
+}
+
+.chat-diandan-list .chat-diandan-list-content li span.chat-diandan-up {
+	background: #2797f5
+}
+
+.chat-diandan-list .chat-diandan-list-content li span.chat-diandan-del {
+	background: red
+}
+
+.chat-diandan-list .chat-diandan-list-content li div.chat-diandan-userinfo {
+	flex: 1 auto
+}
+
+.chat-diandan-list .chat-diandan-list-content li div.chat-diandan-userinfo div {
+	line-height: 20px;
+	text-align: left;
+	padding-left: 10px;
+	color: #333;
+	font-size: 14px
+}
+
+.chat-diandan-list .chat-center-myneeddiandan {
+	width: 90%;
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 10px;
+	text-align: center;
+	background: #f459a3;
+	margin: 0 auto;
+	margin-top: 10px;
+	cursor: pointer
+}
+
+.chat-diandan-list .chat-center-myneeddiandan.disable {
+	background: #ddd;
+	color: #999
+}
+
+.chat-diandan .chat-diandan-shangkeng {
+	width: 60px;
+	height: 60px;
+	background: #e93891;
+	align-items: center;
+	justify-content: center;
+	line-height: 60px;
+	padding-top: 0
+}
+
+.chat-center-message .boss-diandan-message {
+	font-size: 14px;
+	margin-bottom: 16px
+}
+
+.chat-center-message .boss-diandan-message .boss-diandan-message-info {
+	height: 30px;
+	line-height: 30px;
+	background: #ffe0f1;
+	border-radius: 30px;
+	color: #8f4a59;
+	padding: 0 20px;
+	align-items: center
+}
+
+.chat-center-message .boss-diandan-message .boss-diandan-message-info .diandain-avatar {
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	border: solid 1px #fff
+}
+
+.chat-center-message .boss-diandan-message .boss-diandan-message-info .diandain-level {
+	height: 18px;
+	margin: 0 10px
+}
+
+.boss-will {
+	position: absolute;
+	bottom: 60px;
+	right: 10px;
+	flex-direction: column;
+	overflow: hidden;
+	overflow-y: auto;
+	border-radius: 10px;
+	justify-content: flex-end
+}
+
+.boss-will .boss-diandan {
+	justify-content: flex-end;
+	font-size: 14px;
+	margin-bottom: 10px
+}
+
+.boss-will .boss-diandan .boss-diandan-info {
+	height: 30px;
+	line-height: 30px;
+	background: #ffe0f1;
+	border-radius: 30px;
+	color: #8f4a59;
+	padding: 0 6px 0 10px;
+	align-items: center
+}
+
+.boss-will .boss-diandan .boss-diandan-info .diandain-avatar {
+	height: 20px;
+	line-height: 20px;
+	border-radius: 20px;
+	border: solid 1px #fff
+}
+
+.boss-will .boss-diandan .boss-diandan-info .diandain-level {
+	height: 18px;
+	margin: 0 10px
+}
+
+.boss-will .boss-bao {
+	height: 24px;
+	line-height: 24px;
+	background: #f58;
+	border-radius: 30px;
+	font-size: 14px;
+	padding: 0 4px;
+	color: #fff000;
+	margin-left: 20px;
+	cursor: pointer
+}
+
+.boss-will .boss-will-content {
+	flex-direction: column;
+	justify-content: flex-end
+}
+
+#kaiheiWrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0
+}
+
+#kaiheiWrapper .kaiche-danmu {
+	background: rgba(0, 0, 0, .4);
+	align-items: center;
+	height: 32px;
+	border: solid 1px rgba(255, 255, 255, .4);
+	border-radius: 32px;
+	margin-top: 10px
+}
+
+#kaiheiWrapper .kaiche-danmu .kaiche-message {
+	padding: 0 10px;
+	font-size: 16px
+}
+
+#kaiheiWrapper .kaiche-danmu img.danmu-header {
+	width: 28px;
+	height: 28px;
+	border-radius: 28px;
+	margin-left: 5px
+}
+
+.boss-comein-chat {
+	position: absolute;
+	min-height: 60px;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 110
+}
+
+.boss-comein-chat .boss-comein-item {
+	color: #fff;
+	align-items: center;
+	opacity: 0;
+	margin-bottom: 10px
+}
+
+.boss-comein-chat .boss-comein-item-low {
+	justify-content: flex-end
+}
+
+.boss-comein-chat .boss-comein-item-low-content {
+	height: 30px;
+	border-radius: 30px;
+	background: #999;
+	font-size: 14px;
+	padding: 0 20px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center
+}
+
+.boss-comein-chat .boss-comein-item-low img.border_this {
+	width: 18px;
+	height: 18px;
+	border: solid 1px #fff;
+	border-radius: 20px;
+	margin-right: 10px
+}
+
+.boss-comein-chat .boss-comein-item-middle {
+	background: url(../img/middlebg.png) no-repeat;
+	height: 61px;
+	width: 366px;
+	font-size: 14px;
+	padding-top: 7px;
+	justify-content: center
+}
+
+.boss-comein-chat .boss-comein-item-middle img.middle-avatar {
+	width: 18px;
+	height: 18px;
+	border: solid 1px #fff;
+	border-radius: 20px
+}
+
+.boss-comein-chat .boss-comein-item-middle img.middle-level {
+	height: 18px;
+	margin: 0 10px
+}
+
+.boss-comein-chat .boss-comein-item-height {
+	background: url(../img/heightbg.png) no-repeat;
+	height: 71px;
+	width: 436px;
+	font-size: 14px;
+	padding-top: 2px;
+	justify-content: center
+}
+
+.boss-comein-chat .boss-comein-item-height img.height-avatar {
+	width: 18px;
+	height: 18px;
+	border: solid 1px #fff;
+	border-radius: 20px
+}
+
+.boss-comein-chat .boss-comein-item-height img.height-level {
+	height: 18px;
+	margin: 0 10px
+}
+
+.boss-comein-chat .boss-comein-item-gao {
+	background: rgba(0, 0, 0, .7);
+	color: #fff;
+	align-items: center;
+	padding: 10px;
+	padding-left: 20px;
+	border-radius: 6px;
+	opacity: 1
+}
+
+.boss-comein-chat .boss-comein-item img {
+	height: 20px
+}
+
+.boss-comein-chat .boss-comein-item span {
+	color: #ff0;
+	margin-left: 10px
+}
+
+.chat-right-search {
+	background: #fee5eb;
+	height: 36px;
+	border-radius: 36px;
+	align-items: center;
+	margin-bottom: 10px;
+	padding-left: 10px
+}
+
+.chat-right-search input[type=text] {
+	border: none;
+	outline: 0;
+	height: 26px;
+	background: 0 0;
+	text-indent: 10px;
+	flex: 1 auto
+}
+
+.chat-right-search span {
+	width: 48px;
+	height: 36px;
+	background: url(../img/searchicon.png?v=1) no-repeat center center
+}
+
+.chat-center-right .chat-right-banner,
+.swiper-container {
+	width: 100%;
+	height: 0;
+	display: none
+}
+
+.swiper-pagination-bullet {
+	background: #fff;
+	opacity: .6
+}
+
+.swiper-container .swiper-pagination-bullet-active {
+	background: #ff4546
+}
+
+.chat-center-right .chat-right-banner {
+	height: 0;
+	display: none
+}
+
+.chat-center-right .chat-right-banner img {
+	width: 100%;
+	height: 64px
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets {
+	bottom: 0
+}
+
+.rightnormal {
+	display: none
+}
+
+.chat-center-input-left {
+	align-items: center;
+	height: 36px
+}
+
+.chat-input-smile {
+	margin-left: 10px;
+	position: relative
+}
+
+.chat-input-smile img {
+	width: 20px;
+	height: 20px;
+	cursor: pointer
+}
+
+.chat-input-text {
+	background: #fff;
+	border-radius: 10px;
+	margin-right: 10px
+}
+
+.chat-input-text input {
+	border: none;
+	border-style: none;
+	font-size: 16px;
+	width: 400px;
+	height: 34px;
+	padding-left: 5px;
+	outline: 0
+}
+
+.chat-input-text textarea {
+	border: none;
+	border-style: none;
+	font-size: 16px;
+	width: 400px;
+	height: 28px;
+	padding-left: 5px;
+	outline: 0;
+	line-height: 28px;
+	resize: none
+}
+
+.chat-input-camer {
+	margin-left: 10px;
+	margin-right: 10px;
+	position: relative;
+	background: url(../img/camericonbg.png) no-repeat 0 0;
+	width: 24px;
+	height: 18px;
+	cursor: pointer
+}
+
+.chat-input-camer:hover {
+	background: url(../img/camericonbg.png) no-repeat -24px 0
+}
+
+.chat-input-camer input[type=file] {
+	width: 24px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: 9;
+	opacity: 0;
+	cursor: pointer;
+	padding: 0
+}
+
+.chat-input-btn-send {
+	font-size: 14px;
+	color: #973c53;
+	text-align: center;
+	padding: 0 12px;
+	cursor: pointer;
+	background: #fee5eb;
+	height: 28px;
+	line-height: 28px;
+	border-radius: 8px;
+	margin-right: 4px
+}
+
+.chat-emoji-list {
+	position: absolute;
+	background: #f9f9f9;
+	width: 380px;
+	height: 300px;
+	bottom: 46px;
+	left: -10000px;
+	border: solid 1px #ddd;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	flex-direction: row;
+	overflow-y: auto;
+	z-index: 99
+}
+
+.chat-emoji-list div {
+	width: 60px;
+	height: 60px;
+	background: #fff;
+	justify-content: center;
+	align-items: center;
+	border-right: solid 1px #ddd;
+	border-bottom: solid 1px #ddd;
+	cursor: pointer
+}
+
+.chat-emoji-list::-webkit-scrollbar {
+	width: 6px;
+	background-color: #f9f9f9
+}
+
+.chat-emoji-list::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(220, 220, 220, .3);
+	background-color: #ccc
+}
+
+.chat-emoji-list div img {
+	width: 32px;
+	height: 32px
+}
+
+.chat-center-gift {
+	align-items: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	cursor: pointer;
+	border-right: solid 1px #eee;
+	position: relative;
+	margin: 0 10px;
+	background: #fff;
+	border-radius: 10px;
+	height: 32px
+}
+
+.chat-center-gift .chat-center-gift-show {
+	color: #b17d8a
+}
+
+.chat-center-gift .chat-center-gift-show:hover {
+	color: #f58
+}
+
+.chat-center-gift .chat-center-gift-content {
+	position: absolute;
+	left: 10px;
+	bottom: 46px;
+	width: 665px;
+	height: 350px;
+	background: #fff;
+	border: solid 1px #ddd;
+	flex-direction: column;
+	display: none;
+	z-index: 150
+}
+
+.chat-center-gift-tab {
+	align-items: center;
+	text-align: center;
+	height: 50px;
+	padding: 0 16px;
+	background: #eee;
+	color: #333
+}
+
+.chat-center-gift-tab div {
+	width: 80px
+}
+
+.chat-center-gift-tab div span {
+	padding-bottom: 2px
+}
+
+.chat-center-gift-tab div.gift-selected span {
+	border-bottom: solid 2px #333
+}
+
+.chat-center-gift-list {
+	display: flex;
+	flex: 1 auto;
+	padding: 10px;
+	height: 234px;
+	width: 646px;
+	overflow-y: auto;
+	overflow-x: hidden
+}
+
+.chat-center-gift-list::-webkit-scrollbar {
+	width: 6px;
+	background-color: #f9f9f9
+}
+
+.chat-center-gift-list::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(220, 220, 220, .3);
+	background-color: #ccc
+}
+
+.chat-center-gift-list .chat-center-gift-list-single {
+	flex: 1 auto;
+	flex-wrap: wrap
+}
+
+.chat-center-gift-list .chat-center-gift-item {
+	padding: 10px;
+	text-align: center;
+	color: #333;
+	font-size: 14px;
+	width: 72px;
+	height: 96px;
+	margin-right: 12px;
+	border: solid 1px #fff
+}
+
+.chat-center-gift-list .chat-center-gift-item.current {
+	border: solid 1px #f91b00;
+	border-radius: 10px
+}
+
+.chat-center-gift-list .chat-center-gift-item img {
+	height: 64px;
+	width: 64px
+}
+
+.gift-window-bottom {
+	height: 40px;
+	background: #efefef;
+	align-items: center
+}
+
+.gift-window-bottom .gift-window-bottom-count {
+	height: 30px;
+	line-height: 30px;
+	margin-left: 10px;
+	padding-left: 10px;
+	background: #fff;
+	position: relative
+}
+
+.gift-window-bottom .gift-window-bottom-count span {
+	font-size: 14px;
+	color: #666
+}
+
+.gift-window-bottom .gift-window-bottom-count input {
+	border-style: none;
+	outline: 0;
+	height: 24px;
+	width: 40px;
+	text-align: center;
+	color: #333
+}
+
+.gift-send-btn {
+	background: #f91b00;
+	font-size: 14px;
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 16px;
+	margin-left: 16px;
+	border-radius: 4px
+}
+
+.gift-count-list {
+	position: absolute;
+	background: #fff;
+	border: solid 1px #ddd;
+	width: 280px;
+	bottom: 40px;
+	left: 0;
+	padding: 6px 10px;
+	display: none;
+	z-index: 9;
+	line-height: 24px
+}
+
+.gift-count-list span {
+	display: inline-block;
+	background: #fdfdfd;
+	text-align: center;
+	width: 50px;
+	border-radius: 4px;
+	border: solid 1px #eee
+}
+
+.gift-count-list span.current,
+.gift-count-list span:hover {
+	border: solid 1px #f60;
+	color: #f60
+}
+
+.gift-send-teacher-content {
+	position: relative
+}
+
+.gift-send-teacher-list {
+	position: absolute;
+	bottom: 38px;
+	right: 0;
+	background: #fff;
+	width: 200px;
+	border: solid 1px #ddd;
+	flex-direction: column;
+	max-height: 600px;
+	overflow-y: auto;
+	display: none
+}
+
+.gift-send-teacher-list::-webkit-scrollbar {
+	width: 6px;
+	background-color: #f9f9f9
+}
+
+.gift-send-teacher-list::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(220, 220, 220, .3);
+	background-color: #ccc
+}
+
+.gift-send-teacher-list>div {
+	line-height: 30px;
+	background: #fff;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 14px
+}
+
+.gift-send-teacher-list p:hover {
+	background: #eee
+}
+
+.gift-my-money {
+	font-size: 12px;
+	margin-left: 10px;
+	color: #333
+}
+
+.gift-my-money p>font {
+	font-size: 12px;
+	color: red
+}
+
+.gift-go-congzi {
+	text-align: right
+}
+
+.gift-go-congzi a {
+	font-size: 14px;
+	background: #faba05;
+	padding: 6px 10px;
+	border-radius: 5px;
+	color: #f91b00;
+	margin-right: 10px
+}
+
+.chat-center-redpacket {
+	align-items: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	cursor: pointer;
+	border-right: solid 1px #eee;
+	position: relative;
+	margin: 0 10px;
+	background: #fff;
+	border-radius: 10px;
+	height: 32px
+}
+
+.chat-center-redpacket {
+	margin-left: 0;
+	color: #b17d8a
+}
+
+.chat-center-redpacket:hover {
+	color: #f58
+}
+
+.chat-function {
+	align-items: center;
+	justify-content: flex-end;
+	flex: 1 auto;
+	position: relative
+}
+
+.chat-function .chat-background,
+.chat-function .chat-huatong {
+	position: relative;
+	line-height: 26px;
+	font-size: 14px;
+	color: #b17d8a
+}
+
+.chat-function .chat-background img.chat-background-voice {
+	height: 16px;
+	cursor: pointer
+}
+
+.chat-function .chat-background div.chat-voice-volume {
+	position: absolute;
+	top: -124px;
+	left: -66px;
+	background: #f0f0f0;
+	transform: rotate(-90deg);
+	padding: 5px 10px;
+	border: solid 1px #ddd;
+	display: none;
+	z-index: 3
+}
+
+.chat-function .chat-background div.chat-voice-volume input[type=range] {
+	outline: 0
+}
+
+.chat-function .chat-huatong div.chat-micphone-volume {
+	position: absolute;
+	top: -124px;
+	left: -66px;
+	background: #f0f0f0;
+	transform: rotate(-90deg);
+	padding: 5px 10px;
+	border: solid 1px #ddd
+}
+
+.chat-function .chat-huatong div.chat-micphone-volume input[type=range] {
+	outline: 0
+}
+
+.chat-dd-kefu {
+	margin-right: 20px;
+	font-size: 14px;
+	cursor: pointer;
+	align-items: center
+}
+
+.chat-f2-talk {
+	margin-right: 20px;
+	position: relative
+}
+
+.chat-function .chat-talk-tips {
+	display: none;
+	position: absolute;
+	width: 100px;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 10px;
+	color: #fff;
+	font-size: 12px;
+	color: #fff;
+	background: rgba(0, 0, 0, .8);
+	top: -30px;
+	text-align: center;
+	border-radius: 26px
+}
+
+.chat-f2-talk button {
+	font-size: 14px;
+	width: 80px;
+	padding: 3px;
+	border: none;
+	outline: 0;
+	background: #f69;
+	color: #fff
+}
+
+.chat-huatong {
+	width: 26px;
+	height: 26px;
+	background: url(../img/maiicon.png?v=6) no-repeat -49px 0;
+	margin-right: 0
+}
+
+.chat-huatong:hover {
+	width: 26px;
+	height: 26px;
+	background: url(../img/maiicon.png?v=6) no-repeat 0 0;
+	margin-right: 0
+}
+
+.chat-huatong-jin {
+	width: 26px;
+	height: 26px;
+	background: url(../img/maiicon.png?v=6) no-repeat -26px 0;
+	margin-right: 0;
+	font-size: 14px;
+	color: #b17d8a;
+	text-indent: 28px;
+	line-height: 26px
+}
+
+.chat-function .chat-function-box {
+	flex: 1 auto;
+	padding-left: 10px
+}
+
+.chat-function .chat-open-background {
+	font-size: 14px;
+	background: #fafafa;
+	align-items: center;
+	padding: 0 10px;
+	border-radius: 3px
+}
+
+.chat-function .chat-open-background input[type=checkbox] {
+	background: #fff
+}
+
+.chat-function-text {
+	font-size: 14px;
+	color: #b17d8a;
+	line-height: 26px
+}
+
+.chat-function-div {
+	cursor: pointer;
+	align-items: center;
+	margin-right: 20px
+}
+
+.chat-function-huatong:hover .chat-function-text {
+	color: #f58
+}
+
+.chat-function-huatong:hover .chat-huatong-jin {
+	width: 26px;
+	height: 26px;
+	background: url(../img/maiicon.png?v=6) no-repeat -75px 0;
+	margin-right: 0;
+	font-size: 14px;
+	color: #b17d8a;
+	text-indent: 28px;
+	line-height: 26px
+}
+
+.chat-function-yinliang {
+	background: url(../img/voicehui.png?v5) no-repeat left center;
+	text-indent: 18px
+}
+
+.chat-function-yinliang:hover {
+	background: url(../img/voicehuiover.png?v5) no-repeat left center;
+	text-indent: 18px
+}
+
+.chat-function-yinliang:hover .chat-function-text {
+	color: #f58
+}
+
+.chat-function-tsjy {
+	background: url(../img/kefuhui.png?v=1) no-repeat left center;
+	text-indent: 24px
+}
+
+.chat-function-tsjy:hover {
+	background: url(../img/kefuicon.png?v=1) no-repeat left center
+}
+
+.chat-function-tsjy:hover .chat-function-text {
+	color: #f58
+}
+
+.chat-room-list-boss {
+	padding-top: 30px
+}
+
+.rooms-tab {
+	display: flex;
+	justify-content: center;
+	align-items: center
+}
+
+.rooms-tab span {
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+	padding: 0 16px
+}
+
+.rooms-tab span.current {
+	color: #fff000
+}
+
+.rooms-tab em {
+	font-style: normal;
+	color: #fff
+}
+
+.bossroom-area {
+	text-align: center;
+	color: #999;
+	font-size: 14px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 10px
+}
+
+.bossroom-area span {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: #fff;
+	padding: 0 6px
+}
+
+.right-boss {
+	display: none
+}
+
+.right-boss .bossroom-right-manage {
+	display: flex;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #ffe9f0;
+	color: #fe6699;
+	position: fixed;
+	width: 340px;
+	z-index: 9
+}
+
+.right-boss .bossroom-right-manage>div {
+	flex: 1;
+	cursor: pointer
+}
+
+.right-boss .bossroom-main {
+	overflow-y: auto;
+	padding: 0 10px;
+	padding-top: 42px
+}
+
+.right-boss .bossroom-main::-webkit-scrollbar {
+	width: 6px;
+	background-color: #f9f9f9
+}
+
+.right-boss .bossroom-main::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(220, 220, 220, .3);
+	background-color: #ccc
+}
+
+.right-boss .bossroom-gonggao {
+	background: #f0f0f0;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-top: solid 1px #e0e0e0;
+	padding: 20px;
+	padding-top: 10px;
+	line-height: 24px
+}
+
+.right-boss .bossroom-btn {
+	height: 48px;
+	line-height: 48px;
+	border-radius: 10px;
+	font-size: 16px;
+	text-align: center;
+	margin-top: 10px
+}
+
+.right-boss .bossroom-btn.bossroom-yaoqing-btn {
+	background: #f69;
+	color: #fff;
+	cursor: pointer
+}
+
+.right-boss .bossroom-btn.bossroom-copy-btn {
+	background: #f0f0f0;
+	color: #379fd6;
+	cursor: pointer
+}
+
+.right-boss .bossroom-bossziliao {
+	padding-top: 45px;
+	position: relative
+}
+
+.right-boss .bossroom-bossiii {
+	padding-top: 45px;
+	text-align: center;
+	background: #f0f0f0;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding-bottom: 10px
+}
+
+.right-boss .bossroom-bossiii .bossroom-bossname {
+	font-size: 14px;
+	color: #666;
+	line-height: 24px
+}
+
+.right-boss .bossroom-bossiii .bossroom-gradebetween {
+	color: #999;
+	font-size: 12px;
+	display: flex;
+	justify-content: space-between;
+	width: 180px;
+	margin: 0 auto;
+	margin-top: 4px
+}
+
+.right-boss .bossroom-bossiii .bossroom-boss-grade {
+	margin-top: 6px
+}
+
+.right-boss .bossroom-bossiii .bossroom-boss-grade img {
+	height: 18px
+}
+
+.right-boss .bossroom-bossiii .bossroom-boss-grade span {
+	background: #ff5859;
+	border-radius: 18px;
+	color: #fff;
+	font-size: 12px;
+	padding: 0 10px
+}
+
+.right-boss .bossroom-bossiii .bossroom-boss-gradeinfo {
+	font-size: 12px;
+	color: #999;
+	line-height: 24px;
+	margin-top: 6px
+}
+
+.right-boss .bossroom-bossiii .bossroom-boss-gradeinfo span {
+	color: #fe6699
+}
+
+.right-boss .bossroom-bossiii .bossroom-grade-intro {
+	color: #999;
+	font-size: 12px;
+	margin-top: 6px
+}
+
+.right-boss .bossroom-progress {
+	height: 8px;
+	width: 180px;
+	border-radius: 8px;
+	background: #fff;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 6px
+}
+
+.right-boss .bossroom-progress span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 8px;
+	border-radius: 8px;
+	background: #5edd70;
+	width: 30%
+}
+
+.right-boss .bossroom-bossinfo-main {
+	margin-top: 10px
+}
+
+.right-boss .bossroom-yaoqing-main {
+	display: none
+}
+
+.right-boss .bossroom-header {
+	position: absolute;
+	width: 83px;
+	height: 91px;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background: url(../img/bossguan.png) no-repeat
+}
+
+.right-boss .bossroom-header img {
+	width: 72px;
+	height: 72px;
+	border-radius: 72px;
+	position: absolute;
+	left: 4px;
+	bottom: 2px
+}
+
+.right-boss .bossroom-paihangbang {
+	background: #f0f0f0;
+	border-radius: 10px;
+	margin-top: 10px;
+	padding: 10px;
+	margin-bottom: 20px
+}
+
+.right-boss .bossroom-paihangbang .bossroom-paihangbang-title {
+	padding-left: 10px;
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 10px
+}
+
+.right-boss .bossroom-paihangbang ul {
+	list-style: none
+}
+
+.right-boss .bossroom-paihangbang ul li {
+	padding: 4px 0;
+	color: #666;
+	font-size: 14px;
+	padding-left: 10px
+}
+
+.right-boss .bossroom-paihangbang ul li span {
+	float: right
+}
+
+.right-boss .bossroom-paihangbang ul li em {
+	background: #e2e2e2;
+	border-radius: 10px;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	font-size: 12px;
+	text-align: center;
+	font-style: normal;
+	color: #999;
+	margin-right: 6px
+}
+
+.right-boss .bossroom-paihangbang ul li img {
+	height: 18px
+}
+
+.right-boss .bossroom-paihangbang .bossroom-paihang-list {
+	margin-top: 10px
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-direction: column;
+	text-align: center
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming img.bossroom-gradeicon {
+	height: 18px
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming p {
+	width: 100%;
+	text-align: center;
+	margin-top: 4px
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming.bossromm-paiming-2>div {
+	width: 71px;
+	height: 75px;
+	position: relative
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming.bossromm-paiming-2>div img.bossroom-kuang {
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 2
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming.bossromm-paiming-2>div img.bossroom-giftheader {
+	top: 15px;
+	left: 8px;
+	position: absolute;
+	height: 56px;
+	width: 56px;
+	border-radius: 100%;
+	z-index: 1
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming.bossromm-paiming-1>div {
+	width: 76px;
+	height: 81px;
+	position: relative
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming.bossromm-paiming-1>div img.bossroom-kuang {
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 2
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming.bossromm-paiming-1>div img.bossroom-giftheader {
+	top: 15px;
+	left: 8px;
+	position: absolute;
+	height: 60px;
+	width: 60px;
+	border-radius: 100%;
+	z-index: 1
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming.bossromm-paiming-3>div {
+	width: 71px;
+	height: 75px;
+	position: relative
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming.bossromm-paiming-3>div img.bossroom-kuang {
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 2
+}
+
+.right-boss .bossroom-qiansan .bossromm-paiming.bossromm-paiming-3>div img.bossroom-giftheader {
+	top: 15px;
+	left: 8px;
+	position: absolute;
+	height: 56px;
+	width: 56px;
+	border-radius: 100%;
+	z-index: 1
+}
+
+.right-boss .bossroom-search {
+	margin-top: 20px
+}
+
+.right-boss .bossroom-search input {
+	height: 34px;
+	background: #eee;
+	font-size: 14px;
+	color: #666;
+	border: none;
+	flex: 1;
+	border-radius: 4px;
+	text-indent: 6px
+}
+
+.right-boss .bossroom-search button {
+	width: 72px;
+	height: 36px;
+	background: #f69;
+	font-size: 16px;
+	color: #fff;
+	border: none;
+	margin-left: 9px;
+	border-radius: 4px
+}
+
+.right-boss .bossroom-history .bossroom-history-title {
+	font-size: 14px;
+	color: #666;
+	background: url(../img/historyicon.png) no-repeat left center;
+	text-indent: 16px
+}
+
+.right-boss .bossroom-guanzhu .bossroom-guanzhu-title {
+	font-size: 14px;
+	color: #666;
+	background: url(../img/guanzhuicon.png) no-repeat left center;
+	text-indent: 16px
+}
+
+.right-carteam,
+.right-pudg {
+	padding: 0 10px 10px 10px;
+	display: none
+}
+
+.right-carteam h4 {
+	font-size: 16px;
+	font-weight: 600;
+	color: #666;
+	margin: 0
+}
+
+.right-carteam .right-carteam-gonggao p {
+	font-size: 16px;
+	color: #999;
+	margin-top: 6px;
+	line-height: 28px
+}
+
+.right-carteam .right-carteam-kaiedlist {
+	margin-top: 10px
+}
+
+.right-carteam .right-carteam-kaiedlist ul {
+	margin-top: 6px
+}
+
+.right-carteam .right-carteam-kaiedlist li {
+	display: flex;
+	align-items: center;
+	border: solid 1px #eee;
+	padding: 10px;
+	border-radius: 6px;
+	box-shadow: 6px 2px 10px rgba(0, 0, 0, .1);
+	margin-bottom: 10px
+}
+
+.right-carteam .right-carteam-kaiedlist .kaied-leader-header img {
+	width: 60px;
+	height: 60px;
+	border-radius: 100%
+}
+
+.right-carteam .right-carteam-kaiedlist .kaied-leader-info {
+	flex: 1;
+	margin-left: 10px
+}
+
+.right-carteam .right-carteam-kaiedlist .kaied-leader-info .kaied-leader-name {
+	font-size: 16px;
+	color: #666
+}
+
+.right-carteam .right-carteam-kaiedlist .kaied-leader-info .kaied-leader-info-now {
+	font-size: 12px;
+	color: #666;
+	margin-top: 6px
+}
+
+.right-carteam .right-carteam-kaiedlist .kaied-leader-info .kaied-leader-info-now span {
+	float: right
+}
+
+.carteamauto-item {
+	display: flex;
+	border: solid 1px #ccc;
+	border-radius: 8px;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	height: 73px;
+	align-items: flex-start!important;
+	padding: 15px 12px 10px 12px!important;
+	max-width: 320px;
+	padding-bottom: 10px
+}
+
+.carteamauto-item img.autocar-team-list-header {
+	width: 56px;
+	height: 56px;
+	border-radius: 100%
+}
+
+.carteamauto-item div.autocar-team-list-title {
+	color: #666;
+	font-size: 14px;
+	font-weight: 500;
+	text-indent: -8px;
+	font-weight: 700;
+	line-height: 1
+}
+
+.carteamauto-item div.autocar-team-list-title span img {
+	width: 24px;
+	height: 24px
+}
+
+.carteamauto-item div.autocar-team-list-info-1 {
+	font-size: 12px;
+	color: #666;
+	line-height: 24px
+}
+
+.carteamauto-item div.autocar-team-list-info-2 {
+	font-size: 12px;
+	color: #666;
+	line-height: 1
+}
+
+.carteamauto-item div.autocar-team-list-info-2 img {
+	width: 30px
+}
+
+.carteamauto-item div.carauto-team-right-join {
+	position: absolute;
+	right: 12px;
+	bottom: 10px;
+	border-radius: 6px;
+	width: 64px;
+	height: 22px;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	line-height: 22px;
+	font-weight: 100;
+	z-index: 1;
+	background: #f58;
+	cursor: pointer
+}
+
+.carteamauto-item div.carauto-team-right-join.joined {
+	background: #e6e6e6;
+	color: #999
+}
+
+.carteamauto-item div.carauto-item-shang {
+	position: absolute;
+	top: -3px;
+	left: -20px;
+	width: 58px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	background: #f58;
+	color: #fff;
+	font-size: 12px;
+	transform: rotateZ(-45deg)
+}
+
+.right-carteam .right-carteam-tab,
+.right-order-tab {
+	display: flex;
+	padding: 0 70px;
+	border-bottom: 1px solid #eee
+}
+
+.right-order-tab {
+	display: none;
+	margin: 0 20px
+}
+
+.right-carteam .right-carteam-tab>div,
+.right-order-tab>div {
+	flex: 1;
+	text-align: center;
+	color: #999;
+	font-size: 16px;
+	height: 42px;
+	line-height: 42px;
+	cursor: pointer
+}
+
+.right-carteam .right-carteam-tab>div.current,
+.right-order-tab>div.current {
+	color: #666
+}
+
+.right-carteam-content {
+	margin-top: 10px
+}
+
+.right-carteam-content .right-carteam-paihang-tab {
+	justify-content: center
+}
+
+.right-carteam-content .right-carteam-paihang-tab div {
+	border: none;
+	margin: 0 6px;
+	background: #f0f0f0;
+	border-radius: 26px;
+	line-height: 26px;
+	text-align: center;
+	color: #999;
+	font-size: 16px;
+	padding: 0;
+	width: 80px;
+	cursor: pointer
+}
+
+.right-carteam-content .right-carteam-paihang-tab div.current {
+	background: #f459a3;
+	color: #fff
+}
+
+.right-carteam-content .right-carteam-paihang-content,
+.right-hero-rank-content {
+	margin-top: 10px
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li,
+.right-hero-rank-content ul li {
+	margin-top: 6px;
+	display: flex;
+	align-items: center;
+	padding: 0 20px
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li.carpai,
+.right-hero-rank-content ul li.carpai {
+	height: 90px
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li div.carpaihang-userinfo,
+.right-hero-rank-content ul li div.carpaihang-userinfo {
+	padding-left: 10px
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li div.carpaihang-userinfo .carpaihang-userinfo-name,
+.right-hero-rank-content ul li div.carpaihang-userinfo .carpaihang-userinfo-name {
+	align-items: center
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li div.carpaihang-userinfo span,
+.right-hero-rank-content ul li div.carpaihang-userinfo span {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 100%;
+	margin-left: 4px;
+	font-size: 6px;
+	color: #fff;
+	text-align: center;
+	line-height: 16px
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li div.carpaihang-userinfo span.sex-girl,
+.right-hero-rank-content ul li div.carpaihang-userinfo span.sex-girl {
+	background: #fda586
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li div.carpaihang-userinfo span.sex-man,
+.right-hero-rank-content ul ul li div.carpaihang-userinfo span.sex-man {
+	background: #97bcf0
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li div.carpaihang-userinfo p,
+.right-hero-rank-content ul li div.carpaihang-userinfo p {
+	font-size: 14px
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li div.carpaihang-userinfo img,
+.right-hero-rank-content ul li div.carpaihang-userinfo img {
+	height: 16px
+}
+
+.right-carteam-content .right-carteam-paihang-content .car-qs-paimingnum,
+.right-hero-rank-content .car-qs-paimingnum {
+	font-size: 20px;
+	color: #999;
+	padding: 0 10px
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li.paihang-other,
+.right-hero-rank-content ul li.paihang-other {
+	padding: 10px 20px 20px 20px;
+	border-bottom: solid 1px #eee
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li.carpai div.car-qs-div,
+.right-hero-rank-content ul li.carpai div.car-qs-div {
+	line-height: 0;
+	position: relative;
+	width: 58px;
+	height: 78px
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li.carpai div.car-qs-div .car-qs-guan,
+.right-hero-rank-content ul li.carpai div.car-qs-div .car-qs-guan {
+	position: absolute;
+	width: 67px;
+	height: 78px;
+	top: -2px;
+	left: -4px
+}
+
+.right-carteam-paihang-content ul li.carpai div.car-qs-div .car-qs-guan-1,
+.right-hero-rank-content ul li.carpai div.car-qs-div .car-qs-guan-1 {
+	background: url(../img/carpaiahanghead1.png) no-repeat
+}
+
+.right-carteam-paihang-content ul li.carpai div.car-qs-div .car-qs-guan-2,
+.right-hero-rank-content ul li.carpai div.car-qs-div .car-qs-guan-2 {
+	background: url(../img/carpaiahanghead2.png) no-repeat
+}
+
+.right-carteam .right-carteam-content .right-carteam-paihang-content ul li.carpai div.car-qs-div .car-qs-guan-3,
+.right-hero-rank-content ul li.carpai div.car-qs-div .car-qs-guan-3 {
+	background: url(../img/carpaiahanghead3.png) no-repeat
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li.carpai img.carqiansan-header,
+.right-hero-rank-content ul li.carpai img.carqiansan-header {
+	width: 58px;
+	height: 58px;
+	border-radius: 100%;
+	margin-top: 13px
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li.carpai1,
+.right-hero-rank-content ul li.carpai1 {
+	background: url(../img/carpaihang1bg.png) no-repeat;
+	background-size: contain
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li.carpai2,
+.right-hero-rank-content ul li.carpai2 {
+	background: url(../img/carpaihang2bg.png) no-repeat;
+	background-size: contain
+}
+
+.right-carteam-content .right-carteam-paihang-content ul li.carpai3,
+.right-hero-rank-content ul li.carpai3 {
+	background: url(../img/carpaihang3bg.png) no-repeat;
+	background-size: contain
+}
+
+.bossroom-yq {
+	margin-top: 10px
+}
+
+.bossroom-yq ul li {
+	display: flex;
+	padding: 6px 0;
+	align-items: center
+}
+
+.bossroom-yq ul li button {
+	background: #ffe9f0;
+	border: none;
+	color: #fe6699;
+	height: 24px;
+	width: 60px;
+	padding: 0
+}
+
+.bossroom-yq ul li button.disable {
+	background: #eee;
+	color: #aaa;
+	cursor: default
+}
+
+.bossroom-yq ul li div.bossroom-yq-info {
+	flex: 1;
+	margin-left: 6px
+}
+
+.bossroom-yq ul li div.bossroom-yq-info p {
+	color: #666;
+	font-size: 14px;
+	line-height: 24px
+}
+
+.bossroom-yq ul li div.bossroom-yq-info img {
+	height: 18px
+}
+
+.bossroom-yq ul li img.bossroom-yqheader {
+	width: 42px;
+	height: 42px;
+	border-radius: 100%;
+	border: solid 2px #f0f0f0
+}
+
+.pop_up_bg {
+	background: rgba(0, 0, 0, .8);
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin-top: 0;
+	opacity: 1
+}
+
+.pop_up_content {
+	-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	position: fixed;
+	z-index: 1111;
+	background-color: #fff;
+	width: 420px;
+	left: 50%;
+	margin-left: -220px;
+	top: 25%;
+	padding: 10px
+}
+
+.close_btn {
+	cursor: pointer;
+	margin-top: -25px;
+	margin-right: -25px
+}
+
+.express_top_title {
+	color: #333;
+	font-size: 14px;
+	text-align: center;
+	margin-top: 20px;
+	padding-bottom: 10px
+}
+
+.express_top_title span {
+	font-size: 16px;
+	color: #ff593e
+}
+
+.content_icon {
+	margin-left: 7px;
+	font-size: 14px;
+	color: #333;
+	margin-right: 10px;
+	margin-top: 4px
+}
+
+.content_icon span {
+	margin-left: 6px
+}
+
+.content_text {
+	width: 200px;
+	height: 60px;
+	background-color: #eaeaea;
+	padding: 10px;
+	border-radius: 2px;
+	display: inline-block
+}
+
+.content_text_wran {
+	position: absolute;
+	top: 60px;
+	right: 112px;
+	font-size: 12px;
+	color: #666
+}
+
+.express_content {
+	position: relative;
+	margin-top: 10px
+}
+
+.express_warn {
+	color: #7e7e7e;
+	font-size: 12px;
+	text-align: center;
+	margin-bottom: 20px
+}
+
+.no_express,
+.sure_express {
+	width: 120px;
+	height: 40px;
+	border-radius: 2px;
+	text-align: center;
+	color: #fff;
+	line-height: 40px;
+	margin-bottom: 25px;
+	margin-top: 20px;
+	cursor: pointer
+}
+
+.no_express {
+	background-color: #b6b6b6;
+	margin-left: 80px;
+	margin-right: 20px
+}
+
+.no_express:hover {
+	background-color: #858585;
+	color: #fff
+}
+
+.sure_express {
+	background-color: #ff593e
+}
+
+.sure_express:hover {
+	background-color: #e64a31;
+	color: #fff
+}
+
+.content_input {
+	width: 100px;
+	height: 30px;
+	background-color: #eaeaea;
+	padding-left: 10px;
+	padding-right: 10px
+}
+
+.content_input_eg {
+	font-size: 12px;
+	color: #666;
+	line-height: 30px;
+	margin-left: 6px
+}
+
+.big-image-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .8);
+	z-index: 999999;
+	justify-content: center;
+	align-items: center;
+	display: none
+}
+
+.big-image-mask span {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: rgba(0, 0, 0, .8);
+	padding: 10px;
+	border: none;
+	color: #fff;
+	cursor: pointer
+}
+
+.chat-center-right-miaojie {
+	padding: 0 20px
+}
+
+.chat-center-message .welcome-get-message {
+	font-size: 14px;
+	color: #999
+}
+
+.chat-center-message .welcome-get-message span {
+	color: #fe6699
+}
+
+.chat-center-message .welcome-get-message img {
+	height: 16px
+}
+
+.tooltip {
+	padding: 5px;
+	font-size: 12px;
+	opacity: 1
+}
+
+.tooltip-inner {
+	padding: 5px 10px;
+	pointer-events: none;
+	color: #fff;
+	text-align: left;
+	background-color: #fff;
+	font-size: 12px;
+	color: #666;
+	border-radius: 3px;
+	box-shadow: 0 7px 21px rgba(0, 0, 0, .1);
+	line-height: 20px
+}
+
+.tooltip .tooltipsj {
+	position: absolute;
+	bottom: -1px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 12px;
+	height: 6px;
+	background: url(../img/tooltip.png?v=1) no-repeat 0 0;
+	z-index: 3
+}
+
+div.guangyun {
+	display: none;
+	position: absolute;
+	z-index: 0;
+	border-radius: 100%;
+	opacity: 0;
+	animation: waveCircle 1s ease-out;
+	animation-iteration-count: infinite
+}
+
+.speaking div.guangyun {
+	display: block
+}
+
+.main-zhuci-header .guangyun1 {
+	width: 120px;
+	height: 120px;
+	top: 3px;
+	left: 3px;
+	background: rgba(255, 255, 255, .6);
+	border: solid 1px rgba(255, 255, 255, .8)
+}
+
+.main-keng-peipei-item .guangyun1 {
+	width: 104px;
+	height: 104px;
+	top: -4px;
+	left: -4px;
+	background: rgba(255, 255, 255, .6);
+	border: solid 1px rgba(255, 255, 255, .8)
+}
+
+.kaihei-keng-zhuci-header-parent .guangyun1 {
+	width: 102px;
+	height: 102px;
+	top: -2px;
+	left: -2px;
+	background: rgba(0, 0, 0, .4);
+	border: solid 1px rgba(0, 0, 0, .6)
+}
+
+.chat-center-keng .chat-keng-mai .guangyun1 {
+	width: 82px;
+	height: 82px;
+	top: -1px;
+	left: -1px;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+.boss-border .guangyun1 {
+	width: 120px;
+	height: 120px;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+.carteam-zhuci-header .guangyun1 {
+	width: 122px;
+	height: 122px;
+	top: -4px;
+	left: -4px;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+.chat-center-carteam-keng .carteam-keng-zhuci .carteam-jiabin-header .guangyun1 {
+	width: 66px;
+	height: 66px;
+	top: -4px;
+	left: -4px;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+.carauto-person-header .guangyun1 {
+	width: 80px;
+	height: 80px;
+	top: -4px;
+	left: -4px;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+.pudg-auto-self-team-persons .guangyun1 {
+	width: 68px;
+	height: 68px;
+	top: -2px;
+	left: -2px;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+.pudg-auto-teams-leader .guangyun1 {
+	width: 84px;
+	height: 84px;
+	top: -2px;
+	left: -2px;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+.pudg-auto-temp-person-keng .guangyun1 {
+	width: 81px;
+	height: 81px;
+	top: -2px;
+	left: -2px;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+.pudg-auto-temp-commander .guangyun1 {
+	width: 106px;
+	height: 106px;
+	top: -2px;
+	left: -2px;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+.carteam-duizhang-header .guangyun1,
+.carteam-duizhang-header .guangyun2,
+.carteam-duizhang-header .guangyun3 {
+	width: 90px;
+	height: 90px;
+	top: -4px;
+	left: -4px;
+	background: rgba(255, 255, 255, .4);
+	border: solid 1px rgba(255, 255, 255, .6)
+}
+
+@-webkit-keyframes waveCircle {
+	0% {
+		transform: scale(1);
+		opacity: 0
+	}
+	10% {
+		transform: scale(1.05);
+		opacity: .05
+	}
+	20% {
+		transform: scale(1.1);
+		opacity: .1
+	}
+	30% {
+		transform: scale(1.15);
+		opacity: .15
+	}
+	40% {
+		transform: scale(1.2);
+		opacity: .2
+	}
+	50% {
+		transform: scale(1.25);
+		opacity: .25
+	}
+	60% {
+		transform: scale(1.3);
+		opacity: .2
+	}
+	70% {
+		transform: scale(1.35);
+		opacity: .15
+	}
+	80% {
+		transform: scale(1.4);
+		opacity: .1
+	}
+	90% {
+		transform: scale(1.45);
+		opacity: .05
+	}
+	100% {
+		transform: scale(1.5);
+		opacity: 0
+	}
+}
+
+.carauto-keng-users {
+	flex: 1
+}
+
+.carauto-keng-users .carauto-teams-show {
+	height: 134px;
+	align-items: center
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-yaoqiu {
+	display: flex;
+	flex: 1;
+	padding-left: 10px;
+	font-size: 16px;
+	flex-direction: column;
+	color: #c2a4ff
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-yaoqiu img {
+	width: 18px;
+	height: 18px
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-yaoqiu p {
+	color: #c2a4ff;
+	font-size: 14px;
+	padding: 0 8px;
+	margin-top: 4px;
+	cursor: pointer
+}
+
+.carauto-yaoqiu p span.carteam-edit-div {
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+	background: url(../img/editiconbg.png) no-repeat;
+	display: inline-block;
+	margin-left: 10px
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-teams-title {
+	flex: 0 0 16px;
+	padding: 0 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	line-height: 1.2;
+	color: #c2a4ff;
+	height: 100%
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-teams-persons {
+	display: flex
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-person-item {
+	width: 115px
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-person-item .carauto-person-header {
+	width: 76px;
+	height: 76px;
+	border-radius: 100%;
+	position: relative;
+	border: solid 2px #fff;
+	margin: 0 auto
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-person-item .carauto-person-header-bg {
+	width: 76px;
+	height: 76px;
+	background: url(../img/carteamemptybg.png) no-repeat center center #ccc;
+	border-radius: 100%;
+	position: absolute;
+	top: 0;
+	left: 0
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-person-item .carauto-person-header img {
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	border-radius: 100%;
+	left: -2px;
+	top: -2px
+}
+
+.carauto-keng-users .carauto-teams-show .carauto-person-item p {
+	text-align: center;
+	font-size: 12px;
+	color: #ccc;
+	margin-top: 6px
+}
+
+.carauto-teams-all {
+	width: 100%;
+	height: 230px;
+	overflow: hidden;
+	position: relative;
+	margin-top: 10px
+}
+
+.carauto-teams {
+	padding: 0 30px;
+	margin-top: 12px
+}
+
+.carauto-teams ul.carauto-teams-qu {
+	list-style: none;
+	display: flex;
+	flex: 1
+}
+
+.carauto-teams ul.carauto-teams-qu li {
+	background: rgba(0, 0, 0, .3);
+	color: #aaa;
+	padding: 0 16px;
+	font-size: 14px;
+	margin-right: 10px;
+	border-radius: 4px;
+	height: 24px;
+	line-height: 24px;
+	cursor: pointer
+}
+
+.carauto-teams ul.carauto-teams-qu li.current {
+	color: #fff
+}
+
+.join_car_tips {
+	display: none;
+	position: absolute;
+	top: 322px;
+	left: 470px;
+	z-index: 99;
+	cursor: pointer
+}
+
+.create_car_tips {
+	display: none;
+	position: absolute;
+	top: -175px;
+	right: 10px;
+	z-index: 99;
+	cursor: pointer
+}
+
+.carauto-teams ul.carauto-teams-list {
+	list-style: none;
+	height: 210px;
+	position: absolute
+}
+
+.carauto-teams ul.carauto-teams-list li {
+	width: 300px;
+	height: 100px;
+	background: rgba(255, 255, 255, .3);
+	border-radius: 10px;
+	box-sizing: border-box;
+	border: solid 1px transparent;
+	position: relative;
+	display: flex;
+	padding: 20px 14px;
+	overflow: hidden;
+	cursor: pointer
+}
+
+.carauto-teams ul.carauto-teams-list li:hover {
+	border: solid 1px rgba(255, 255, 255, .5);
+	background: rgba(255, 184, 253, .4)
+}
+
+.carauto-teams ul.carauto-teams-list li:active {
+	border: solid 1px rgba(255, 255, 255, .5);
+	background: rgba(255, 184, 253, .3)
+}
+
+.carauto-teams ul.carauto-teams-list li.current {
+	border: solid 1px rgba(255, 255, 255, .5);
+	background: rgba(255, 184, 253, .3)
+}
+
+.carauto-teams ul.carauto-teams-list li div.autocarteam-li-close {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: url(../img/carautocloseicon.png) no-repeat center center rgba(255, 255, 255, .4);
+	right: 4px;
+	top: 4px;
+	z-index: 9;
+	border-radius: 100%;
+	display: none
+}
+
+.carauto-teams ul.carauto-teams-list li div.autocarteam-li-top {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: url(../img/topicon.png?v=1) no-repeat 0 0 rgba(255, 255, 255, .4);
+	right: 28px;
+	top: 4px;
+	z-index: 9;
+	border-radius: 100%;
+	display: none
+}
+
+.carauto-teams ul.carauto-teams-list li div.autocarteam-li-top.clicked {
+	background: url(../img/topicon.png?v=1) no-repeat -20px 0 rgba(255, 255, 255, .4)
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-item-btn {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	border-radius: 6px;
+	background: rgba(255, 85, 136, .5);
+	width: 64px;
+	height: 22px;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	line-height: 22px;
+	font-weight: 100;
+	z-index: 1
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-item-btn.join {
+	background: rgba(255, 85, 136, .5)
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-item-btn.joined {
+	background: rgba(112, 99, 149, .5)
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-item-shang {
+	position: absolute;
+	top: -3px;
+	left: -20px;
+	width: 58px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	background: #f58;
+	color: #fff;
+	font-size: 12px;
+	transform: rotateZ(-45deg)
+}
+
+.carauto-teams ul.carauto-teams-list li img.carauto-list-duizhang-header {
+	width: 56px;
+	height: 56px;
+	border-radius: 100%
+}
+
+.carauto-teams ul.carauto-teams-list li img.carauto-list-gift-img {
+	width: 15px;
+	height: 15px
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-info {
+	color: #fff;
+	font-size: 14px
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-create-info {
+	padding-left: 16px
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-create-info .carauto-team-create-text {
+	color: #fff;
+	font-size: 14px;
+	padding-top: 5px
+}
+
+.carauto-teams ul.carauto-teams-list li p.carauto-team-create-btncar {
+	width: 160px;
+	height: 24px;
+	background: #f58;
+	border: none;
+	outline: 0;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+	line-height: 24px;
+	font-weight: 100;
+	font-size: 14px;
+	border-radius: 4px;
+	margin-top: 12px;
+	cursor: pointer
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-info p {
+	color: #f0f0f0;
+	flex: 1
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-info div.carauto-team-list-intro {
+	flex: 1;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: 100
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-info div.carauto-team-list-intro span {
+	display: flex
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-info p.carauto-team-list-intro-2 {
+	font-size: 12px;
+	color: rgba(255, 255, 255, .8);
+	padding-left: 6px;
+	line-height: 22px
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-info p.carauto-team-list-intro-3 {
+	font-size: 12px;
+	color: rgba(255, 255, 255, .8);
+	padding-left: 6px;
+	align-items: center
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-info p.carauto-team-list-intro-3 img {
+	width: 30px
+}
+
+.carauto-teams ul.carauto-teams-list li div.carauto-team-info p.carauto-team-list-intro-3 span {
+	margin-left: 6px
+}
+
+.carauto-teams .carauto-button {
+	width: 24px;
+	height: 24px;
+	border-radius: 100%;
+	margin: 0 4px
+}
+
+.carauto-teams .carauto-button.carauto-button-prev {
+	background: url(../img/prevbg.png) no-repeat 8px center rgba(0, 0, 0, .4)
+}
+
+.carauto-teams .carauto-button.carauto-button-next {
+	background: url(../img/nextbg.png) no-repeat 10px center rgba(0, 0, 0, .4)
+}
+
+.carauto-teams .carauto-teams-xu {
+	align-items: center
+}
+
+.carauto-teams .carauto-teams-xu .carauto-pagination-caraudo span.swiper-pagination-bullet {
+	width: 24px;
+	height: 24px;
+	border-radius: 100%;
+	background: rgba(0, 0, 0, .6);
+	text-align: center;
+	line-height: 24px;
+	color: #fff;
+	margin: 0 4px
+}
+
+.carauto-teams .carauto-teams-xu .carauto-pagination-caraudo span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+	background: rgba(183, 85, 135, .8)
+}
+
+.carauto-create-yao {
+	position: absolute;
+	width: 222px;
+	height: 64px;
+	right: 10px;
+	bottom: 10px;
+	display: flex;
+	justify-content: flex-end
+}
+
+.carauto-create-yao .carauto-btn-fun {
+	width: 44px;
+	height: 64px;
+	border-radius: 100%;
+	align-items: center;
+	justify-content: center;
+	margin: 0 5px;
+	cursor: pointer;
+	color: #fff;
+	font-size: 16px;
+	line-height: 1;
+	padding: 0 10px;
+	text-align: center
+}
+
+.carauto-create-yao .carauto-share {
+	background: #24aaff;
+	position: relative
+}
+
+.carauto-create-yao .carauto-create {
+	background: #f58;
+	display: none
+}
+
+.carauto-create-yao .carauto-exitcar {
+	background: #b3b3b3;
+	color: #fff
+}
+
+.carauto-create-yao .carauto-duizhang-exitcar {
+	background: #b3b3b3;
+	color: #fff;
+	display: none
+}
+
+.carauto-create-yao .carauto-kaiche {
+	background: #f58;
+	display: none
+}
+
+.carauto-create-yao .yaoqing-float {
+	position: absolute;
+	bottom: 70px;
+	width: 354px;
+	height: 282px;
+	background: url(../img/share_car_bg.png) no-repeat;
+	flex-direction: column;
+	display: none
+}
+
+.carauto-create-yao .yaoqing-float .yaoqing-title {
+	font-size: 20px;
+	color: #333;
+	text-align: center;
+	margin-top: 20px
+}
+
+.carauto-create-yao .yaoqing-float .yaoqing-tips {
+	font-size: 14px;
+	color: #666;
+	text-align: center;
+	margin-top: 10px
+}
+
+.carauto-create-yao .yaoqing-float .yaoqing-url {
+	display: flex;
+	justify-content: center;
+	font-size: 14px;
+	margin-top: 10px;
+	color: #f58;
+	text-decoration: underline
+}
+
+.carauto-create-yao .yaoqing-float .yaoqing-url div {
+	margin: 0 6px
+}
+
+.carauto-create-yao .yaoqing-float .yaoqing-item {
+	flex: 1;
+	padding-top: 95px;
+	text-align: center;
+	cursor: pointer
+}
+
+.carauto-create-yao .yaoqing-float .yaoqing-item p {
+	line-height: 32px;
+	color: #999
+}
+
+.carauto-create-yao .yaoqing-float .yaoqing-close {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	background: url(../img/carautocloseicon.png) no-repeat center center;
+	right: 0;
+	top: 0;
+	cursor: pointer
+}
+
+.message-autocar {
+	flex-direction: column;
+	width: 310px;
+	height: 134px;
+	border-radius: 8px;
+	border: solid 1px #ccc;
+	overflow: hidden;
+	margin-bottom: 20px
+}
+
+.message-autocar .message-autocar-info {
+	background: #fff;
+	padding: 16px 0;
+	height: 74px;
+	position: relative
+}
+
+.message-autocar .message-autocar-info .message-autocar-shang {
+	position: absolute;
+	top: -3px;
+	left: -20px;
+	width: 58px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	background: #f58;
+	color: #fff;
+	font-size: 12px;
+	transform: rotateZ(-45deg)
+}
+
+.message-autocar .message-autocar-bottom {
+	background: #f2f2f2;
+	flex: 1;
+	padding: 0 10px;
+	align-items: center;
+	font-size: 12px;
+	color: #333
+}
+
+.message-autocar .message-autocar-bottom div:first-child {
+	flex: 1
+}
+
+.right_chatroom_guanming {
+	display: none;
+	color: #ff4c82;
+	font-size: 16px;
+	text-align: center;
+	line-height: 40px;
+	width: 314px;
+	height: 36px;
+	margin: 0 auto;
+	margin-top: 10px;
+	background: url(../img/chatroom_guanming.png?v=1)
+}
+
+.chat-center-pudg-auto {
+	display: none;
+	margin: 10px;
+	height: 400px;
+	background: url(../img/1559541555911544.png) no-repeat
+}
+
+.chat-center-pudg-auto .pudg-auto-main-team {
+	height: 134px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams-leader {
+	width: 116px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams-leader p {
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	padding-top: 8px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams-leader-header {
+	width: 80px;
+	height: 80px;
+	margin: 0 auto;
+	margin-top: 14px;
+	border-radius: 100%;
+	position: relative;
+	border: solid 2px #fff
+}
+
+.chat-center-pudg-auto .pudg-auto-teams-leader-header span.tag {
+	position: absolute;
+	bottom: -6px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #f459a3;
+	color: #fff;
+	font-size: 12px;
+	width: 54px;
+	border-radius: 4px;
+	text-align: center
+}
+
+.chat-center-pudg-auto .pudg-auto-header-bg {
+	background: url(../img/carteamemptybg.png) no-repeat center center #ccc;
+	border-radius: 100%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0
+}
+
+.chat-center-pudg-auto .pudg-auto-header-img {
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	width: 84px;
+	height: 84px;
+	border-radius: 100%
+}
+
+.chat-center-pudg-auto .pudg-auto-header-img img {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%
+}
+
+.chat-center-pudg-auto .pudg-auto-right .pudg-auto-self-team {
+	flex: 1;
+	display: flex;
+	align-items: center
+}
+
+.chat-center-pudg-auto .pudg-auto-right .pudg-auto-self-team .pudg-auto-self-team-title {
+	width: 14px;
+	text-align: center;
+	margin: 0 6px;
+	font-size: 14px;
+	color: #c2a4ff;
+	word-break: break-word
+}
+
+.chat-center-pudg-auto .pudg-auto-right ul.pudg-auto-self-team-persons {
+	list-style: none;
+	display: flex;
+	flex: 1
+}
+
+.chat-center-pudg-auto .pudg-auto-right ul.pudg-auto-self-team-persons li {
+	flex: 0 0 10%
+}
+
+.chat-center-pudg-auto .pudg-auto-right ul.pudg-auto-self-team-persons li .pudg-auto-team-leader-header {
+	margin: 0 auto;
+	position: relative;
+	width: 64px;
+	height: 64px;
+	border: solid 2px #fff;
+	border-radius: 100%
+}
+
+.chat-center-pudg-auto .pudg-auto-right ul.pudg-auto-self-team-persons li .pudg-auto-team-leader-header .pudg-auto-header-img {
+	width: 68px;
+	height: 68px;
+	top: -2px;
+	left: -2px
+}
+
+.chat-center-pudg-auto .pudg-auto-right ul.pudg-auto-self-team-persons li .pudg-auto-team-leader-header .pudg-auto-header-img img {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%
+}
+
+.chat-center-pudg-auto .pudg-auto-right ul.pudg-auto-self-team-persons li .pudg-auto-team-leader-header span.tag {
+	position: absolute;
+	bottom: -6px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #f459a3;
+	color: #fff;
+	font-size: 12px;
+	width: 40px;
+	border-radius: 4px;
+	text-align: center
+}
+
+.chat-center-pudg-auto .pudg-auto-right ul.pudg-auto-self-team-persons li p {
+	padding-top: 6px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center
+}
+
+.chat-center-pudg-auto .pudg-auto-teams {
+	flex-direction: column;
+	justify-content: center;
+	height: 260px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team {
+	flex: 1;
+	justify-content: center;
+	align-items: center
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team-title {
+	width: 18px;
+	text-align: center;
+	margin: 0 6px;
+	font-size: 14px;
+	color: #c2a4ff
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team ul {
+	flex: 1;
+	display: flex
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team ul li {
+	flex: 0 0 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team .pudg-auto-group {
+	flex-direction: column
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team .pudg-auto-group .pudg-auto-group-header {
+	width: 56px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team .pudg-auto-group .pudg-auto-group-header .person-keng {
+	width: 56px;
+	height: 56px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team .pudg-auto-group .pudg-auto-group-header .person-keng div.keng-bg {
+	width: 52px;
+	height: 52px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team .pudg-auto-group img.pudg-auto-group-leader-header {
+	width: 56px;
+	height: 56px;
+	border-radius: 100%
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team ul li .pudg-auto-group-info {
+	font-size: 12px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team ul li div.pudg-auto-group {
+	background: rgba(255, 215, 244, .3);
+	border: solid 1px rgba(255, 215, 244, .3);
+	padding: 10px 15px;
+	width: 100%;
+	border-radius: 8px;
+	margin-right: 10px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team ul li .pudg-auto-group-info {
+	margin-left: 10px
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team ul li .pudg-auto-group-info .group-title {
+	font-size: 14px;
+	color: #fff
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team ul li .pudg-auto-group-info .group-person-info {
+	font-size: 12px;
+	color: rgba(255, 255, 255, .8)
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team ul li .pudg-auto-group-info .group-leader-info {
+	font-size: 12px;
+	color: rgba(255, 255, 255, .8);
+	align-items: center;
+	line-height: 1.6
+}
+
+.chat-center-pudg-auto .pudg-auto-teams .pudg-auto-team ul li .pudg-auto-group-info .group-leader-info img {
+	height: 14px;
+	margin-right: 5px
+}
+
+.chat-center-pudg-auto .pudg-auto-right .pudg-auto-group-op {
+	margin-top: 10px
+}
+
+.chat-center-pudg-auto .pudg-auto-right .pudg-auto-group-op span.commander {
+	background: #f459a3;
+	border-radius: 4px;
+	padding: 2px 5px;
+	font-size: 12px;
+	color: #fff
+}
+
+.chat-center-pudg-auto .pudg-auto-right .pudg-auto-group-op span.join {
+	border-radius: 4px;
+	background: rgba(255, 85, 136, .5);
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	padding: 2px 5px;
+	margin-left: 10px;
+	cursor: pointer
+}
+
+.chat-center-pudg-auto .pudg-auto-right .pudg-auto-group-op span.joined {
+	background: rgba(112, 99, 149, .5)
+}
+
+.chat-center-pudg-auto-temp {
+	background: url(../img/pudgtemp.jpg) no-repeat;
+	height: 320px;
+	margin: 10px;
+	display: none;
+	border-radius: 8px
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-left {
+	width: 190px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column
+}
+
+.pudg-auto-temp-commander {
+	width: 106px;
+	height: 106px
+}
+
+.pudg-auto-temp-commander div.keng-bg {
+	width: 102px;
+	height: 102px
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right {
+	flex: 1;
+	align-items: center
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right .pudg-auto-temp-team-title {
+	width: 18px;
+	margin: 0 10px;
+	text-align: center;
+	color: #c2a4ff
+}
+
+.pudg-auto-temp-person-keng .person-keng {
+	width: 81px;
+	height: 81px
+}
+
+.pudg-auto-temp-person-keng .person-keng div.keng-bg {
+	width: 77px;
+	height: 77px
+}
+
+.pudg-auto-temp-person-keng .pudg-result-op {
+	justify-content: center;
+	align-items: center;
+	margin-top: 5px
+}
+
+.pudg-auto-temp-person-keng .pudg-result-op span {
+	width: 34px;
+	height: 34px;
+	border-radius: 100%;
+	margin: 0 5px;
+	opacity: .5;
+	background: url(../img/pudgzancaibg.png?v=1) no-repeat rgba(0, 0, 0, .4)
+}
+
+.pudg-auto-temp-person-keng .pudg-result-op span.pudg-zan.disable {
+	opacity: 1
+}
+
+.pudg-auto-temp-person-keng .pudg-result-op span.pudg-cai.disable {
+	opacity: 1
+}
+
+.pudg-auto-temp-person-keng .pudg-result-op span.pudg-zan {
+	background-position: 0 0
+}
+
+.pudg-auto-temp-person-keng .pudg-result-op span.pudg-cai {
+	background-position: -34px 0
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right ul {
+	flex: 0 0 650px;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+	flex-wrap: wrap
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right ul li {
+	flex: 0 0 20%;
+	padding: 5px 0
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right div.pudg-auto-temp-allsong {
+	margin-top: -227px
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right div.pudg-auto-temp-allsong div {
+	padding: 3px 10px;
+	border-radius: 40px;
+	background: rgba(0, 0, 0, .4);
+	margin: 10px 0;
+	font-size: 14px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	opacity: .7;
+	cursor: pointer
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right div.pudg-auto-temp-allsong div span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+	background: url(../img/pudgzancaibg.png) no-repeat center center
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right div.pudg-auto-temp-allsong div.pudg-auto-temp-all-zai span {
+	background-position: -7px -9px
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right div.pudg-auto-temp-allsong div.pudg-auto-temp-all-cai span {
+	background-position: -41px -6px
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right div.pudg-auto-temp-allsong div.pudg-auto-temp-all-zai.disable {
+	opacity: 1
+}
+
+.chat-center-pudg-auto-temp .pudg-auto-temp-right div.pudg-auto-temp-allsong div.pudg-auto-temp-all-cai.disable {
+	opacity: 1
+}
+
+.message-jingji-successinfo {
+	width: 300px;
+	height: 88px;
+	border: solid 1px #ddd;
+	background: url(../img/successdanmubg.png) no-repeat 10px center;
+	border-radius: 8px
+}

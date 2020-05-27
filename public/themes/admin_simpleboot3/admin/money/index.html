@@ -1,0 +1,55 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('order/index')}">订单列表</a></li>
+    </ul>
+    <form class="well form-inline margin-top-20" method="post" action="{:url('money/index')}">
+        资金类型:
+        <select class="form-control" name="style" id="style" style="width: 140px;">
+            <option value='' <eq name="style" value="">selected</eq>>全部</option>
+            <option value='充值' <eq name="style" value="充值">selected</eq>>充值</option>
+            <option value='支出' <eq name="style" value="支出">selected</eq>>支出</option>
+            <option value='收入' <eq name="style" value="收入">selected</eq>>收入</option>
+            <option value='提现' <eq name="style" value="提现">selected</eq>>提现</option>
+        </select>
+         &nbsp; &nbsp;
+        用户名:
+        <input type="text" class="form-control" name="keyword" style="width: 200px;"
+               value="{$keyword|default=''}" placeholder="请输入用户名">
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="{:url('Order/index')}">清空</a>
+    </form>
+    
+    <form method="post" class="js-ajax-form margin-top-20" action="{:url('Order/listOrder')}">
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="50">ID</th>
+                <th>用户名</th>
+                <th>交易额</th>
+                <th>资金类型</th>
+                <th>交易说明</th>
+                <th>交易时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="mrecord" item="vo">
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.user_login}</td>
+                    <td>{$vo.money}</td>
+                    <td>{$vo.style}</td>
+                    <td>{$vo.content}</td>
+                    <td>{:date('Y-m-d H:i',$vo.pay_time)}</td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </form>
+	<div class="pagination">{$page}</div>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

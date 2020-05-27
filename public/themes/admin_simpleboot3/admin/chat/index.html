@@ -1,0 +1,41 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('chat/index')}">所有聊天室</a></li>
+        <li><a href="{:url('chat/add')}">添加聊天室</a></li>
+    </ul>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="50">ID</th>
+                <th>名称</th>
+                <th>英文名</th>
+                <th>公告</th>
+                <th>主持人</th>
+                <th width="120">{:lang('ACTIONS')}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="chats" item="vo">
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.ename}</td>
+                     <td>{$vo.description}</td>
+                    <td>{$vo.user_login}</td>
+                    <td>
+                        <a href="{:url('chat/edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+                        <a href="{:url('chat/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">
+                            {:lang('DELETE')}
+                        </a>
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

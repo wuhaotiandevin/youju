@@ -1,0 +1,18 @@
+
+</head>
+<include file="public@header"/><body>
+<div class="wrap" style="padding: 20px 20px 20px;">  
+<div class="">
+               <h3>当前价格:{$jiage.jiage}元/月</h3>
+                </div>
+            </div>
+            <form class="js-ajax-form well form-inline margin-top-20" method="post" action="{:url('jineng/edit_jiage')}">
+                <input type="hidden" name="id" value="{$jiage.id}">
+        修改：
+        <input type="text" class="form-control" name="jiage" style="width: 200px;" value="">元/月
+        <input type="submit" class="btn btn-primary js-ajax-submit" value="确定">
+    </form>          
+        
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('guild/index')}">所有公会</a></li>
+        <li><a href="{:url('guild/add')}">添加公会</a></li>
+        <li class="active"><a>编辑公会</a></li>
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('guild/editPost')}">
+        <div class="form-group">
+            <label for="input-guild_name" class="col-sm-2 control-label">名称<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-guild_name" name="name" value="{$guild.name}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-guild_url" class="col-sm-2 control-label">口号<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-guild_slogan" name="slogan" value="{$guild.slogan}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-guild_image" class="col-sm-2 control-label">图标</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-guild_image" name="image" value="{$guild.image}">
+                <a href="javascript:uploadOneImage('图片上传','#input-guild_image');">上传图片</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-guild_description" class="col-sm-2 control-label">描述</label>
+            <div class="col-md-6 col-sm-10">
+                <textarea class="form-control" name="description"
+                          id="input-guild_description">{$guild.description}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="hidden" name="id" value="{$guild.id}">
+                <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+                <a class="btn btn-default" href="{:url('guild/index')}">{:lang('BACK')}</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

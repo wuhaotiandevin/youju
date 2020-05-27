@@ -1,0 +1,25 @@
+
+</head>
+<include file="public@header"/><body>
+<div class="wrap" style="padding: 20px 20px 20px;">  
+<div class="">
+               <h3>{$user['user_login']}当前余额:{$user['yue']}元</h3>
+                </div>
+            </div>
+            <form class="form-horizontal js-ajax-form well form-inline margin-top-20" method="post" action="{:url('adminIndex/edit_yue')}">
+                <input type="hidden" name="id" value="{$user.id}">
+                <input type="hidden" name="yue" value="{$user['yue']}">
+        修改:
+        <select class="form-control" name="status" id="status" style="width: 140px;">
+            <option value="0" selected>增加</option>
+            <option value="1">减少</option>
+        </select>
+         &nbsp; &nbsp;
+        金额:
+        <input type="text" class="form-control" name="money" style="width: 200px;" value="" placeholder="请输入具体金额数字">元
+        <input type="submit" class="btn btn-primary js-ajax-submit" value="确定">
+    </form>          
+        
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('category/index')}">所有服务类目</a></li>
+        <li><a href="{:url('category/add')}">添加服务类目</a></li>
+        <li class="active"><a>编辑服务类目</a></li>
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('category/editPost')}">
+        <div class="form-group">
+            <label for="input-cat_name" class="col-sm-2 control-label">名称<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-cat_name" name="cat_name" value="{$category.cat_name}">
+            </div>
+        </div>
+		<div class="form-group">
+			<label for="input-parent_id" class="col-sm-2 control-label">父级类目<span class="form-required">*</span></label>
+			<div class="col-md-6 col-sm-10">
+				<input type="hidden" class="form-control" id="input-parent_id" name="parent_id" value="{$category.parent_id}">
+				<input type="text" class="form-control" id="input-parent_name" name="parent_name" value="{$parent_name}" disabled>
+			</div>
+		</div>
+		<!--<div class="form-group">
+			<label for="input-list_order" class="col-sm-2 control-label">list_order<span class="form-required">*</span></label>
+			<div class="col-md-6 col-sm-10">
+				<input type="text" class="form-control" id="input-list_order" name="list_order" value="{$category.list_order}">
+			</div>
+		</div>-->
+		<div class="form-group">
+			<label for="input-cat_desc" class="col-sm-2 control-label">描述</label>
+			<div class="col-md-6 col-sm-10">
+				<input type="text" class="form-control" id="input-cat_desc" name="cat_desc" value="{$category.cat_desc}">
+			</div>
+		</div>
+        <eq name="category.parent_id" value="0">
+        <div class="form-group">
+                <label for="input-image" class="col-sm-2 control-label">默认图标</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-image" name="img_z" value="{$category.img_z}"> 
+                    <a href="javascript:uploadOneImage('图片上传','#input-image');">上传图片</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="input-image" class="col-sm-2 control-label">选中图标</label>
+                <div class="col-md-6 col-sm-10">
+                    <input type="text" class="form-control" id="input-image1" name="img_f" value="{$category.img_f}"> 
+                    <a href="javascript:uploadOneImage('图片上传','#input-image1');">上传图片</a>
+                </div>
+            </div>
+        </eq>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="hidden" name="id" value="{$category.id}">
+                <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+                <a class="btn btn-default" href="{:url('category/index')}">{:lang('BACK')}</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

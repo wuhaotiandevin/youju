@@ -1,0 +1,47 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('guild/member',array('id'=>$id))}">待审核入会人员</a></li>
+        <li><a href="{:url('guild/member1',array('id'=>$id))}">已入会人员</a></li>
+    </ul>
+    
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th width="100">用户ID</th>
+                <th>用户名</th>
+                <th>手机号</th>
+                <th>QQ号</th>
+                <th>入会说明</th>
+                <th>状态</th>
+                <th width="160">{:lang('ACTIONS')}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="users" item="vo">
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.user_login}</td>
+                    <td>{$vo.mobile}</td>
+                    <td>{$vo.qq}</td>
+                    <td>{$vo.guild_reason}</td>
+                    <td>
+                        待审核
+                    </td>
+                    <td>
+                            <a href="{:url('guild/ban',array('id'=>$vo['id'],'status'=>1))}" class="js-ajax-dialog-btn"
+                               data-msg="确定通过此用户申请吗？">通过</a>
+                            <a href="{:url('guild/ban',array('id'=>$vo['id'],'status'=>0))}" class="js-ajax-dialog-btn"
+                               data-msg="确定拒绝此用户申请吗？">拒绝</a>
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

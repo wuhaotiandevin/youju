@@ -1,0 +1,37 @@
+
+</head>
+<include file="public@header"/><body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('link/index')}">所有建议</a></li>
+    </ul>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="50">ID</th>
+                <th width="150">QQ</th>
+                <th>建议内容</th>
+                <th width="150">发布时间</th>
+                <th width="100">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="liuyans" id="vo">
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.qq}</td>
+                    <td>{$vo.content}</td>
+                    <td>{:date('Y-m-d H:i',$vo['add_time'])}</td>
+                     <td>
+                        <a href="{:url('liuyan/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">
+                            删除
+                        </a>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

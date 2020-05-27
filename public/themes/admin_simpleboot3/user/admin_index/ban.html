@@ -1,0 +1,60 @@
+
+</head>
+<include file="public@header"/><body>
+<div class="wrap">  
+<div class="">
+               <table class="table table-hover table-bordered">
+                <thead>                
+                <tr>
+                    <th>头像</th>
+                    <th>形象照</th>
+                    <th>用户名</th>
+                    <th>手机号码</th>
+                    <th>QQ</th>
+                    <th>地址</th>
+                    <th>性别</th>
+                    <th>出生年月</th>
+                    <th>个性标签</th>
+                </tr>
+            </thead>
+            <tbody>
+                <php>$sex=['0'=>'保密','1'=>'男','2'=>'女'];</php>
+                <tr>
+                    <td><img src="{:cmf_get_image_url($user.avatar)}" width="100px"></td>
+                    <td><img src="{:cmf_get_image_url($user.avatar1)}" width="100px"> <img src="{:cmf_get_image_url($user.avatar2)}" width="100px"> <img src="{:cmf_get_image_url($user.avatar3)}" width="100px"> <neq name="user.avatar4" value=""><img src="{:cmf_get_image_url($user.avatar4)}" width="100px"></neq></td>
+                    <td>{$user.user_login}</td>
+                    <td>{$user.mobile}</td>
+                    <td>{$user.qq}</td>
+                    <td>{$user.sheng}-{$user.shi}-{$user.qu}</td>
+                    <td>{$sex[$user.sex]}</td>
+                    <td>{:date('Y-m-d',$user.birthday)}</td>
+                    <td>{$user.gexing}</td>
+                </tr>
+                <tr><td colspan="8"><b>技能：</b></td></tr>
+                <volist name="jineng" id="vo">
+                    <tr>
+                        <td><img src="{:cmf_get_image_url($vo.pic)}" width="100px"></td>
+                        <td>{$vo.fuwu}</td>
+                        <td>{$vo.level}</td>
+                        <!-- <td>{$vo.jiage}元/小时</td> -->
+                        <td colspan="6"></td>
+                       
+                    </tr>
+                </volist>
+            </tbody>
+               </table>
+                </div>
+            </div>          
+        <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('adminIndex/shenhe')}">
+        <div class="">
+            <input type="hidden" name="id" value="{$user.id}">
+					审核：
+                        <input type="radio" name="shenhe" value="1"/>通过
+                        <input type="radio" name="shenhe" value="2"/>拒绝
+                    <br><br>
+            <button type="submit" class="btn btn-primary js-ajax-submit">确定</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

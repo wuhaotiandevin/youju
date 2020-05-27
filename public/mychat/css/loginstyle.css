@@ -1,0 +1,274 @@
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.clearfix {
+	clear: both;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+img {
+	vertical-align: middle;
+}
+
+#index_pup_box {
+	background: rgba(51, 51, 51, 0.6);
+	height: 100%;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1001;
+}
+
+#index_pup_box .entry_pop_box {
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
+
+#index_pup_box .entry_pop_content {
+	background-color: #fff;
+	height: 494px;
+	margin: 10% auto 0;
+	padding: 20px;
+	width: 660px;
+	position: relative;
+}
+
+#index_pup_box .enroll {
+	color: #111111;
+	cursor: pointer;
+	font-size: 24px;
+	padding: 20px;
+}
+
+#index_pup_box .enroll_add {
+	border-bottom: 3px solid #d02642;
+	color: #d02642;
+}
+
+#index_pup_box .enroll_box {
+	border-bottom: 1px solid #f3f3f3;
+}
+
+#index_pup_box .close {
+	position: relative;
+}
+
+#index_pup_box .layer-cell-close {
+	cursor: pointer;
+	height: 22px;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	width: 22px;
+	z-index: 2;
+}
+
+#index_pup_box .layer-cell-close::before,
+#index_pup_box .layer-cell-close::after {
+	background-color: #726f7d;
+	border-radius: 2px;
+	content: "";
+	height: 2px;
+	left: -3px;
+	position: absolute;
+	top: 10px;
+	width: 27px;
+}
+
+#index_pup_box .layer-cell-close:hover::before,
+#index_pup_box .layer-cell-close:hover::after {
+	background-color: #000;
+}
+
+#index_pup_box .layer-cell-close::before {
+	transform: rotate(45deg);
+}
+
+#index_pup_box .layer-cell-close::after {
+	transform: rotate(-45deg);
+}
+
+#index_pup_box .entry_wbox {
+	border-left: 1px solid #f1f1f1;
+	padding-bottom: 70px;
+	padding-left: 33px;
+	padding-right: 15px;
+	margin-top: 50px;
+}
+
+#index_pup_box .entry_01 {
+	color: #333333;
+	font-size: 18px;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+#index_pup_box .entry_w,
+.entry_qq {
+	border-radius: 2px;
+	color: #fff;
+	cursor: pointer;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	width: 160px;
+}
+
+#index_pup_box .entry_w {
+	background-color: #51c332;
+}
+
+#index_pup_box .entry_w:hover {
+	background-color: #2e9811;
+}
+
+#index_pup_box .entry_qq {
+	background-color: #22a4ff;
+	margin-top: 20px;
+}
+
+#index_pup_box .entry_qq:hover {
+	background-color: #137cc5;
+}
+
+#index_pup_box .register_box {
+	font-size: 16px;
+	padding-top: 30px;
+}
+
+#index_pup_box .register_box label {
+	color: #666666;
+	display: inline-block;
+	font-size: 16px;
+	margin-right: 10px;
+	text-align: right;
+	width: 70px;
+}
+
+#index_pup_box .register_box input {
+	background-color: #f3f3f3;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	display: inline-block;
+	font-size: 16px;
+	height: 42px;
+	line-height: 42px;
+	padding: 0 10px;
+	width: 320px;
+}
+
+#index_pup_box .register_box .register {
+	margin-top: 20px;
+	position: relative;
+}
+
+#index_pup_box .register_box .identifying {
+	font-size: 16px;
+	width: 180px;
+}
+
+#index_pup_box .register_box .identif {
+	background-color: #d02642;
+	border-radius: 2px;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	height: 44px;
+	/*line-height: 44px;*/
+	margin-left: 16px;
+	text-align: center;
+	width: 120px;
+}
+
+#index_pup_box .register_box .identif:hover,
+.identif_go:hover {
+	background-color: #bc0f2c;
+}
+
+#index_pup_box .identif_go {
+	background-color: #d02642;
+	border-radius: 2px;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	height: 44px;
+	/*margin-bottom: 80px;*/
+	margin-top: 35px;
+	margin-left: 80px;
+	text-align: center;
+	width: 340px;
+}
+
+#index_pup_box .radio_box {
+	color: #333333;
+	font-size: 14px;
+	margin-top: 12px;
+}
+
+#index_pup_box .radio_01 {
+	display: inline-block;
+	font-size: 14px;
+	height: 16px;
+	margin-left: 80px;
+	margin-top: 16px;
+	width: 16px;
+}
+
+#index_pup_box .radio_box span {
+	color: #999999;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+#index_pup_box .voluntarily_box {
+	margin-left: 80px;
+	margin-top: 18px;
+}
+
+#index_pup_box .voluntarily01 {
+	height: 16px;
+	margin-right: 4px;
+	margin-top: 4px;
+	width: 16px;
+}
+
+#index_pup_box .voluntarily02,
+.voluntarily03 {
+	color: #666666;
+	font-size: 14px;
+}
+
+#index_pup_box .voluntarily03 {
+	text-decoration: underline;
+}
+
+#index_pup_box .dislocation {
+	color: #e11d31;
+	font-size: 12px;
+	height: 28px;
+	line-height: 28px;
+	margin-left: 12px;
+	position: absolute;
+	right: 12px;
+	text-align: center;
+	top: 8px;
+	z-index: 5;
+}
+
+#index_pup_box .dislocation_04 {
+	right: 152px;
+}

@@ -1,0 +1,45 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:url('gift/index')}">所有礼物</a></li>
+			<li class="active"><a href="{:url('gift/add')}">添加礼物</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('gift/addPost')}">
+			<div class="form-group">
+				<label for="input-name" class="col-sm-2 control-label">名称<span class="form-required">*</span></label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-name" name="name">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="input-image" class="col-sm-2 control-label">图标</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-image" name="image"> 
+					<a href="javascript:uploadOneImage('图片上传','#input-image');">上传图片</a>(图标大小：33像素X33像素)
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="input-target" class="col-sm-2 control-label">魅力值/贡献值</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-charm" name="charm">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="input-description" class="col-sm-2 control-label">价格</label>
+				<div class="col-md-6 col-sm-10">
+					<input type="text" class="form-control" id="input-price" name="price">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+					<a class="btn btn-default" href="javascript:history.back(-1);">{:lang('BACK')}</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
