@@ -316,7 +316,7 @@ parse;
     }
 
     /**
-     * 幻灯片标签
+     * 轮播图标签
      */
     public function tagSlides($tag, $content)
     {
@@ -336,7 +336,7 @@ parse;
     }
 
     /**
-     * 无幻灯片标签
+     * 无轮播图标签
      */
     public function tagNoSlides($tag, $content)
     {

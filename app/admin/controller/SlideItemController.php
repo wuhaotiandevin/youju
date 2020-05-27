@@ -17,15 +17,15 @@ use app\admin\model\SlideItemModel;
 class SlideItemController extends AdminBaseController
 {
     /**
-     * 幻灯片页面列表
+     * 轮播图页面列表
      * @adminMenu(
-     *     'name'   => '幻灯片页面列表',
+     *     'name'   => '轮播图页面列表',
      *     'parent' => 'admin/Slide/index',
      *     'display'=> false,
      *     'hasView'=> true,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '幻灯片页面列表',
+     *     'remark' => '轮播图页面列表',
      *     'param'  => ''
      * )
      */
@@ -41,15 +41,15 @@ class SlideItemController extends AdminBaseController
     }
 
     /**
-     * 幻灯片页面添加
+     * 轮播图页面添加
      * @adminMenu(
-     *     'name'   => '幻灯片页面添加',
+     *     'name'   => '轮播图页面添加',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> true,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '幻灯片页面添加',
+     *     'remark' => '轮播图页面添加',
      *     'param'  => ''
      * )
      */
@@ -61,15 +61,15 @@ class SlideItemController extends AdminBaseController
     }
 
     /**
-     * 幻灯片页面添加提交
+     * 轮播图页面添加提交
      * @adminMenu(
-     *     'name'   => '幻灯片页面添加提交',
+     *     'name'   => '轮播图页面添加提交',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> false,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '幻灯片页面添加提交',
+     *     'remark' => '轮播图页面添加提交',
      *     'param'  => ''
      * )
      */
@@ -81,15 +81,15 @@ class SlideItemController extends AdminBaseController
     }
 
     /**
-     * 幻灯片页面编辑
+     * 轮播图页面编辑
      * @adminMenu(
-     *     'name'   => '幻灯片页面编辑',
+     *     'name'   => '轮播图页面编辑',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> true,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '幻灯片页面编辑',
+     *     'remark' => '轮播图页面编辑',
      *     'param'  => ''
      * )
      */
@@ -104,15 +104,15 @@ class SlideItemController extends AdminBaseController
     }
 
     /**
-     * 幻灯片页面编辑
+     * 轮播图页面编辑
      * @adminMenu(
-     *     'name'   => '幻灯片页面编辑提交',
+     *     'name'   => '轮播图页面编辑提交',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> false,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '幻灯片页面编辑提交',
+     *     'remark' => '轮播图页面编辑提交',
      *     'param'  => ''
      * )
      */
@@ -129,15 +129,15 @@ class SlideItemController extends AdminBaseController
     }
 
     /**
-     * 幻灯片页面删除
+     * 轮播图页面删除
      * @adminMenu(
-     *     'name'   => '幻灯片页面删除',
+     *     'name'   => '轮播图页面删除',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> false,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '幻灯片页面删除',
+     *     'remark' => '轮播图页面删除',
      *     'param'  => ''
      * )
      */
@@ -161,15 +161,15 @@ class SlideItemController extends AdminBaseController
     }
 
     /**
-     * 幻灯片页面隐藏
+     * 轮播图页面隐藏
      * @adminMenu(
-     *     'name'   => '幻灯片页面隐藏',
+     *     'name'   => '轮播图页面隐藏',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> false,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '幻灯片页面隐藏',
+     *     'remark' => '轮播图页面隐藏',
      *     'param'  => ''
      * )
      */
@@ -179,9 +179,9 @@ class SlideItemController extends AdminBaseController
         if ($id) {
             $rst = Db::name('slideItem')->where(['id' => $id])->update(['status' => 0]);
             if ($rst) {
-                $this->success("幻灯片隐藏成功！");
+                $this->success("轮播图隐藏成功！");
             } else {
-                $this->error('幻灯片隐藏失败！');
+                $this->error('轮播图隐藏失败！');
             }
         } else {
             $this->error('数据传入失败！');
@@ -189,15 +189,15 @@ class SlideItemController extends AdminBaseController
     }
 
     /**
-     * 幻灯片页面显示
+     * 轮播图页面显示
      * @adminMenu(
-     *     'name'   => '幻灯片页面显示',
+     *     'name'   => '轮播图页面显示',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> false,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '幻灯片页面显示',
+     *     'remark' => '轮播图页面显示',
      *     'param'  => ''
      * )
      */
@@ -207,9 +207,9 @@ class SlideItemController extends AdminBaseController
         if ($id) {
             $result = Db::name('slideItem')->where(['id' => $id])->update(['status' => 1]);
             if ($result) {
-                $this->success("幻灯片启用成功！");
+                $this->success("轮播图启用成功！");
             } else {
-                $this->error('幻灯片启用失败！');
+                $this->error('轮播图启用失败！');
             }
         } else {
             $this->error('数据传入失败！');
@@ -217,15 +217,15 @@ class SlideItemController extends AdminBaseController
     }
 
     /**
-     * 幻灯片页面排序
+     * 轮播图页面排序
      * @adminMenu(
-     *     'name'   => '幻灯片页面排序',
+     *     'name'   => '轮播图页面排序',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> false,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '幻灯片页面排序',
+     *     'remark' => '轮播图页面排序',
      *     'param'  => ''
      * )
      */

@@ -3,9 +3,9 @@
 <body>
 <div class="wrap js-check-wrap">
     <ul class="nav nav-tabs">
-        <li><a href="{:url('SlideItem/index',['slide_id'=>$slide_id])}">幻灯片页面列表</a></li>
-        <li><a href="{:url('SlideItem/add',['slide_id'=>$slide_id])}">添加幻灯片页面</a></li>
-        <li class="active"><a>编辑幻灯片页面</a></li>
+        <li><a href="{:url('SlideItem/index',['slide_id'=>$slide_id])}">轮播图页面列表</a></li>
+        <li><a href="{:url('SlideItem/add',['slide_id'=>$slide_id])}">添加轮播图页面</a></li>
+        <li class="active"><a>编辑轮播图页面</a></li>
     </ul>
     <form action="{:url('SlideItem/editPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
         <div class="row">
@@ -18,26 +18,26 @@
                                    required value="{$result.title}" placeholder="请输入标题"/>
                         </td>
                     </tr>
-                    <tr>
+                   <tr>
                         <th>链接</th>
                         <td>
                             <input class="form-control" type="text" name="post[url]" id="keywords" value="{$result.url}"
                                    style="width: 400px" placeholder="请输入链接">
                         </td>
                     </tr>
-                    <tr>
+                     <!--<tr>
                         <th>描述</th>
                         <td><input class="form-control" type="text" name="post[description]" id="source"
                                    value="{$result.description}" style="width: 400px" placeholder="请输入描述"></td>
                     </tr>
                     <tr>
-                        <th>幻灯片内容</th>
+                        <th>轮播图内容</th>
                         <td>
                             <textarea class="form-control" name="post[content]" id="description"
                                       style="width: 47%; height: 100px;"
-                                      placeholder="请填写幻灯片内容">{$result.content}</textarea>
+                                      placeholder="请填写轮播图内容">{$result.content}</textarea>
                         </td>
-                    </tr>
+                    </tr>-->
                 </table>
             </div>
             <div class="col-md-3">

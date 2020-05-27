@@ -1,13 +1,5 @@
 <?php
-// +----------------------------------------------------------------------
-// | ThinkCMF [ WE CAN DO IT MORE SIMPLE ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2013-2017 http://www.thinkcmf.com All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: 小夏 < 449134904@qq.com>
-// +----------------------------------------------------------------------
+
 namespace app\admin\controller;
 
 use app\admin\model\SlideModel;
@@ -18,15 +10,15 @@ class SlideController extends AdminBaseController
 {
 
     /**
-     * 幻灯片列表
+     * 轮播图列表
      * @adminMenu(
-     *     'name'   => '幻灯片管理',
+     *     'name'   => '轮播图管理',
      *     'parent' => 'admin/Setting/default',
      *     'display'=> true,
      *     'hasView'=> true,
      *     'order'  => 40,
      *     'icon'   => '',
-     *     'remark' => '幻灯片管理',
+     *     'remark' => '轮播图管理',
      *     'param'  => ''
      * )
      */
@@ -39,15 +31,15 @@ class SlideController extends AdminBaseController
     }
 
     /**
-     * 添加幻灯片
+     * 添加轮播图
      * @adminMenu(
-     *     'name'   => '添加幻灯片',
+     *     'name'   => '添加轮播图',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> true,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '添加幻灯片',
+     *     'remark' => '添加轮播图',
      *     'param'  => ''
      * )
      */
@@ -57,21 +49,22 @@ class SlideController extends AdminBaseController
     }
 
     /**
-     * 添加幻灯片提交
+     * 添加轮播图提交
      * @adminMenu(
-     *     'name'   => '添加幻灯片提交',
+     *     'name'   => '添加轮播图提交',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> false,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '添加幻灯片提交',
+     *     'remark' => '添加轮播图提交',
      *     'param'  => ''
      * )
      */
     public function addPost()
     {
         $data           = $this->request->param();
+		$data['remark'] = cmf_random_string(10);;
         $slidePostModel = new SlideModel();
         $result         = $slidePostModel->validate(true)->save($data);
         if ($result === false) {
@@ -81,15 +74,15 @@ class SlideController extends AdminBaseController
     }
 
     /**
-     * 编辑幻灯片
+     * 编辑轮播图
      * @adminMenu(
-     *     'name'   => '编辑幻灯片',
+     *     'name'   => '编辑轮播图',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> true,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '编辑幻灯片',
+     *     'remark' => '编辑轮播图',
      *     'param'  => ''
      * )
      */
@@ -103,15 +96,15 @@ class SlideController extends AdminBaseController
     }
 
     /**
-     * 编辑幻灯片提交
+     * 编辑轮播图提交
      * @adminMenu(
-     *     'name'   => '编辑幻灯片提交',
+     *     'name'   => '编辑轮播图提交',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> false,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '编辑幻灯片提交',
+     *     'remark' => '编辑轮播图提交',
      *     'param'  => ''
      * )
      */
@@ -127,15 +120,15 @@ class SlideController extends AdminBaseController
     }
 
     /**
-     * 删除幻灯片
+     * 删除轮播图
      * @adminMenu(
-     *     'name'   => '删除幻灯片',
+     *     'name'   => '删除轮播图',
      *     'parent' => 'index',
      *     'display'=> false,
      *     'hasView'=> false,
      *     'order'  => 10000,
      *     'icon'   => '',
-     *     'remark' => '删除幻灯片',
+     *     'remark' => '删除轮播图',
      *     'param'  => ''
      * )
      */
@@ -145,13 +138,13 @@ class SlideController extends AdminBaseController
         $slidePostModel = new SlideModel();
         $result       = $slidePostModel->where(['id' => $id])->find();
         if (empty($result)){
-            $this->error('幻灯片不存在!');
+            $this->error('轮播图不存在!');
         }
 
         //如果存在页面。则不能删除。
         $slidePostCount = Db::name('slide_item')->where('slide_id', $id)->count();
         if ($slidePostCount > 0) {
-            $this->error('此幻灯片有页面无法删除!');
+            $this->error('此轮播图有页面无法删除!');
         }
 
         $data         = [

@@ -23,7 +23,7 @@ class ApiService
     }
 
     /**
-     * 获取所有幻灯片
+     * 获取所有轮播图
      * @param $slideId
      * @return false|\PDOStatement|string|\think\Collection
      */
