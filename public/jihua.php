@@ -1,5 +1,5 @@
 <?php
-$db = new MySQLi("localhost","root","root","pw");
+$db = new MySQLi("localhost","root","root123456","pw");
 !mysqli_connect_error() or die("连接失败");
 
 
