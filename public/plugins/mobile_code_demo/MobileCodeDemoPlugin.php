@@ -51,7 +51,7 @@ class MobileCodeDemoPlugin extends Plugin
 //            'error'     => 1,
 //            'message' => '服务商返回结果错误'
 //        ];
-        $message="【游戏陪玩网】您的验证码是：".$code."。请不要把验证码泄露给其他人。";
+        $message="【舒心陪练】您的验证码是：".$code."。请不要把验证码泄露给其他人。";
         $post_data = array();
         $post_data['userid'] = 11087;
         $post_data['account'] = 'qdjc';

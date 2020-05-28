@@ -56,6 +56,7 @@
                                         <else/>
                                         <img src="{:cmf_get_image_preview_url($result['image'])}" id="thumb-preview"
                                              width="135" style="cursor: hand"/>
+											 <input type="hidden" value="{:cmf_get_image_preview_url($result['image'])}" name="post[imgurl]">
                                     </if>
                                 </a>
                                 <input type="button" class="btn btn-sm"
