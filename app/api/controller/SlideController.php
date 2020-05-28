@@ -39,6 +39,7 @@ class SlideController
 						$data[$k]['url']=cmf_get_image_preview_url($v['image']);
 					$data[$k]['width'] = $v['width'];
 					$data[$k]['height']=$v['height'];
+					$data[$k]['href']=$v['href'];
 
 				}
 				echo json_encode( array('code' => 0,  'msg' => '请求成功','data'=>$data));
