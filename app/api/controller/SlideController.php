@@ -34,9 +34,9 @@ class SlideController
 				foreach($slides as $k=>$v){
 					$data[$k]['title']=$v['title'];
 					if(!empty($v['url']))
-						$data[$k]['url']='http://192.168.0.177/upload/'.$v['url'];
+						$data[$k]['url']=$v['url'];
 					else
-						$data[$k]['url']='http://192.168.0.177/upload/'.$v['image'];
+						$data[$k]['url']=cmf_get_image_preview_url($v['image']);
 					$data[$k]['width'] = $v['width'];
 					$data[$k]['height']=$v['height'];
 
