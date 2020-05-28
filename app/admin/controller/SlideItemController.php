@@ -81,7 +81,7 @@ class SlideItemController extends AdminBaseController
 			  $list = @getimagesize($data['url']);
 		}else{
 			if($data['post']['image']){
-				$img =  'http://127.0.0.1:84/upload/'.$data['post']['image'];
+			    $img =  cmf_get_image_preview_url($data['post']['image']);
 				$list = @getimagesize($img);
 			}
 		}

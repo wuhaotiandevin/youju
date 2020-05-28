@@ -24,6 +24,7 @@
                 <th>轮播图标题</th>
                 <th>链接</th>
                 <th>图片</th>
+				<th>宽高</th>
                 <th>状态</th>
                 <th width="160">{:lang('ACTIONS')}</th>
             </tr>
@@ -37,6 +38,7 @@
                     <td>{$vo.id}</td>
                     <td>{$vo.title}</td>
                     <td>{$vo.url}</td>
+					<td>{$vo.width}*{$vo.height}</td>
                     <td>
                         <if condition="!empty($vo['image'])">
                             <a href="javascript:imagePreviewDialog('{:cmf_get_image_preview_url($vo.image)}');">
