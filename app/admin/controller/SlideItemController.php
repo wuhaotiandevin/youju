@@ -76,6 +76,17 @@ class SlideItemController extends AdminBaseController
     public function addPost()
     {
         $data = $this->request->param();
+		$list = array();
+		if($data['post']['url']){
+			  $list = @getimagesize($data['url']);
+		}else{
+			if($data['post']['image']){
+				$img =  'http://127.0.0.1:84/upload/'.$data['post']['image'];
+				$list = @getimagesize($img);
+			}
+		}
+		$data['post']['width'] = isset($list[0])?$list[0]:0;
+		$data['post']['height'] = isset($list[1])?$list[1]:0;
         Db::name('slideItem')->insert($data['post']);
         $this->success("添加成功！", url("slideItem/index", ['slide_id' => $data['post']['slide_id']]));
     }
@@ -118,10 +129,20 @@ class SlideItemController extends AdminBaseController
      */
     public function editPost()
     {
+		$list = array();
         $data = $this->request->param();
-
+		if($data['post']['url']){
+			  $list = @getimagesize($data['url']);
+		}else{
+			if($data['post']['image']){
+				$img =  $data['post']["imgurl"];
+				$list = @getimagesize($img);
+			}
+		}
+		$data['post']['width'] = isset($list[0])?$list[0]:0;
+		$data['post']['height'] = isset($list[1])?$list[1]:0;
         $data['post']['image'] = cmf_asset_relative_url($data['post']['image']);
-
+		unset($data['post']["imgurl"]);
         Db::name('slideItem')->update($data['post']);
 
         $this->success("保存成功！", url("SlideItem/index", ['slide_id' => $data['post']['slide_id']]));

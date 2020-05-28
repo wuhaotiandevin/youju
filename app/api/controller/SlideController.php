@@ -27,7 +27,7 @@ class SlideController
 					  ->where('b.status', 1)
 					  ->where('remark', $code)
 					  ->order('list_order DESC')
-					  ->field('a.title,url,image')
+					  ->field('a.title,url,image,width,height')
 					  ->select();
 			$data = array();
 			if($slides){
@@ -37,6 +37,9 @@ class SlideController
 						$data[$k]['url']='http://192.168.0.177/upload/'.$v['url'];
 					else
 						$data[$k]['url']='http://192.168.0.177/upload/'.$v['image'];
+					$data[$k]['width'] = $v['width'];
+					$data[$k]['height']=$v['height'];
+
 				}
 				echo json_encode( array('code' => 0,  'msg' => '请求成功','data'=>$data));
 				die();
