@@ -16,7 +16,7 @@ class SlideController
     {
 			$code=isset($_POST['code'])?$_POST['code']:'';
 			if(empty($code)){
-				echo json_encode( array('code' => 100,  'msg' => '请求失败'));
+				echo json_encode( array('error' => 100,  'errorMsg' => '请求失败'));
 				die();
 			}
 			
@@ -42,10 +42,10 @@ class SlideController
 					$data[$k]['href']=$v['href'];
 
 				}
-				echo json_encode( array('code' => 0,  'msg' => '请求成功','data'=>$data));
+				echo json_encode( array('error' => 0,  'errorMsg' => '请求成功','data'=>$data));
 				die();
 			}else{
-				echo json_encode( array('code' => 100,  'msg' => '暂无资源'));
+				echo json_encode( array('error' => 100,  'errorMsg' => '暂无资源'));
 				die();
 			}
     }
