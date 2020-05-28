@@ -75,7 +75,6 @@ class CategoryController extends AdminBaseController
     public function addPost()
     {
         $data      = $this->request->param();
-        halt($data);exit;
         $categoryModel = new CategoryModel();
         $result    = $categoryModel->validate(true)->allowField(true)->save($data);
         if ($result === false) {
