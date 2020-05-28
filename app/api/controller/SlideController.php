@@ -14,9 +14,9 @@ class SlideController
      */
     public function index()
     {
-			$code=isset($_POST['code'])?$_POST['code']:'';
-			if(empty($code)){
-				echo json_encode( array('error' => 100,  'errorMsg' => '请求失败'));
+            $position=isset($_POST['position'])?$_POST['position']:'';
+			if(empty($position)){
+				echo json_encode( array('error' => 1,  'errorMsg' => '请求失败'));
 				die();
 			}
 			
@@ -25,9 +25,9 @@ class SlideController
 					  ->join('slide b','a.slide_id=b.id','LEFT')
 					  ->where('a.status', 1)
 					  ->where('b.status', 1)
-					  ->where('remark', $code)
+					  ->where('remark', $position)
 					  ->order('list_order DESC')
-					  ->field('a.title,url,image,width,height')
+					  ->field('a.title,url,image,width,height,href')
 					  ->select();
 			$data = array();
 			if($slides){
@@ -39,13 +39,13 @@ class SlideController
 						$data[$k]['url']=cmf_get_image_preview_url($v['image']);
 					$data[$k]['width'] = $v['width'];
 					$data[$k]['height']=$v['height'];
-					$data[$k]['href']=$v['href'];
+					$data[$k]['href']= !empty($v['href'])?$v['href']:'';
 
 				}
 				echo json_encode( array('error' => 0,  'errorMsg' => '请求成功','data'=>$data));
 				die();
 			}else{
-				echo json_encode( array('error' => 100,  'errorMsg' => '暂无资源'));
+				echo json_encode( array('error' => 1,  'errorMsg' => '暂无资源'));
 				die();
 			}
     }
