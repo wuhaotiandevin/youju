@@ -12,91 +12,81 @@ class CategoryController
      * 品类接口
 	 * $code 关键字标识
      */
-    public function get_categoty()
+    public function index()
     {
-        $code=isset($_GET['code'])?$_GET['code']:'';
-        if(empty($code)){
-            echo json_encode( array('code' => 1,  'msg' => '请求失败'));
-            die();
-        }
-        if($code == 'is_tuijian'){
-            $where['is_tuijian'] = 1;
-
-        }elseif($code == 'is_hot'){
-            $where['is_hot'] = 1;
-
-        }elseif($code == 'is_changyong'){
-            $where['is_changyong'] = 1;
-
-        }else{
-            $where = [];
-        }
-        $cats = Db::name('category')
+		
+		$uid  = isset($_POST['uid'])?$_POST['uid']:'';
+		$all =  isset($_POST['all'])?$_POST['all']:'';
+		$cats = Db::name('user_category')
+				->alias('a')
+				->join('category b','a.category_id=b.id','LEFT')
+				->order('create_time DESC')
+				->field('b.id,b.cat_name,img_z,width,height')
+				->select();
+		$mycats = array();
+		$my =array();
+		if($cats){
+			foreach($cats as $k=>$v){
+				$mycats[$k]['id']    = $v['id'];
+				$mycats[$k]['title'] = $v['cat_name'];
+				$mycats[$k]['img']   = cmf_get_image_preview_url($v['img_z']);
+                $mycats[$k]['width'] = $v['width'];
+                $mycats[$k]['height']= $v['height'];
+				$my[]=$v['id'];
+			}
+		}
+		$where =[];
+		if($all){
+			$cats = Db::name('category')
                   ->where($where)
                   ->order('list_order DESC')
-                  ->field('id,cat_name,img_z,width,height')
+                  ->field('id,cat_name,img_z,width,height,parent_id,is_hot')
                   ->select();
-        $data = array();
-        if($cats){
-            foreach($cats as $k=>$v){
-                $data[$k]['title']=$v['cat_name'];
-                if(!empty($v['img_z'])){
-                    $data[$k]['url']=cmf_get_image_preview_url($v['img_z']);
-                    $size = @getimagesize( $data[$k]['url']);
-                    $data[$k]['width']=$size[0];
-                    $data[$k]['height']=$size[1];
-                }
-                else {
-                    $data[$k]['url'] = '';
-                }
-            }
-            halt($data);
-            echo json_encode( array('code' => 0,  'errorMsg' => '请求成功','data'=>$data));
-            die();
-        }else{
-            echo json_encode( array('code' => 1,  'errorMsg' => '暂无资源'));
-            die();
-        }
+			$parentData  =array();
+			$hot =array();
+			if($cats){
+					foreach($cats as $k=>$v){
+						if($v['parent_id']){
+							$data=array();
+							$data['id']=$v['id'];
+							$data['title']=$v['cat_name'];
+							$data['url']=cmf_get_image_preview_url($v['img_z']);
+							$data['width']=$v['width'];
+							$data['height']=$v['height'];
+							$data['my_cat']= (in_array($v['id'],$my)) ? 1 : 0; 
+							$parentData[$v['parent_id']]['children'][]=$data;
+						}else{
+							$parentData[$v['id']]['id']	=	$v['id'];
+							$parentData[$v['id']]['title']	=	$v['cat_name'];
+						}
+						if($v['is_hot']){
+							$hot['id']=$v['id'];
+							$hot['title']=$v['cat_name'];
+							$hot['url']=cmf_get_image_preview_url($v['img_z']);
+							$hot['width']=$v['width'];
+							$hot['height']=$v['height'];
+							$hot['my_cat']= (in_array($v['id'],$my)) ? 1 : 0; 
+						}
+						
+					}
+					$parentDatas = array();
+					if($parentData){
+						$i=0;
+						foreach($parentData as $k=>$v){
+							$parentDatas[$i]	= $v;
+							$i++;
+						}
+					}
+					echo json_encode( array('error' => 0,  'errorMsg' => '请求成功','data'=>$parentDatas,'hotcats'=>$hot,'mycats'=>$mycats));
+					die();
+			}else{
+					echo json_encode( array('error' => 1,  'errorMsg' => '暂无资源'));
+					die();
+			}
+		}else{
+			echo json_encode( array('error' => 0,  'errorMsg' => '','data'=>$mycats));
+			die();
+		}
     }
-    /**
-     * 品类接口
-     * $code 关键字标识
-     */
-    public function get_categoty_all()
-    {
-        $cats1 = Db::name('category')
-            ->where("parent_id",0)
-            ->order('list_order DESC')
-            ->field('id,cat_name')
-            ->select();
-
-        $data = array();
-        if($cats1){
-            foreach($cats1 as $k=>$v){
-                $data[$k]['title']=$v['cat_name'];
-                if(!empty($v['img_z'])){
-                    $data[$k]['url']=cmf_get_image_preview_url($v['img_z']);
-                    $size = @getimagesize( $data[$k]['url']);
-                    $data[$k]['width']=$size[0];
-                    $data[$k]['height']=$size[1];
-                }
-                else {
-                    $data[$k]['url'] = '';
-                }
-                $cats2 = Db::name('category')
-                    ->where("parent_id",$v['id'])
-                    ->order('list_order DESC')
-                    ->field('id,cat_name')
-                    ->select();
-
-                $data[$k]['child']=$cats2;;
-
-            }
-            echo json_encode( array('code' => 0,  'errorMsg' => '请求成功','data'=>$data));
-            die();
-        }else{
-            echo json_encode( array('code' => 1,  'errorMsg' => '暂无资源'));
-            die();
-        }
-    }
+   
 }

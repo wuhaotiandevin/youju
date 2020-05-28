@@ -75,6 +75,12 @@ class CategoryController extends AdminBaseController
     public function addPost()
     {
         $data      = $this->request->param();
+		if($data['img_z']){
+			    $img =  cmf_get_image_preview_url($data['img_z']);
+				$list = @getimagesize($img);
+		}
+		$data['width'] = isset($list[0])?$list[0]:0;
+		$data['height'] = isset($list[1])?$list[1]:0;
         $categoryModel = new CategoryModel();
         $result    = $categoryModel->validate(true)->allowField(true)->save($data);
         if ($result === false) {
@@ -105,6 +111,12 @@ class CategoryController extends AdminBaseController
     public function editPost()
     {
         $data      = $this->request->param();
+		if($data['img_z']){
+			    $img =  cmf_get_image_preview_url($data['img_z']);
+				$list = @getimagesize($img);
+		}
+		$data['width'] = isset($list[0])?$list[0]:0;
+		$data['height'] = isset($list[1])?$list[1]:0;
         $categoryModel = new CategoryModel();
         $result    = $categoryModel->validate(true)->allowField(true)->isUpdate(true)->save($data);
         if ($result === false) {
