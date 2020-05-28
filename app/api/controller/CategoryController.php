@@ -25,6 +25,9 @@ class CategoryController
         }elseif($code == 'is_hot'){
             $where['is_hot'] = 1;
 
+        }elseif($code == 'is_changyong'){
+            $where['is_changyong'] = 1;
+
         }else{
             $where = [];
         }
