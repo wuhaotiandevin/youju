@@ -44,6 +44,7 @@ class CategoryController
                   ->select();
 			$parentData  =array();
 			$hot =array();
+			$j=0;
 			if($cats){
 					foreach($cats as $k=>$v){
 						if($v['parent_id']){
@@ -60,12 +61,12 @@ class CategoryController
 							$parentData[$v['id']]['title']	=	$v['cat_name'];
 						}
 						if($v['is_hot']){
-							$hot['id']=$v['id'];
-							$hot['title']=$v['cat_name'];
-							$hot['url']=cmf_get_image_preview_url($v['img_z']);
-							$hot['width']=$v['width'];
-							$hot['height']=$v['height'];
-							$hot['my_cat']= (in_array($v['id'],$my)) ? 1 : 0; 
+							$hot[$j]['id']=$v['id'];
+							$hot[$j]['title']=$v['cat_name'];
+							$hot[$j]['url']=cmf_get_image_preview_url($v['img_z']);
+							$hot[$j]['width']=$v['width'];
+							$hot[$j]['height']=$v['height'];
+							$hot[$j]['my_cat']= (in_array($v['id'],$my)) ? 1 : 0; 
 						}
 						
 					}
