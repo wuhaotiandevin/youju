@@ -36,9 +36,9 @@
                     <td>
                         <eq name="vo.parent_id" value="0"><a href="{:url('category/add',array('parent_id'=>$vo['id']))}">添加等级</a></eq>
                         <a href="{:url('category/edit',array('id'=>$vo['id'],'parent_id'=>$vo['parent_id']))}">{:lang('EDIT')}</a>
-                        <!-- <a href="{:url('category/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">
+                        <a href="{:url('category/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">
                             {:lang('DELETE')}
-                        </a> -->
+                        </a>
                     </td>
                 </tr>
             </foreach>
