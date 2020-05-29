@@ -7,51 +7,77 @@ use think\Db;
 
 class UserController
 {
-
     /**
-     * 用户接口
+     * 登录接口
 	 * type 登录类型
-     * openid
+     * sign 微信、qq、手机号标识
      */
     public function login()
     {
-        $type = isset($_POST['type']) ? $_POST['type'] : '';
-        $openid = isset($_POST['openid']) ? $_POST['openid'] : '';
-        $qqid = isset($_POST['qqid']) ? $_POST['qqid'] : '';
-        if (empty($type)) {
+        $type =isset($_POST['type']) ? $_POST['type'] : '';
+        $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
+        if (empty($type || $sign)) {
             echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
             die();
         }
         switch ($type) {
             case 'weixin':
-                if (empty($openid)) {
-                    echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
-                    die();
-                }
-                $where['openid']=$openid;
+                $where['openid']=$sign;
                 break;
             case 'qq':
-                if (empty($qqid)) {
-                    echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
-                    die();
-                }
-                $where['qqid']=$qqid;
+                $where['qqid']=$sign;
                 break;
             case 'mobile':
-                $mobile = isset($_POST['mobile']) ? $_POST['mobile'] : '';
-                if (empty($mobile)) {
-                    echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
-                    die();
-                }
-                $where['mobile']=$mobile;
+                $where['mobile']=$sign;
+                break;
+        }
+        $user = Db::name('user')
+            ->where($where)
+            ->field('id,nickname,mobile,avatar,token')
+            ->find();
+        if($user){
+            $data['userid'] = $user['id'];
+            $data['nickname'] = $user['nickname'];
+            $data['mobile'] = $user['mobile'];
+            $data['avatar'] = cmf_get_image_preview_url($user['avatar']);
+            $data['token'] = $user['token'];
+            echo json_encode( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
+            die();
+        }else{
+            echo json_encode( array('error' => 1,  'errorMsg' => '绑定手机号'));
+            die();
+        }
+    }
+    /**
+     * 绑定手机号接口
+     * type 登录类型
+     * sign 微信、qq、手机号标识
+     */
+    public function bindmobile()
+    {
+        $type =isset($_POST['type']) ? $_POST['type'] : '';
+        $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
+        if (empty($type || $sign)) {
+            echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
+            die();
+        }
+        switch ($type) {
+            case 'weixin':
+                $where['openid']=$sign;
+                break;
+            case 'qq':
+                $where['qqid']=$sign;
+                break;
+            case 'mobile':
+                $where['mobile']=$sign;
                 break;
         }
         $user = Db::name('user')
             ->where($where)
             ->field('id,nickname,mobile,avatar')
             ->find();
-
         if($user){
+            $user['avatar'] = cmf_get_image_preview_url($user['avatar']);
             echo json_encode( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $user));
             die();
         }else{
