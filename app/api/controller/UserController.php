@@ -14,8 +14,8 @@ class UserController
      */
     public function login()
     {
-        halt(request());
-//       echo file_put_contents("./test.txt",$_GET);
+//        file_put_contents ( './test.txt' ,request());
+        halt($_POST);
         $type =isset($_POST['type']) ? $_POST['type'] : '';
         $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
 
