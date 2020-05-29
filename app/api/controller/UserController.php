@@ -7,16 +7,15 @@ use think\Db;
 
 class UserController
 {
-
     /**
      * 用户接口
 	 * type 登录类型
-     * openid
+     * sign 微信、qq、手机号标识
      */
     public function login()
     {
-        $type = 'weixin';//isset($_POST['type']) ? $_POST['type'] : '';
-        $sign = 124;//isset($_POST['sign']) ? $_POST['sign'] : '';
+        $type =isset($_POST['type']) ? $_POST['type'] : '';
+        $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
         if (empty($type || $sign)) {
             echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
             die();
