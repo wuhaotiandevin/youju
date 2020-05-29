@@ -13,7 +13,7 @@ class UserController
 	 * type 登录类型
      * openid
      */
-    public function index()
+    public function login()
     {
         $type = isset($_POST['type']) ? $_POST['type'] : '';
         $openid = isset($_POST['openid']) ? $_POST['openid'] : '';
