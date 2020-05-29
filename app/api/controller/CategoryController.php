@@ -89,5 +89,44 @@ class CategoryController
 			die();
 		}
     }
+	/**
+     * 用户品类添加接口
+     */
+	public function mycats()
+	{
+			$uid=isset($_POST['uid'])?$_POST['uid']:'';
+			$mycats=isset($_POST['mycats'])?$_POST['mycats']:'';
+			if(empty($uid)){
+				echo json_encode( array('error' => 1,  'errorMsg' => '请求失败'));
+				die();
+			}
+			$where['uid'] = $uid;
+			$user = Db::name('user')
+                  ->where($where)
+                  ->field('id')
+                  ->find();
+			if($user){
+				//1.先清空用户拥有的品类
+				Db::name('user_category')
+                  ->where($where)
+                  ->delete();
+				//2.在添加用户品类
+				if($mycats){
+					foreach($mycats as $k=>$v){
+						$data[]=array(
+							'uid'			=>	$uid,
+							'category_id'	=>	$v,
+							'create_time'	=>	time()
+						);
+					}
+					Db::name('user_category')->insertAll($data);
+				}
+				echo json_encode( array('error' => 0,  'errorMsg' => '保存成功'));
+				die();
+			}else{
+				echo json_encode( array('error' => 1,  'errorMsg' => '请求失败'));
+				die();
+			}
+	}
    
 }
