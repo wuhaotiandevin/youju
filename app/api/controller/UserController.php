@@ -44,7 +44,7 @@ class UserController
             echo json_encode( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
             die();
         }else{
-            echo json_encode( array('error' => 0, 'errorMsg' => '绑定手机号', 'type' => '0', 'typeMsg'=>'绑定手机号'));
+            echo json_encode( array('error' => 0, 'errorMsg' => '绑定手机号', 'type' => 0, 'typeMsg'=>'绑定手机号'));
             die();
         }
     }
