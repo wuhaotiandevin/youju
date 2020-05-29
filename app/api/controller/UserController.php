@@ -15,9 +15,9 @@ class UserController
      */
     public function index()
     {
-        $type = isset($_GET['type']) ? $_GET['type'] : '';
-        $openid = isset($_GET['openid']) ? $_GET['openid'] : '';
-        $qqid = isset($_GET['qqid']) ? $_GET['qqid'] : '';
+        $type = isset($_POST['type']) ? $_POST['type'] : '';
+        $openid = isset($_POST['openid']) ? $_POST['openid'] : '';
+        $qqid = isset($_POST['qqid']) ? $_POST['qqid'] : '';
         if (empty($type)) {
             echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
             die();
@@ -38,7 +38,7 @@ class UserController
                 $where['qqid']=$qqid;
                 break;
             case 'mobile':
-                $mobile = isset($_GET['mobile']) ? $_GET['mobile'] : '';
+                $mobile = isset($_POST['mobile']) ? $_POST['mobile'] : '';
                 if (empty($mobile)) {
                     echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
                     die();
