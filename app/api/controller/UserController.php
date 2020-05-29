@@ -14,10 +14,11 @@ class UserController
      */
     public function login()
     {
+        halt(request());
 //       echo file_put_contents("./test.txt",$_GET);
         $type =isset($_POST['type']) ? $_POST['type'] : '';
         $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
-        halt($_POST);
+
         if (empty($type || $sign)) {
             echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
             die();
