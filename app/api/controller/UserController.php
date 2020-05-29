@@ -14,8 +14,10 @@ class UserController
      */
     public function login()
     {
+//       echo file_put_contents("./test.txt",$_GET);
         $type =isset($_POST['type']) ? $_POST['type'] : '';
         $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
+        halt($_POST);
         if (empty($type || $sign)) {
             echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
             die();
@@ -49,11 +51,11 @@ class UserController
         }
     }
     /**
-     * 绑定手机号接口
+     * 存入数据库接口
      * type 登录类型
      * sign 微信、qq、手机号标识
      */
-    public function bindmobile()
+    public function insert()
     {
         $type =isset($_POST['type']) ? $_POST['type'] : '';
         $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
@@ -61,15 +63,18 @@ class UserController
             echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
             die();
         }
+        $data['user_type'] = 2;//用户类型
         switch ($type) {
             case 'weixin':
-                $where['openid']=$sign;
+                $data['openid']=$sign;
+                $data['sex']=$sign;
+                $data['create_time']=sto;
                 break;
             case 'qq':
-                $where['qqid']=$sign;
+                $data['qqid']=$sign;
                 break;
             case 'mobile':
-                $where['mobile']=$sign;
+                $data['mobile']=$sign;
                 break;
         }
         $user = Db::name('user')
