@@ -27,7 +27,7 @@ class CategoryController
 		$my =array();
 		if($cats){
 			foreach($cats as $k=>$v){
-				$mycats[$k]['id']    = $v['id'];
+				$mycats[$k]['cid']    = $v['id'];
 				$mycats[$k]['title'] = $v['cat_name'];
 				$mycats[$k]['img']   = cmf_get_image_preview_url($v['img_z']);
                 $mycats[$k]['width'] = $v['width'];
@@ -49,7 +49,7 @@ class CategoryController
 					foreach($cats as $k=>$v){
 						if($v['parent_id']){
 							$data=array();
-							$data['id']=$v['id'];
+							$data['cid']=$v['id'];
 							$data['title']=$v['cat_name'];
 							$data['url']=cmf_get_image_preview_url($v['img_z']);
 							$data['width']=$v['width'];
@@ -57,11 +57,11 @@ class CategoryController
 							$data['my_cat']= (in_array($v['id'],$my)) ? 1 : 0; 
 							$parentData[$v['parent_id']]['children'][]=$data;
 						}else{
-							$parentData[$v['id']]['id']	=	$v['id'];
+							$parentData[$v['id']]['cid']	=	$v['id'];
 							$parentData[$v['id']]['title']	=	$v['cat_name'];
 						}
 						if($v['is_hot']){
-							$hot[$j]['id']=$v['id'];
+							$hot[$j]['cid']=$v['id'];
 							$hot[$j]['title']=$v['cat_name'];
 							$hot[$j]['url']=cmf_get_image_preview_url($v['img_z']);
 							$hot[$j]['width']=$v['width'];

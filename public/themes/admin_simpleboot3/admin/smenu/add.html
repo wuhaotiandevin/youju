@@ -1,0 +1,61 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('smenu/index')}">首页菜单页面列表</a></li>
+        <li class="active"><a href="{:url('smenu/add')}">添加首页菜单页面</a></li>
+    </ul>
+    <form action="{:url('smenu/addPost')}" method="post" class="form-horizontal js-ajax-form margin-top-20">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>标题<span class="form-required">*</span></th>
+                        <td>
+                            <input class="form-control" type="text" style="width:400px;" name="post[title]" id="title"
+                                   required value="" placeholder="请输入标题"/>
+                        </td>
+                    </tr>
+					 <tr>
+                        <th>跳转链接</th>
+                        <td>
+                            <input class="form-control" type="text" name="post[href]" id="keywords" value=""
+                                   style="width: 400px" placeholder="请输入跳转链接">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-bordered">
+                    <tr>
+                        <th><b>缩略图</b></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="text-align: center;">
+                                <input type="hidden" name="post[image]" id="thumb" value="">
+                                <a href="javascript:uploadOneImage('图片上传','#thumb');">
+                                    <img src="__TMPL__/public/assets/images/default-thumbnail.png" id="thumb-preview"
+                                         width="135" style="cursor: hand"/>
+                                </a>
+                                <input type="button" class="btn btn-sm"
+                                       onclick="$('#thumb-preview').attr('src','__TMPL__/public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;"
+                                       value="取消图片">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                <a class="btn btn-default" href="{:url('smenu/index')}">{:lang('BACK')}</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
