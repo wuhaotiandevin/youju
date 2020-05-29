@@ -18,8 +18,7 @@
             <thead>
             <tr>
                 <th>UID</th>
-                <th>靓号</th>
-                <th>{:lang('USERNAME')}</th>
+                <th>昵称</th>
                 <th>{:lang('AVATAR')}</th>
                 <th>QQ</th>
                 <th>手机</th>
@@ -33,9 +32,8 @@
             <tbody>
             <foreach name="list" item="vo">
                 <tr>
-                    <td>{$vo.id}</td>
-                    <td>{$vo.uid|default="无"}</td>
-                    <td>{$vo['user_login']?$vo['user_login']:($vo['mobile']?$vo['mobile']:lang('THIRD_PARTY_USER'))}
+                    <td>{$vo.uid}</td>
+                    <td>{$vo['nickname']}
                     </td>
                     <td><img width="25" height="25" src="{:cmf_get_image_url($vo.avatar)}"/></td>
                     <td>{$vo.qq}</td>

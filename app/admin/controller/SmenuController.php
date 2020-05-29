@@ -1,7 +1,7 @@
 <?php
 
 namespace app\admin\controller;
-
+use app\admin\model\SmenuModel;
 use think\Db;
 use cmf\controller\AdminBaseController;
 
