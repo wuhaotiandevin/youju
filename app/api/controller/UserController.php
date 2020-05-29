@@ -16,41 +16,27 @@ class UserController
     public function login()
     {
         $type = isset($_POST['type']) ? $_POST['type'] : '';
-        $openid = isset($_POST['openid']) ? $_POST['openid'] : '';
-        $qqid = isset($_POST['qqid']) ? $_POST['qqid'] : '';
-        if (empty($type)) {
+        $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
+        if (empty($type || $sign)) {
             echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
             die();
         }
         switch ($type) {
             case 'weixin':
-                if (empty($openid)) {
-                    echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
-                    die();
-                }
-                $where['openid']=$openid;
+                $where['openid']=$sign;
                 break;
             case 'qq':
-                if (empty($qqid)) {
-                    echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
-                    die();
-                }
-                $where['qqid']=$qqid;
+                $where['qqid']=$sign;
                 break;
             case 'mobile':
-                $mobile = isset($_POST['mobile']) ? $_POST['mobile'] : '';
-                if (empty($mobile)) {
-                    echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
-                    die();
-                }
-                $where['mobile']=$mobile;
+                $where['mobile']=$sign;
                 break;
         }
         $user = Db::name('user')
             ->where($where)
             ->field('id,nickname,mobile,avatar')
             ->find();
-
+        $user['avatar'] = cmf_get_image_preview_url($user['avatar']);
         if($user){
             echo json_encode( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $user));
             die();
