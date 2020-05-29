@@ -15,8 +15,8 @@ class UserController
      */
     public function login()
     {
-        $type = isset($_POST['type']) ? $_POST['type'] : '';
-        $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
+        $type = 'weixin';//isset($_POST['type']) ? $_POST['type'] : '';
+        $sign = 124;//isset($_POST['sign']) ? $_POST['sign'] : '';
         if (empty($type || $sign)) {
             echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
             die();
@@ -36,8 +36,8 @@ class UserController
             ->where($where)
             ->field('id,nickname,mobile,avatar')
             ->find();
-        $user['avatar'] = cmf_get_image_preview_url($user['avatar']);
         if($user){
+            $user['avatar'] = cmf_get_image_preview_url($user['avatar']);
             echo json_encode( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $user));
             die();
         }else{
