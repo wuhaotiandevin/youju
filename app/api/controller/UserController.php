@@ -15,9 +15,11 @@ class UserController
     public function login()
     {
 //        file_put_contents ( './test.txt' ,request());
-        halt(request()->post('type'));
-        $type =isset(request()->post('type')) ? request()->post('type') : '';
-        $sign = isset(request()->post('sign')) ? request()->post('sign') : '';
+//        halt(request()->post('type'));
+        $type = request()->post('type');
+        $sign = request()->post('sign');
+        $type =isset($type) ? $type : '';
+        $sign = isset($sign) ? $sign : '';
 
         if (empty($type || $sign)) {
             echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
