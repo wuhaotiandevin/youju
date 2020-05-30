@@ -1901,3 +1901,20 @@ function cmf_send_message($user_id,$title,$content)
    $send['add_time'] = time();
    Db('message')->insert($send);
 }
+//随机生成8位数字
+function nonceStr() {
+    static $seed = array(0,1,2,3,4,5,6,7,8,9);
+    $str = '';
+    for($i=0;$i<8;$i++) {
+        $rand = rand(0,count($seed)-1);
+        $temp = $seed[$rand];
+        $str .= $temp;
+        unset($seed[$rand]);
+        $seed = array_values($seed);
+    }
+    return $str;
+}
+//token
+function create_token($id,$out_time){
+    return substr(md5($id.$out_time),5,26);
+}

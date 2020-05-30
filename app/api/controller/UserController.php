@@ -60,18 +60,34 @@ class UserController
      */
     public function insert()
     {
-        $type =isset($_POST['type']) ? $_POST['type'] : '';
-        $sign = isset($_POST['sign']) ? $_POST['sign'] : '';
+        $request = request();
+        $type = $request->post('type');
+        $sign = $request->post('sign');
+        $ip = $request->post('ip');
+        $sex = $request->post('sex');
+        $avatar = $request->post('avatar');
+        $weixin = $request->post('avatar');
+
+        $type =isset($type) ? $type : '';
+        $sign = isset($sign) ? $sign : '';
+        $ip = isset($ip) ? $ip : '';
+        $sex = isset($sex) ? $sex : '';
+        $avatar = isset($avatar) ? $avatar : '';
+
         if (empty($type || $sign)) {
-            echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
-            die();
+            return json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
         }
         $data['user_type'] = 2;//用户类型
+        $data['create_time']=time();
+        $data['last_login_time']=time();
+        $data['uid'] = nonceStr();
+        $data['token'] = create_token($data['uid'],strtotime('+ 5 days'));
+        $data['last_login_ip']=$ip;
+        $data['avatar']=$avatar;
+        $data['sex'] = $sex;
         switch ($type) {
             case 'weixin':
                 $data['openid']=$sign;
-                $data['sex']=$sign;
-                $data['create_time']=sto;
                 break;
             case 'qq':
                 $data['qqid']=$sign;
@@ -80,17 +96,11 @@ class UserController
                 $data['mobile']=$sign;
                 break;
         }
-        $user = Db::name('user')
-            ->where($where)
-            ->field('id,nickname,mobile,avatar')
-            ->find();
+        $user = Db::name('user')->insert($data);
         if($user){
-            $user['avatar'] = cmf_get_image_preview_url($user['avatar']);
-            echo json_encode( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $user));
-            die();
+            return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
         }else{
-            echo json_encode( array('error' => 1,  'errorMsg' => '绑定手机号'));
-            die();
+            return json_encode( array('error' => 0,  'errorMsg' => '请求失败'));
         }
     }
 }
