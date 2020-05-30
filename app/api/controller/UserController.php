@@ -129,4 +129,66 @@ class UserController
             return json( array('error' => 1,  'errorMsg' => '请求失败'));
         }
     }
+    /**
+     * 绑定用户接口
+     * mobile 手机号
+     */
+    public function bindmobile()
+    {
+        $request = request();
+        $mobile = $request->post('mobile');
+        if (empty($mobile) || !isMobile($mobile)) {
+            return json(array('error' => 1, 'errorMsg' => '请求失败'));
+        }
+        $code =getRandNumber(0, 9, 4);
+        $data['mobile'] = $mobile;
+        $data['sendtime'] = time();
+        $data['code'] = $code;
+        $res = Db::name('login_code')->where('mobile',$mobile)->find();
+        if(!$res){
+            //调用短信接口发送短信并生成短信验证码
+//            sendMSG
+            $status = Db::name('login_code')->insert($data);
+            if($status){
+                return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
+            }else{
+                return json( array('error' => 1,  'errorMsg' => '请求失败'));
+            }
+        }
+        if($res && time() - $res['sendtime']>60){
+            //调用短信接口发送短信并生成短信验证码
+//            sendMSG
+            $data['id'] = $res['id'];
+            $status = Db::name('login_code')->update($data);
+            if($status){
+                return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
+            }else{
+                return json( array('error' => 1,  'errorMsg' => '请求失败'));
+            }
+        }else{
+            return json( array('error' => 1,  'errorMsg' => '请求失败'));
+        }
+    }
+    /**
+     * 检查短信验证码接口
+     * mobile 手机号
+     * code 验证码
+     */
+    public function cheke_login_code()
+    {
+        $request = request();
+        $mobile = $request->post('mobile');
+        $code = $request->post('code');
+        if (empty($mobile)) {
+            return json(array('error' => 1, 'errorMsg' => '请求失败'));
+        }
+        $data['mobile'] = $mobile;
+        $data['code'] = $code;
+        $res = Db::name('login_code')->where('mobile',$mobile)->find();
+        if(!empty($res) && $res['code'] == $code){
+            return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
+        }else{
+            return json( array('error' => 1,  'errorMsg' => '请求失败'));
+        }
+    }
 }
