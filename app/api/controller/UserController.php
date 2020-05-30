@@ -14,16 +14,13 @@ class UserController
      */
     public function login()
     {
-//        file_put_contents ( './test.txt' ,request());
-//        halt(request()->post('type'));
         $type = request()->post('type');
         $sign = request()->post('sign');
         $type =isset($type) ? $type : '';
         $sign = isset($sign) ? $sign : '';
 
         if (empty($type || $sign)) {
-            echo json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
-            die();
+            return json(array('error' => 1, 'errorMsg' => '请求失败'));
         }
         switch ($type) {
             case 'weixin':
@@ -46,11 +43,9 @@ class UserController
             $data['mobile'] = $user['mobile'];
             $data['avatar'] = cmf_get_image_preview_url($user['avatar']);
             $data['token'] = $user['token'];
-            echo json_encode( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
-            die();
+            return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
         }else{
-            echo json_encode( array('error' => 0, 'errorMsg' => '请求成功', 'type' => 0, 'typeMsg'=>'绑定手机号'));
-            die();
+            return json( array('error' => 0, 'errorMsg' => '请求成功', 'type' => 0, 'typeMsg'=>'绑定手机号'));
         }
     }
     /**
@@ -76,13 +71,13 @@ class UserController
         $number = isset($number) ? $number : ''; //qq weixin号
 
         if (empty($type || $sign)) {
-            return json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
+            return json(array('error' => 1, 'errorMsg' => '请求失败'));
         }
         $data['user_type'] = 2;//用户类型
         $data['create_time']=time();
         $data['last_login_time']=time();
-        $data['uid'] = nonceStr();
-        $data['token'] = create_token($data['uid'],strtotime('+ 5 days'));
+        $data['uid'] = getRandNumber(0, 9, 8);
+        $data['token'] = settoken();
         $data['last_login_ip']=$ip;
         $data['avatar']=$avatar;
         $data['sex'] = $sex;
@@ -103,7 +98,7 @@ class UserController
         if($user){
             return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
         }else{
-            return json_encode( array('error' => 1,  'errorMsg' => '请求失败'));
+            return json( array('error' => 1,  'errorMsg' => '请求失败'));
         }
     }
     /**
@@ -118,18 +113,20 @@ class UserController
         $nickname = $request->post('nickname');
         $user_id = $request->post('user_id');
         $sex = $request->post('sex');
+        $avatar = $request->post('avatar');
 
         $user_id =isset($user_id) ? $user_id : '';
         if (empty($user_id)) {
-            return json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
+            return json(array('error' => 1, 'errorMsg' => '请求失败'));
         }
         $data['nickname']=$nickname;
         $data['sex']=$sex;
+        $data['avatar']=isset($avatar) ? $avatar: '';
         $user = Db::name('user')->where('uid',$user_id)->update($data);
         if($user){
             return json( array('error' => 0,  'errorMsg' => '请求成功'));
         }else{
-            return json_encode( array('error' => 1,  'errorMsg' => '请求失败'));
+            return json( array('error' => 1,  'errorMsg' => '请求失败'));
         }
     }
 }

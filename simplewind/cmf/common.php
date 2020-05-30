@@ -1901,20 +1901,40 @@ function cmf_send_message($user_id,$title,$content)
    $send['add_time'] = time();
    Db('message')->insert($send);
 }
-//随机生成8位数字
-function nonceStr() {
-    static $seed = array(0,1,2,3,4,5,6,7,8,9);
-    $str = '';
-    for($i=0;$i<8;$i++) {
-        $rand = rand(0,count($seed)-1);
-        $temp = $seed[$rand];
-        $str .= $temp;
-        unset($seed[$rand]);
-        $seed = array_values($seed);
+/**
+ * 生成不重复的随机数字(不能超过10位数，否则while循环陷入死循环)
+ * @param  int $start 需要生成的数字开始范围
+ * @param  int $end 结束范围
+ * @param  int $length 需要生成的随机数个数
+ * @return number      生成的随机数
+ */
+function getRandNumber($start = 0, $end = 9, $length = 8)
+{
+    //初始化变量为0
+    $count = 0;
+    //建一个新数组
+    $temp = array();
+    while ($count < $length) {
+        //在一定范围内随机生成一个数放入数组中
+        $temp[] = mt_rand($start, $end);
+        //$data = array_unique($temp);
+        //去除数组中的重复值用了“翻翻法”，就是用array_flip()把数组的key和value交换两次。这种做法比用 array_unique() 快得多。
+        $data = array_flip(array_flip($temp));
+        //将数组的数量存入变量count中
+        $count = count($data);
     }
-    return $str;
+    //为数组赋予新的键名
+    shuffle($data);
+    //数组转字符串
+    $str = implode(",", $data);
+    //替换掉逗号
+    $number = str_replace(',', '', $str);
+    return $number;
 }
-//token
-function create_token($id,$out_time){
-    return substr(md5($id.$out_time),5,26);
+
+function settoken()   //设置token值的方法
+{
+    $str = md5(uniqid(md5(microtime(true)),true));
+    $str = sha1($str);
+    return $str;
 }
