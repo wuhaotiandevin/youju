@@ -103,7 +103,33 @@ class UserController
         if($user){
             return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
         }else{
-            return json_encode( array('error' => 0,  'errorMsg' => '请求失败'));
+            return json_encode( array('error' => 1,  'errorMsg' => '请求失败'));
+        }
+    }
+    /**
+     * 修改昵称、性别接口
+     * type 登录类型
+     * nickname 昵称
+     * sex 性别
+     */
+    public function nickname()
+    {
+        $request = request();
+        $nickname = $request->post('nickname');
+        $user_id = $request->post('user_id');
+        $sex = $request->post('sex');
+
+        $user_id =isset($user_id) ? $user_id : '';
+        if (empty($user_id)) {
+            return json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
+        }
+        $data['nickname']=$nickname;
+        $data['sex']=$sex;
+        $user = Db::name('user')->where('uid',$user_id)->update($data);
+        if($user){
+            return json( array('error' => 0,  'errorMsg' => '请求成功'));
+        }else{
+            return json_encode( array('error' => 1,  'errorMsg' => '请求失败'));
         }
     }
 }
