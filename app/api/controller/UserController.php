@@ -62,6 +62,7 @@ class UserController
         $sex = $request->post('sex');
         $avatar = $request->post('avatar');
         $number = $request->post('number');
+        $mobile = $request->post('mobile');
 
         $type =isset($type) ? $type : '';
         $sign = isset($sign) ? $sign : '';//qq weixin mobile唯一标识
@@ -69,10 +70,8 @@ class UserController
         $sex = isset($sex) ? $sex : '';
         $avatar = isset($avatar) ? $avatar : '';
         $number = isset($number) ? $number : ''; //qq weixin号
+        $mobile = isset($mobile) ? $mobile : '';
 
-        if (empty($type || $sign)) {
-            return json(array('error' => 1, 'errorMsg' => '请求失败'));
-        }
         $data['user_type'] = 2;//用户类型
         $data['create_time']=time();
         $data['last_login_time']=time();
@@ -94,11 +93,28 @@ class UserController
                 $data['mobile']=$sign;
                 break;
         }
-        $user = Db::name('user')->insert($data);
-        if($user){
-            return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
+        if (empty($type || $sign)) {
+            return json(array('error' => 1, 'errorMsg' => '请求失败'));
+        }
+
+        $res = Db::name('user')->where('mobile',$mobile)->find();
+        if(empty($res)){
+            $user = Db::name('user')->insert($data);
+            if($user){
+                return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
+            }else{
+                return json( array('error' => 1,  'errorMsg' => '请求失败'));
+            }
         }else{
-            return json( array('error' => 1,  'errorMsg' => '请求失败'));
+
+            $data['id'] = $res['id'];
+            $user = Db::name('user')->update($data);
+
+            if($user){
+                return json( array('error' => 0,  'errorMsg' => '请求成功', 'data' => $data));
+            }else{
+                return json( array('error' => 1,  'errorMsg' => '请求失败'));
+            }
         }
     }
     /**
