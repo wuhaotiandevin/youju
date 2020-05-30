@@ -66,13 +66,14 @@ class UserController
         $ip = $request->post('ip');
         $sex = $request->post('sex');
         $avatar = $request->post('avatar');
-        $weixin = $request->post('avatar');
+        $number = $request->post('number');
 
         $type =isset($type) ? $type : '';
-        $sign = isset($sign) ? $sign : '';
+        $sign = isset($sign) ? $sign : '';//qq weixin mobile唯一标识
         $ip = isset($ip) ? $ip : '';
         $sex = isset($sex) ? $sex : '';
         $avatar = isset($avatar) ? $avatar : '';
+        $number = isset($number) ? $number : ''; //qq weixin号
 
         if (empty($type || $sign)) {
             return json_encode(array('error' => 1, 'errorMsg' => '请求失败'));
@@ -88,9 +89,11 @@ class UserController
         switch ($type) {
             case 'weixin':
                 $data['openid']=$sign;
+                $data['weixin']=$number;
                 break;
             case 'qq':
                 $data['qqid']=$sign;
+                $data['qq']=$number;
                 break;
             case 'mobile':
                 $data['mobile']=$sign;
