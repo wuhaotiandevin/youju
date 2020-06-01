@@ -1972,13 +1972,34 @@ function get_time($targetTime)
         $result = '今天 ' . date('H:i', $targetTime);
     } elseif ($agoDay == 1) {
         $result = '昨天 ' . date('H:i', $targetTime);
-    } elseif ($agoDay == 2) {
-        $result = '前天 ' . date('H:i', $targetTime);
-    } elseif ($agoDay > 2 && $agoDay < 16) {
+    }
+//    elseif ($agoDay == 2) {
+//        $result = '1天前 ' . date('H:i', $targetTime);
+//    }
+    elseif ($agoDay > 1 && $agoDay < 16) {
         $result = $agoDay . '天前 ' . date('H:i', $targetTime);
     } else {
-        $format = date('Y') != date('Y', $targetTime) ? "Y-m-d H:i" : "m-d H:i";
+        $format = date('Y') != date('Y', $targetTime) ? "Y-m-d" : "m-d";
         $result = date($format, $targetTime);
     }
     return $result;
+}
+/**
+ * 获取最近来访中的页面名称
+ *
+ * @param [id] 页面id
+ * @return void
+ */
+function get_look_page($id){
+    switch ($id) {
+        case 1:
+            $page_name = '访问了我的主页';
+            break;
+        case 2:
+            $page_name = '访问了我的朋友圈';
+            break;
+        default:
+            $page_name = '访问了我的主页';
+    }
+    return $page_name;
 }

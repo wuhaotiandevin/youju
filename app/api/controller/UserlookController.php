@@ -16,13 +16,16 @@ class UserlookController
     {
         $user_id = request()->post('user_id');
         $user_id_look = request()->post('user_id_look');
+        $look_page = request()->post('look_page');
         $user_id = isset($user_id) ? $user_id : '';
         $user_id_look = isset($user_id_look) ? $user_id_look : '';
-        if (empty($user_id || $user_id_look) || $user_id==0 || $user_id_look==0 ) {
+        $look_page = isset($look_page) ? $look_page : 1;
+        if (empty($user_id || $user_id_look) || $user_id==0 || $user_id_look==0) {
             return json(array('error' => 1, 'errorMsg' => '请求失败'));
         }
         $data['user_id'] = $user_id;
         $data['user_id_look'] = $user_id_look;
+        $data['look_page'] = $look_page;
         $data['look_time'] = time();
 
         $res = Db::name('user_look')->where('user_id',$user_id)->where('user_id_look',$user_id_look)->find();
@@ -64,13 +67,15 @@ class UserlookController
             ->join('user b','a.user_id_look=b.id','LEFT')
             ->where('a.user_id', $user_id)
             ->where('a.look_time','>',$time)
-            ->field('a.look_time,b.id,b.nickname,b.avatar,b.sex')
+            ->field('a.look_time,a.look_page,b.id,b.nickname,b.avatar,b.sex')
+            ->order('a.look_time desc')
             ->page($page,$page_num)
             ->select();
         $data = [];
         foreach($look_users as $k=>$v){
             $data[$k]['avatar'] = cmf_get_image_preview_url($v['avatar']);
             $data[$k]['user_id'] = $v['id'];
+            $data[$k]['look_page'] = get_look_page($v['look_page']);
             $data[$k]['nickname'] = $v['nickname'];
             $data[$k]['sex'] = $v['sex'];
             $data[$k]['look_time'] = get_time($v['look_time']);
