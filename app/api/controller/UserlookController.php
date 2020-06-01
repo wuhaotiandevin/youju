@@ -28,7 +28,11 @@ class UserlookController
         $data['look_page'] = $look_page;
         $data['look_time'] = time();
 
-        $res = Db::name('user_look')->where('user_id',$user_id)->where('user_id_look',$user_id_look)->find();
+        $res = Db::name('user_look')
+            ->where('user_id',$user_id)
+            ->where('user_id_look',$user_id_look)
+            ->where('look_page',$look_page)
+            ->find();
         if($res){
             $data['id'] = $res['id'];
             $up_res = Db::name('user_look')->update($data);
