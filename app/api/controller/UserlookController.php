@@ -18,17 +18,29 @@ class UserlookController
         $user_id_look = request()->post('user_id_look');
         $user_id = isset($user_id) ? $user_id : '';
         $user_id_look = isset($user_id_look) ? $user_id_look : '';
-        if (empty($user_id || $user_id_look)) {
+        if (empty($user_id || $user_id_look) || $user_id==0 || $user_id_look==0 ) {
             return json(array('error' => 1, 'errorMsg' => '请求失败'));
         }
         $data['user_id'] = $user_id;
         $data['user_id_look'] = $user_id_look;
         $data['look_time'] = time();
-        $user = Db::name('user_look')->insert($data);
-        if ($user) {
-            return json(array('error' => 0, 'errorMsg' => '请求成功', 'data' => $data));
-        } else {
-            return json(array('error' => 1, 'errorMsg' => '请求失败'));
+
+        $res = Db::name('user_look')->where('user_id',$user_id)->where('user_id_look',$user_id_look)->find();
+        if($res){
+            $data['id'] = $res['id'];
+            $up_res = Db::name('user_look')->update($data);
+            if ($up_res) {
+                return json(array('error' => 0, 'errorMsg' => '请求成功', 'data' => $data));
+            } else {
+                return json(array('error' => 1, 'errorMsg' => '请求失败'));
+            }
+        }else{
+            $in_res = Db::name('user_look')->insert($data);
+            if ($in_res) {
+                return json(array('error' => 0, 'errorMsg' => '请求成功', 'data' => $data));
+            } else {
+                return json(array('error' => 1, 'errorMsg' => '请求失败'));
+            }
         }
     }
 
@@ -43,7 +55,7 @@ class UserlookController
         $page_num = 10;
         $user_id = $request->post('user_id');
         $user_id = isset($user_id) ? $user_id : '';
-        if (empty($user_id)) {
+        if (empty($user_id) || $user_id==0) {
             return json(array('error' => 1, 'errorMsg' => '请求失败'));
         }
         $time = strtotime("-30 day");

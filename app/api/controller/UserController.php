@@ -135,10 +135,11 @@ class UserController
         if (empty($user_id)) {
             return json(array('error' => 1, 'errorMsg' => '请求失败'));
         }
+        $data['id']=$user_id;
         $data['nickname']=$nickname;
         $data['sex']=$sex;
         $data['avatar']=isset($avatar) ? $avatar: '';
-        $user = Db::name('user')->where('uid',$user_id)->update($data);
+        $user = Db::name('user')->update($data);
         if($user){
             return json( array('error' => 0,  'errorMsg' => '请求成功'));
         }else{
