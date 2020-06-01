@@ -76,7 +76,7 @@ class UserlookController
             $data[$k]['look_time'] = get_time($v['look_time']);
         }
         if ($data) {
-            return json(array('error' => 0, 'errorMsg' => '请求成功', 'data' => $look_users));
+            return json(array('error' => 0, 'errorMsg' => '请求成功', 'data' => $data));
         } else {
             return json(array('error' => 1, 'errorMsg' => '请求失败'));
         }
