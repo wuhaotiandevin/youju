@@ -2,8 +2,12 @@
 
 namespace app\api\controller;
 
-use app\admin\model\UserModel;
+use plugins\mobile_code_demo\MobileCodeDemoPlugin;
+//use Token;
+use think\Cache;
+
 use think\Db;
+use think\Request;
 
 class UserController
 {
@@ -12,8 +16,62 @@ class UserController
 	 * type 登录类型
      * sign 微信、qq、手机号标识
      */
-    public function login()
+    public function login(Request $request)
     {
+        $redis = new \Redis();
+        $redis->connect('127.0.0.1', 6379);
+//        $redis->flushAll();
+        $user = Db::table('cmf_user')->find(58);
+
+        foreach ($user as $k=>$v){
+
+            $redis->hSet($user['id'],$k,$v);
+        }
+//        halt($user);
+//        halt($user);
+//        $redis->hSet('h','k1','v1');
+////        $redis->hSet('h','k2','v2');
+////        $redis->hSet('h','k3','v3');
+/// 'create_time','user_status'
+        $field=array('guanzhu','user_status');
+        $res = $redis->rPush($user['id'],);
+
+        halt($res);
+        $param = $request->param();
+        if(!Cache::get('username')){
+            Cache::set('username',$param['username']);
+        }
+
+        halt(Cache::get('username'));
+//        $jwtToken = new \token\Token();
+//        $tokenData = array(
+//        'openid' => 11,
+////        'uniacid' => $_W['uniacid'],
+//    );
+//        $token = $jwtToken->createToken($tokenData);
+//halt($token);
+        $_SERVER['HTTP_AUTHORIZATION'] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1OTExOTczNzAsIm5iZiI6MTU5MTE5NzM3MCwiZXhwIjoxNTkxMjA0NTcwLCJkYXRhIjp7Im9wZW5pZCI6MTF9fQ.GluT5N38A-6O9DBzAP9ulbEaQjQgzYFUTf2CS9aBRbo";
+        if (empty($_SERVER['HTTP_AUTHORIZATION']))
+        {
+            $res['status']="201";
+            $res['msg']="no token";
+            $res['data']="";//返回的数据
+//            sendResponse($res,401,'Unauthorized');
+        }
+        $token = $_SERVER['HTTP_AUTHORIZATION'];
+        $jwtToken = new \token\Token();
+        $checkToken = $jwtToken->checkToken($token);
+       $checkToken['data']['iat'] = date('Y-m-d,H:i:s',$checkToken['data']['iat']);
+       $checkToken['data']['nbf'] = date('Y-m-d,H:i:s',$checkToken['data']['nbf']);
+        $checkToken['data']['exp'] = date('Y-m-d,H:i:s',$checkToken['data']['exp']);
+
+        halt($checkToken);
+        $data = $checkToken['data']['data'];
+
+
+        halt($data);
+
+
         $type = request()->post('type');
         $sign = request()->post('sign');
         $type =isset($type) ? $type : '';
@@ -152,17 +210,21 @@ class UserController
      */
     public function bindmobile()
     {
+
         $request = request();
         $mobile = $request->post('mobile');
-        if (empty($mobile) || !isMobile($mobile)) {
-            return json(array('error' => 1, 'errorMsg' => '请求失败'));
-        }
+//        if (empty($mobile) || !isMobile($mobile)) {
+//            return json(array('error' => 1, 'errorMsg' => '请求失败'));
+//        }
         $code =getRandNumber(0, 9, 4);
-        $data['mobile'] = $mobile;
-        $data['sendtime'] = time();
+        $data['mobile'] = 18700909632;//$mobile;
+//        $data['sendtime'] = time();
         $data['code'] = $code;
+        $MobileCodeDemoPlugin = new MobileCodeDemoPlugin;
+        $MobileCodeDemoPlugin->sendMobileVerificationCode($data);
         $res = Db::name('login_code')->where('mobile',$mobile)->find();
         if(!$res){
+
             //调用短信接口发送短信并生成短信验证码
 //            sendMSG
             $status = Db::name('login_code')->insert($data);

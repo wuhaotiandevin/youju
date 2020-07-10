@@ -111,6 +111,7 @@ class SlideController extends AdminBaseController
     public function editPost()
     {
         $data           = $this->request->param();
+        halt($data);exit;
         $slidePostModel = new SlideModel();
         $result         = $slidePostModel->validate(true)->save($data, ['id' => $data['id']]);
         if ($result === false) {

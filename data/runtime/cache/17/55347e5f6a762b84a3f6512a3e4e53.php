@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+a:7:{s:20:"portal/Article/index";a:3:{i:0;a:1:{s:4:"vars";a:1:{s:3:"cid";s:1:"1";}}i:1;a:1:{s:4:"vars";a:1:{s:3:"cid";s:1:"2";}}i:2;a:1:{s:4:"vars";a:1:{s:3:"cid";s:1:"3";}}}s:19:"portal/search/index";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:19:"portal/detail/index";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:22:"portal/guestbook/index";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:17:"portal/List/index";a:3:{i:0;a:1:{s:4:"vars";a:1:{s:2:"id";s:1:"1";}}i:1;a:1:{s:4:"vars";a:1:{s:2:"id";s:1:"2";}}i:2;a:1:{s:4:"vars";a:1:{s:2:"id";s:1:"3";}}}s:17:"portal/Page/index";a:1:{i:0;a:1:{s:4:"vars";a:1:{s:2:"id";s:1:"9";}}}s:20:"portal/search/index8";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}}
